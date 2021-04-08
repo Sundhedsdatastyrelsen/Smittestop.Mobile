@@ -57,7 +57,6 @@ Feedback and contribution are always welcome. For more information about how to 
 <a href=" https://apps.apple.com/dk/app/smitte-stop/id1516581736?l=da"><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/apple-app-store-badge-en.png" width="180" height="60" alt="Download on the App Store"></a>
 
 
-## Licence
-Copyright (c) 2020 Agency for Digitisation (Denmark), 2021 Danish Agency For Digitisation (Denmark), 2021 Netcompany Group AS
+Copyright (c) 2021 Agency for Digitisation (Denmark), 2021 the Danish Health and Medicines Authority, 2021 Netcompany Group AS
 
 Smitte|stop is Open Source software released under the [MIT license](LICENSE)
