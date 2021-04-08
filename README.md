@@ -60,4 +60,4 @@ Feedback and contribution are always welcome. For more information about how to 
 ## Licence
 Copyright (c) 2020 Agency for Digitisation (Denmark), 2021 Danish Agency For Digitisation (Denmark), 2021 Netcompany Group AS
 
-Smitte|stop is Open Source software released under the [MIT license](LICENSE.md)
+Smitte|stop is Open Source software released under the [MIT license](LICENSE)
