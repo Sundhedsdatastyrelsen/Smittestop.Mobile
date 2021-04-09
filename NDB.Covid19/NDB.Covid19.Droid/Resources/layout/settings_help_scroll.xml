@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:showIn="@layout/settings_help"
+        android:paddingBottom="24dp">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settings_help_scroll_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:isScrollContainer="true"
+            android:orientation="vertical">
+        <TextView
+                android:id="@+id/settings_help_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:lineSpacingExtra="4sp"
+                android:textColorLink="@color/warningColor"
+                android:textAppearance="@style/settings_general"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+                android:id="@+id/settings_help_link"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:importantForAccessibility="yes"
+                android:textColor="@android:color/transparent"
+                android:textColorLink="@android:color/transparent"
+                android:accessibilityTraversalAfter="@+id/settings_help_text"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_help_text"
+                android:clickable="true"
+                android:autoLink="web"
+                android:focusable="true"/>
+        <ImageView
+                android:contentDescription="sundhed.dk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/sundhedlogo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/settings_help_text">
+        </ImageView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

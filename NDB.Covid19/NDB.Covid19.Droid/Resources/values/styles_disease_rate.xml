@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="DiseaseRateSubText" parent="PrimaryTextRegular">
+		<item name="android:textSize">12sp</item>
+		<item name="android:textColor">@color/primaryText</item>
+	</style>
+
+	<style name="DiseaseRateItemHeaderText" parent="PrimaryTextBold">
+		<item name="android:textSize">16sp</item>
+		<item name="android:textColor">@color/primaryText</item>
+	</style>
+
+	<style name="DiseaseRateItemNumber" parent="PrimaryTextRegular">
+		<item name="android:textSize">25sp</item>
+		<item name="android:textColor">@color/selectedDot</item>
+	</style>
+
+	<style name="DiseaseRateVaccinationLabel" parent="PrimaryTextRegular">
+		<item name="android:textSize">16sp</item>
+		<item name="android:textColor">@color/selectedDot</item>
+	</style>
+</resources>

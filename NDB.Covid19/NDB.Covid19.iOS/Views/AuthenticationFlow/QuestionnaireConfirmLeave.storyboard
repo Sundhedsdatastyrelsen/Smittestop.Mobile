@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="493">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Questionnaire Confirm Leave View Controller-->
+        <scene sceneID="492">
+            <objects>
+                <viewController storyboardIdentifier="QuestionnaireConfirmLeaveViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="493" customClass="QuestionnaireConfirmLeaveViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="494">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3372">
+                                <rect key="frame" x="279" y="55" width="25" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="9QL-rR-Ouk"/>
+                                    <constraint firstAttribute="height" constant="25" id="fmm-uu-kSN"/>
+                                </constraints>
+                                <state key="normal" image="CloseWhite"/>
+                                <connections>
+                                    <action selector="OnCloseButton_TouchUpInside:" destination="493" id="9194" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGD-Le-Cw4">
+                                <rect key="frame" x="0.0" y="102" width="320" height="466"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3C-7S-33K">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="183.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="eWS-y4-zve">
+                                                <rect key="frame" x="24" y="0.0" width="272" height="159.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question and Symptoms" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Tv-Lp-8Ci" customClass="SetttingsPageTitleLabel">
+                                                        <rect key="frame" x="0.0" y="0.0" width="272" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you have or have had symptooms" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ne0-aQ-9fU" customClass="SettingsPageContentLabel">
+                                                        <rect key="frame" x="0.0" y="44.5" width="272" height="41"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sbr-fo-GY1">
+                                                        <rect key="frame" x="0.0" y="109.5" width="272" height="50"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1x9-1Q-a0B" customClass="DefaultBorderButton">
+                                                                <rect key="frame" x="0.0" y="0.0" width="128" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="leh-ue-TMh"/>
+                                                                </constraints>
+                                                                <state key="normal" title="Cancel"/>
+                                                                <connections>
+                                                                    <action selector="OnCancelButton_TouchUpInside:" destination="493" id="7750" eventType="touchUpInside"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gGb-PR-xY8" customClass="DefaultBorderButton">
+                                                                <rect key="frame" x="144" y="0.0" width="128" height="50"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="50" id="2l2-Kq-Idw"/>
+                                                                </constraints>
+                                                                <inset key="contentEdgeInsets" minX="40" minY="0.0" maxX="40" maxY="0.0"/>
+                                                                <state key="normal" title="OK"/>
+                                                                <connections>
+                                                                    <action selector="OnOkButton_TouchUpInside:" destination="493" id="7751" eventType="touchUpInside"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="eWS-y4-zve" firstAttribute="leading" secondItem="T3C-7S-33K" secondAttribute="leading" constant="24" id="14s-W7-Hu2"/>
+                                            <constraint firstAttribute="trailing" secondItem="eWS-y4-zve" secondAttribute="trailing" constant="24" id="1H1-P5-FjQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="eWS-y4-zve" secondAttribute="bottom" constant="24" id="tew-z0-NuW"/>
+                                            <constraint firstItem="eWS-y4-zve" firstAttribute="top" secondItem="T3C-7S-33K" secondAttribute="top" id="vPH-FG-ADU"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="T3C-7S-33K" secondAttribute="trailing" id="9mL-9m-1lj"/>
+                                    <constraint firstItem="T3C-7S-33K" firstAttribute="top" secondItem="gGD-Le-Cw4" secondAttribute="top" id="JUz-ze-xtA"/>
+                                    <constraint firstAttribute="bottom" secondItem="T3C-7S-33K" secondAttribute="bottom" id="PYS-b8-yrV"/>
+                                    <constraint firstItem="T3C-7S-33K" firstAttribute="leading" secondItem="gGD-Le-Cw4" secondAttribute="leading" id="zRl-KM-v12"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HDG-7A-fsZ"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3372" firstAttribute="top" secondItem="HDG-7A-fsZ" secondAttribute="top" constant="35" id="9sk-Ng-mXk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3372" secondAttribute="trailing" id="HwG-R0-jna"/>
+                            <constraint firstItem="T3C-7S-33K" firstAttribute="width" secondItem="HDG-7A-fsZ" secondAttribute="width" id="Pzm-8O-mWs"/>
+                            <constraint firstItem="HDG-7A-fsZ" firstAttribute="trailing" secondItem="gGD-Le-Cw4" secondAttribute="trailing" id="RCh-xP-Gem"/>
+                            <constraint firstItem="gGD-Le-Cw4" firstAttribute="leading" secondItem="HDG-7A-fsZ" secondAttribute="leading" id="T59-kr-qhN"/>
+                            <constraint firstItem="gGD-Le-Cw4" firstAttribute="top" secondItem="3372" secondAttribute="bottom" constant="22" id="gW5-lb-8Vf"/>
+                            <constraint firstItem="HDG-7A-fsZ" firstAttribute="bottom" secondItem="gGD-Le-Cw4" secondAttribute="bottom" id="kC7-RB-JAa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="CloseButton" destination="3372" id="name-outlet-3372"/>
+                        <outlet property="OkButton" destination="gGb-PR-xY8" id="name-outlet-gGb-PR-xY8"/>
+                        <outlet property="Description" destination="ne0-aQ-9fU" id="name-outlet-ne0-aQ-9fU"/>
+                        <outlet property="Title" destination="3Tv-Lp-8Ci" id="name-outlet-3Tv-Lp-8Ci"/>
+                        <outlet property="CancelButton" destination="1x9-1Q-a0B" id="name-outlet-1x9-1Q-a0B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="495" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125" y="-173"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CloseWhite" width="19" height="18.5"/>
+    </resources>
+</document>

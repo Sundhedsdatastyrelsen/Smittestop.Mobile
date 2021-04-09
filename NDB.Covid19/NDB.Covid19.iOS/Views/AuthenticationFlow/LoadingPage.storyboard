@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="464">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Loading Page View Controller-->
+        <scene sceneID="463">
+            <objects>
+                <viewController storyboardIdentifier="LoadingPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="464" customClass="LoadingPageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="465">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hap-yS-SXs">
+                                <rect key="frame" x="24" y="414" width="366" height="78.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFe-0I-buo">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="nYh-dx-3Pb">
+                                        <rect key="frame" x="0.0" y="28.5" width="366" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="nYh-dx-3Pb" firstAttribute="top" secondItem="WFe-0I-buo" secondAttribute="bottom" constant="8" symbolic="YES" id="GKF-gj-wbQ"/>
+                                    <constraint firstItem="WFe-0I-buo" firstAttribute="leading" secondItem="hap-yS-SXs" secondAttribute="leading" id="Tf8-Q5-c2r"/>
+                                    <constraint firstAttribute="trailing" secondItem="WFe-0I-buo" secondAttribute="trailing" id="sFX-oy-mBA"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="O1Q-Bc-n0Y"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="hap-yS-SXs" secondAttribute="trailing" constant="24" id="0iU-ab-wRF"/>
+                            <constraint firstItem="hap-yS-SXs" firstAttribute="leading" secondItem="465" secondAttribute="leading" constant="24" id="19b-T5-5sq"/>
+                            <constraint firstItem="hap-yS-SXs" firstAttribute="centerY" secondItem="O1Q-Bc-n0Y" secondAttribute="centerY" id="ebM-JC-IDO"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="LoadingText" destination="WFe-0I-buo" id="name-outlet-WFe-0I-buo"/>
+                        <outlet property="LoadingTextStackView" destination="hap-yS-SXs" id="name-outlet-hap-yS-SXs"/>
+                        <outlet property="Spinner" destination="nYh-dx-3Pb" id="name-outlet-nYh-dx-3Pb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="466" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="166" y="-207"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
