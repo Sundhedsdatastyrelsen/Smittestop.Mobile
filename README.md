@@ -20,13 +20,6 @@ Common questions as well as general information about smitte|stop is available o
 | dev    |  |
 
 
-### App Center builds
-|            | iOS | Android |
-|------------|-----|---------|
-| Production |    |        |
-| PrePro |     |        |
-| Test |   |       |
-
 ## Development
 ### Prerequisites
 - Visual Studio 2019
@@ -52,7 +45,7 @@ Feedback and contribution are always welcome. For more information about how to 
 ## Download smitte|stop
 
 <h1 align="center"> <a href="https://play.google.com/store/apps/details?id=com.netcompany.smittestop_exposure_notification"><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/google-play-badge-en.png" width="200" height="60" alt="Get it on Google Play"></a>
-<a href=" https://apps.apple.com/dk/app/smitte-stop/id1516581736?l=da"><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/apple-app-store-badge-en.png" width="180" height="60" alt="Download on the App Store"></a></h1>
+<a href="https://apps.apple.com/dk/app/smitte-stop/id1516581736?l=da"><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://www.helsenorge.no/globalassets/mobilapp/badges/apple-app-store-badge-en.png" width="180" height="60" alt="Download on the App Store"></a></h1>
 
 
 ## Licence
