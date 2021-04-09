@@ -127,7 +127,10 @@ namespace NDB.Covid19.Test.Tests.Utils
                 SystemTime.SetDateTime(testStartDate);
 
                 DateTime oldSavedDate = SystemTime.Now();
-                string oldSavedDateString = oldSavedDate.ToString();
+                string oldSavedDateString =
+                    oldSavedDate.ToString(
+                        Thread.CurrentThread.CurrentCulture.DateTimeFormat.UniversalSortableDateTimePattern,
+                        Thread.CurrentThread.CurrentCulture);
                 preferences.Set(PreferencesKeys.LAST_DOWNLOAD_ZIPS_CALL_UTC_PREF, oldSavedDateString);
 
 
@@ -142,7 +145,7 @@ namespace NDB.Covid19.Test.Tests.Utils
                 // Assert
                 var expected = oldSavedDate.TrimMilliseconds();
                 var actual = preferences.Get(PreferencesKeys.LAST_DOWNLOAD_ZIPS_CALL_UTC_DATETIME_PREF,
-                    SystemTime.Now().AddDays(-300)).TrimMilliseconds();
+                    SystemTime.Now().AddDays(-300)).TrimMilliseconds().ToUniversalTime();
                 Assert.Equal(expected, actual);
                 Assert.False(preferences.ContainsKey(PreferencesKeys.LAST_DOWNLOAD_ZIPS_CALL_UTC_PREF));
             }
