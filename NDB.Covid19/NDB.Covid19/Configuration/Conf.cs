@@ -4,7 +4,7 @@ namespace NDB.Covid19.Configuration
 {
     public class Conf
     {
-        public static readonly string BaseUrl = "BASE_URL";
+        public static readonly string BaseUrl = "http://localhost:9095/";
         public static string AuthorizationHeader => "AUTH_HEADER";
 #if TEST
         public static bool UseDeveloperTools = true;
