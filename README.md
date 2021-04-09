@@ -1,4 +1,4 @@
-<h1 align="center"> Smitte|stop Mobile Application <br/><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="INDSÆTSMITTESTOPLOGO"> </h1>
+<h1 align="center"> Smitte|stop Mobile Application <br/><img style="margin-right: 1%; margin-bottom: 0.5em; float: left;" src="https://user-images.githubusercontent.com/51358293/114160106-d8cc3280-9926-11eb-8f84-8da7f867dcf4.PNG"> </h1>
 <br/>
 
 Danish mobile application for Covid-19 spread tracking
@@ -14,14 +14,11 @@ Common questions as well as general information about smitte|stop is available o
 
 ## Azure Pipelines status (build and test)
 
-<center>
-
 |    Branch    | Status  |
 |--------|---|
 | master |   |
 | dev    |  |
 
-</center>
 
 ### App Center builds
 |            | iOS | Android |
