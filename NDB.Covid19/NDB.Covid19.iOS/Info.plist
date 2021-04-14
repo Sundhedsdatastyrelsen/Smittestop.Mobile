@@ -9,7 +9,7 @@
 	<key>CFBundleIdentifier</key>
 	<string>com.netcompany.smittestop-exposure-notification</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.3.4</string>
+	<string>2.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>
@@ -99,7 +99,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>215</string>
+	<string>1</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>CFBundleDevelopmentRegion</key>
