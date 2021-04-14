@@ -1,8 +1,9 @@
-// WARNING
+﻿// WARNING
 //
-// This file has been generated automatically by Visual Studio from the outlets and
-// actions declared in your storyboard file.
-// Manual changes to this file will not be maintained.
+// This file has been generated automatically by Rider IDE
+//   to store outlets and actions made in Xcode.
+// If it is removed, they will be lost.
+// Manual changes to this file may not be handled correctly.
 //
 
 using System.CodeDom.Compiler;
@@ -10,41 +11,49 @@ using Foundation;
 
 namespace NDB.Covid19.iOS.Views.Initializer
 {
-    [Register ("InizializerViewController")]
-    partial class InizializerViewController
-    {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UILabel ContinueInEnLbl { get; set; }
+	[Register ("InizializerViewController")]
+	partial class InizializerViewController
+	{
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UILabel ContinueInEnLbl { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIStackView ContinueInEnStackView { get; set; }
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIStackView ContinueInEnStackView { get; set; }
 
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UIButton StartButton { get; set; }
+		[Outlet]
+		UIKit.UIImageView HealthMinistryLogo { get; set; }
 
-        [Action ("StartButton_TouchUpInside:")]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        partial void StartButton_TouchUpInside (UIKit.UIButton sender);
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIKit.UIButton StartButton { get; set; }
 
-        void ReleaseDesignerOutlets ()
-        {
-            if (ContinueInEnLbl != null) {
-                ContinueInEnLbl.Dispose ();
-                ContinueInEnLbl = null;
-            }
+		[Action ("StartButton_TouchUpInside:")]
+		partial void StartButton_TouchUpInside (UIKit.UIButton sender);
 
-            if (ContinueInEnStackView != null) {
-                ContinueInEnStackView.Dispose ();
-                ContinueInEnStackView = null;
-            }
+		void ReleaseDesignerOutlets ()
+		{
+			if (ContinueInEnLbl != null) {
+				ContinueInEnLbl.Dispose ();
+				ContinueInEnLbl = null;
+			}
 
-            if (StartButton != null) {
-                StartButton.Dispose ();
-                StartButton = null;
-            }
-        }
-    }
+			if (ContinueInEnStackView != null) {
+				ContinueInEnStackView.Dispose ();
+				ContinueInEnStackView = null;
+			}
+
+			if (StartButton != null) {
+				StartButton.Dispose ();
+				StartButton = null;
+			}
+
+			if (HealthMinistryLogo != null) {
+				HealthMinistryLogo.Dispose ();
+				HealthMinistryLogo = null;
+			}
+
+		}
+	}
 }

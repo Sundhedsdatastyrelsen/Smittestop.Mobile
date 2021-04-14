@@ -27,6 +27,14 @@ namespace NDB.Covid19.iOS.Views.Initializer
                 InitializerViewModel.LAUNCHER_PAGE_CONTINUE_IN_ENG, 12, 20);
         }
 
+        private void SetLogoBasedOnAppLanguage()
+        {
+            string appLanguage = LocalesService.GetLanguage();
+            HealthMinistryLogo.Image = appLanguage != null && appLanguage.ToLower() == "en"
+                ? UIImage.FromBundle("MinistryOfHealthEn")
+                : UIImage.FromBundle("MinistryOfHealth");
+        }
+        
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
@@ -51,6 +59,8 @@ namespace NDB.Covid19.iOS.Views.Initializer
             {
                 ShowOutdatedOSDialog();
             }
+
+            SetLogoBasedOnAppLanguage();
         }
 
         public override void ViewWillAppear(bool animated)

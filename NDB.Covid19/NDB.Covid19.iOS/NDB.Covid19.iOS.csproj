@@ -651,6 +651,14 @@
     <ImageAsset Include="Assets.xcassets\ChevronRight.imageset\ChevronRight%402x.png" />
     <ImageAsset Include="Assets.xcassets\ChevronRight.imageset\ChevronRight%403x.png" />
     <ImageAsset Include="Assets.xcassets\ChevronRight.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\MinistryOfHealthEn.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\MinistryOfHealthEn.imageset\SUM_logo_eng.png" />
+    <ImageAsset Include="Assets.xcassets\MinistryOfHealthEn.imageset\SUM_logo_eng%402x.png" />
+    <ImageAsset Include="Assets.xcassets\MinistryOfHealthEn.imageset\SUM_logo_eng%403x.png" />
+    <ImageAsset Include="Assets.xcassets\MinistryOfHealth.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\MinistryOfHealth.imageset\SUM_logo_dk.png" />
+    <ImageAsset Include="Assets.xcassets\MinistryOfHealth.imageset\SUM_logo_dk%402x.png" />
+    <ImageAsset Include="Assets.xcassets\MinistryOfHealth.imageset\SUM_logo_dk%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets.xcassets\Anonymus.imageset\" />
@@ -709,6 +717,8 @@
     <Folder Include="Views\DiseaseRate\" />
     <Folder Include="Assets.xcassets\ScrollDown.imageset\" />
     <Folder Include="Assets.xcassets\ChevronRight.imageset\" />
+    <Folder Include="Assets.xcassets\MinistryOfHealthEn.imageset\" />
+    <Folder Include="Assets.xcassets\MinistryOfHealth.imageset\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />

@@ -155,6 +155,8 @@
     <AndroidResource Include="Resources\drawable\counter_background_disease_rate_bottom.xml" />
     <AndroidResource Include="Resources\drawable\counter_background_disease_rate_mid.xml" />
     <AndroidResource Include="Resources\drawable\counter_background_disease_rate_top.xml" />
+    <AndroidResource Include="Resources\drawable\health_department_da.xml" />
+    <AndroidResource Include="Resources\drawable\health_department_en.xml" />
     <AndroidResource Include="Resources\layout\questionnaire_confirm_leave.xml" />
     <AndroidResource Include="Resources\layout\questionnaire_pre_share.xml" />
     <AndroidResource Include="Resources\drawable\spinner.xml" />
@@ -572,12 +574,6 @@
       <Generator>
       </Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\health_department_logo.png">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
-    </AndroidResource>
     <AndroidResource Include="Resources\drawable-hdpi\ic_help.png">
       <SubType>
       </SubType>
@@ -645,12 +641,6 @@
       </Generator>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-xhdpi\checkmark.png">
-      <SubType>
-      </SubType>
-      <Generator>
-      </Generator>
-    </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\health_department_logo.png">
       <SubType>
       </SubType>
       <Generator>

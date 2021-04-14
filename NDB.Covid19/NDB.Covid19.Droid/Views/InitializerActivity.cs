@@ -48,8 +48,18 @@ namespace NDB.Covid19.Droid.Views
 
             _launcherButton.Click += new SingleClick(LauncherButton_Click).Run;
             _continueInEnRelativeLayoutButton.Click += new SingleClick(ContinueInEnButton_Click).Run;
+            SetLogoBasedOnAppLanguage();
         }
 
+        private void SetLogoBasedOnAppLanguage()
+        {
+            ImageView logo = FindViewById<ImageView>(Resource.Id.launcer_icon_imageview);
+            string appLanguage = LocalesService.GetLanguage();
+            logo?.SetImageResource(appLanguage != null && appLanguage.ToLower() == "en"
+                ? Resource.Drawable.health_department_en
+                : Resource.Drawable.health_department_da);
+        }
+        
         protected override void OnResume()
         {
             base.OnResume();
