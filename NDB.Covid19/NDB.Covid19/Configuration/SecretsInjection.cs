@@ -28,7 +28,7 @@ namespace NDB.Covid19.Configuration
                 {
                     AuthHeader = "",
                     BaseUrl = "http://localhost:9095/",
-                    FetchMinHours = 0,
+                    FetchMinMinutes = 120,
                     Oauth2AccessTokenUrl = "",
                     Oauth2AuthoriseUrl = "",
                     Oauth2ClientId = "",
