@@ -4,23 +4,14 @@ namespace NDB.Covid19.Configuration
 {
     public class Conf
     {
-        public static readonly string BaseUrl = "http://localhost:9095/";
-        public static string AuthorizationHeader => "AUTH_HEADER";
-#if TEST
-        public static bool UseDeveloperTools = true;
+        private static readonly SecretsObj Secrets = SecretsInjection.GetSecrets();
+
+        public static readonly string BaseUrl = Secrets.BaseUrl;
+        public static string AuthorizationHeader => Secrets.AuthHeader;
+        public static readonly bool UseDeveloperTools = Secrets.UseDevTools;
         // Minimum hours between pulling keys
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(0);
-#elif UNIT_TEST
-        public static bool UseDeveloperTools = true;
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(120);
-#elif APPCENTER
-        public static bool UseDeveloperTools = true;
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(2);
-#elif RELEASE
-        public static bool UseDeveloperTools = false;
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(240);
-#endif
-        
+        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(Secrets.FetchMinHours);
+
         public static readonly int APIVersion = 2;
         public static string DEFAULT_LANGUAGE = "da"; //In case the device is set to use an unsupported language
         public static string[] SUPPORTED_LANGUAGES = {"da", "en"};
