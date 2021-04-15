@@ -42,7 +42,7 @@ namespace NDB.Covid19.OAuth2
                 OAuthConf.OAUTH2_SCOPE,
                 new Uri(OAuthConf.OAUTH2_AUTHORISE_URL),
                 new Uri(OAuthConf.OAUTH2_REDIRECT_URL),
-                new Uri(OAuthConf.OAUTH2_ACCESSTOKEN_URL),
+                new Uri(OAuthConf.OAUTH2_ACCESS_TOKEN_URL),
                 null,
                 ServiceLocator.Current.GetInstance<IDeviceInfo>().Platform.ToString().Equals("iOS"));
             AuthenticationState.Authenticator.ClearCookiesBeforeLogin = true;
