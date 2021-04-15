@@ -10,7 +10,7 @@ namespace NDB.Covid19.Configuration
         public static string AuthorizationHeader => Secrets.AuthHeader;
         public static readonly bool UseDeveloperTools = Secrets.UseDevTools;
         // Minimum hours between pulling keys
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(Secrets.FetchMinHours);
+        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(Secrets.FetchMinMinutes);
 
         public static readonly int APIVersion = 2;
         public static string DEFAULT_LANGUAGE = "da"; //In case the device is set to use an unsupported language

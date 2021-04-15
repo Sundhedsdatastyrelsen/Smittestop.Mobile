@@ -10,7 +10,7 @@ namespace NDB.Covid19.Configuration
         public string Oauth2AuthoriseUrl { get; set; }
         public string Oauth2AccessTokenUrl { get; set; }
         public string Oauth2VerifyTokenPublicKey { get; set; }
-        public int FetchMinHours { get; set; }
+        public int FetchMinMinutes { get; set; }
         public bool UseDevTools { get; set; }
     }
 }
