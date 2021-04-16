@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Util;
 using Android.Widget;
 using I18NPortable;
 using NDB.Covid19.Droid.Utils;
@@ -58,8 +59,20 @@ namespace NDB.Covid19.Droid.Views
             logo?.SetImageResource(appLanguage != null && appLanguage.ToLower() == "en"
                 ? Resource.Drawable.health_department_en
                 : Resource.Drawable.health_department_da);
+
+            if (logo?.LayoutParameters != null)
+            {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                WindowManager?.DefaultDisplay?.GetMetrics(displayMetrics);
+                float logicalDensity = displayMetrics.Density;
+                int px = (int) Math.Ceiling((appLanguage != null && appLanguage.ToLower() == "en" ? 120 : 180) *
+                                            logicalDensity);
+                logo.LayoutParameters.Width = px;
+            }
+
+            logo?.RequestLayout();
         }
-        
+
         protected override void OnResume()
         {
             base.OnResume();

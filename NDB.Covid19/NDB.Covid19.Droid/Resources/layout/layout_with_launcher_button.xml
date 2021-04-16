@@ -23,7 +23,7 @@
         />
     <ImageView 
         android:background="@drawable/health_department_da"
-        android:layout_width="100dp"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
