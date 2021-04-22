@@ -47,8 +47,12 @@ namespace NDB.Covid19.Droid.Services
                 }
                 else
                 {
-                    throw e;
+#if DEBUG || APPCENTER
+                    throw;
+#endif
                 }
+
+                isEnabled = false;
             }
 
             if (!await _permissionsUtils.HasPermissionsWithoutDialogs() && isEnabled)

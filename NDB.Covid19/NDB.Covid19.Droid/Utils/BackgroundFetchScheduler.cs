@@ -114,7 +114,9 @@ namespace NDB.Covid19.Droid.Utils
                     // To make it not crash on devices with normal Play Services before the app is whitelisted
                     if (!e.HandleExposureNotificationException(nameof(BackgroundFetchScheduler), nameof(DoAsyncWork)))
                     {
-                        throw e;
+#if DEBUG || APPCENTER
+                        throw;
+#endif
                     }
                 }
 

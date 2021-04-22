@@ -1,5 +1,4 @@
 ﻿using System;
-using NDB.Covid19.Enums;
 using NDB.Covid19.Utils;
 using UIKit;
 
@@ -18,8 +17,8 @@ namespace NDB.Covid19.iOS
             }
             catch (Exception e)
             {
-                LogUtils.LogException(LogSeverity.ERROR, e, "iOS crashed (logged in Main.cs)");
-                throw e;
+                LogUtils.LogException(Enums.LogSeverity.ERROR, e, "iOS crashed (logged in Main.cs)");
+                throw;
             }
         }
     }

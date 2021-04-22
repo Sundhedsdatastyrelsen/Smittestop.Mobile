@@ -63,6 +63,7 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
             }
             catch (Exception e)
             {
+                _ = e.HandleExposureNotificationException(nameof(LoadingPageActivity), nameof(StartPushActivity));
                 OnError(e);
             }
         }
@@ -75,7 +76,14 @@ namespace NDB.Covid19.Droid.Views.AuthenticationFlow
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
-            ExposureNotification.OnActivityResult(requestCode, resultCode, data);
+            try
+            {
+                ExposureNotification.OnActivityResult(requestCode, resultCode, data);
+            }
+            catch (Exception e)
+            {
+                _ = e.HandleExposureNotificationException(nameof(LoadingPageActivity), nameof(OnActivityResult));
+            }
         }
 
         private void OnActivityFinished()

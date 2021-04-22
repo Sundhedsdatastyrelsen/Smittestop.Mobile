@@ -55,7 +55,9 @@ namespace NDB.Covid19.Utils
                 // To make it not crash on devices with normal Play Services before the app is whitelisted
                 if (!e.HandleExposureNotificationException(nameof(DeviceUtils), nameof(StopScanServices)))
                 {
-                    throw e;
+#if DEBUG || APPCENTER
+                    throw;
+#endif
                 }
             }
         }
