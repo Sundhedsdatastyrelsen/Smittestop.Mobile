@@ -47,7 +47,7 @@ namespace NDB.Covid19.Droid.Services
                 }
                 else
                 {
-#if DEBUG || APPCENTER
+#if DEBUG
                     throw;
 #endif
                 }
