@@ -234,7 +234,7 @@ namespace NDB.Covid19.ViewModels
             {
                 if (!e.HandleExposureNotificationException(nameof(InfectionStatusViewModel), nameof(IsRunning)))
                 {
-#if  DEBUG || APPCENTER
+#if DEBUG
                     throw;
 #endif
                 }
@@ -258,7 +258,7 @@ namespace NDB.Covid19.ViewModels
             {
                 if (!e.HandleExposureNotificationException(nameof(InfectionStatusViewModel), nameof(IsEnabled)))
                 {
-#if  DEBUG || APPCENTER
+#if DEBUG
                     throw;
 #endif
                 }
@@ -282,7 +282,7 @@ namespace NDB.Covid19.ViewModels
             {
                 if (!e.HandleExposureNotificationException(nameof(InfectionStatusViewModel), nameof(StartENService)))
                 {
-#if  DEBUG || APPCENTER
+#if DEBUG
                     throw;
 #endif
                 }
@@ -306,7 +306,7 @@ namespace NDB.Covid19.ViewModels
             {
                 if (!e.HandleExposureNotificationException(nameof(InfectionStatusViewModel), nameof(StopENService)))
                 {
-#if  DEBUG || APPCENTER
+#if DEBUG
                     throw;
 #endif
                 }
