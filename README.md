@@ -16,8 +16,8 @@ Common questions as well as general information about smitte|stop is available o
 
 |    Branch    | Status  |
 |--------|---|
-| master |   |
-| dev    |  |
+| master |  1 | 1
+| dev    | 1 | 1
 
 
 ## Development
