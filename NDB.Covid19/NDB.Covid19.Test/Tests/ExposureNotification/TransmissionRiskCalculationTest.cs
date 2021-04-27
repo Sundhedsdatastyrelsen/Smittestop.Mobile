@@ -9,41 +9,44 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 {
     public class TransmissionRiskCalculationTest
     {
-        private readonly DateTime today = DateTime.Today;
-        private DateTime MiBaDate => today.AddDays(1);
+        // 00:00 1 June 2020 UTC
+        private readonly DateTimeOffset june1 = DateTimeOffset.FromUnixTimeSeconds(1590969600);
+
+        private DateTime MiBaDate => new DateTime(2020, 6, 2);
+
 
         [Fact]
         public async void calculateTransmissionRiskbasedOnDateDifference()
         {
             // Create keys with different dates
             ExposureKeyModel tekminus3 =
-                new ExposureKeyModel(new byte[1], today.AddDays(-3), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(-3), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tekminus2 =
-                new ExposureKeyModel(new byte[1], today.AddDays(-2), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(-2), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tekminus1 =
-                new ExposureKeyModel(new byte[1], today.AddDays(-1), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(-1), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek2 =
-                new ExposureKeyModel(new byte[1], today.AddDays(2), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(2), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek3 =
-                new ExposureKeyModel(new byte[1], today.AddDays(3), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(3), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek4 =
-                new ExposureKeyModel(new byte[1], today.AddDays(4), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(4), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek5 =
-                new ExposureKeyModel(new byte[1], today.AddDays(5), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(5), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek6 =
-                new ExposureKeyModel(new byte[1], today.AddDays(6), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(6), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek7 =
-                new ExposureKeyModel(new byte[1], today.AddDays(7), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(7), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek8 =
-                new ExposureKeyModel(new byte[1], today.AddDays(8), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(8), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek9 =
-                new ExposureKeyModel(new byte[1], today.AddDays(9), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(9), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek10 =
-                new ExposureKeyModel(new byte[1], today.AddDays(10), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(10), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek11 =
-                new ExposureKeyModel(new byte[1], today.AddDays(11), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(11), TimeSpan.FromDays(1), RiskLevel.Invalid);
             ExposureKeyModel tek12 =
-                new ExposureKeyModel(new byte[1], today.AddDays(12), TimeSpan.FromDays(1), RiskLevel.Invalid);
+                new ExposureKeyModel(new byte[1], june1.AddDays(12), TimeSpan.FromDays(1), RiskLevel.Invalid);
 
 
             // Process a list of copies
