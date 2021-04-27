@@ -6,7 +6,8 @@
 trigger:
 - '*' # execute on all branches
 
-pool: 'Default'
+pool:
+  vmImage: 'windows-latest'
 
 variables:
   solution: '**/*.sln'
