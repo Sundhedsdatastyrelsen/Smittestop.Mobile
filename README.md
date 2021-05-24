@@ -8,16 +8,14 @@ The goal of this open-source project is to develop and maintain the official smi
 If you are interested in backend server implementation, check out https://github.com/Sundhedsdatastyrelsen/Smittestop.Backend.
 
 ## Documentation
-Documentation is available on GitHub [here](https://github.com/folkehelseinstituttet/Fhi.Smittestopp.Documentation).
-
 Common questions as well as general information about smitte|stop is available on [smittestop.dk](https://www.smittestop.dk/) (Danish) and [smittestop.en]( https://www.smittestop.dk/en/) (English) webpages.
 
 ## Azure Pipelines status (build and test)
 
 |    Branch    | Status  |
 |--------|---|
-| master |   |
-| dev    |  |
+| master |  TBD |
+| dev    |  TBD |
 
 
 ## Development
