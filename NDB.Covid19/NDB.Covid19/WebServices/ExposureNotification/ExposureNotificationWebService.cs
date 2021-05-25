@@ -79,8 +79,11 @@ namespace NDB.Covid19.WebServices.ExposureNotification
 
         public async Task<DailySummaryConfiguration> GetDailySummaryConfiguration()
         {
+            // This endpoint uses different json serializer because of problems with dictionary parsing
+            // Because of that we need to remove unneeded escape characters and " signs at the start
+            // and the end of the response. This is done by addition of withTrimAndUnescape flag to Get method
             ApiResponse<DailySummaryConfigurationDTO> response =
-                await Get<DailySummaryConfigurationDTO>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION);
+                await Get<DailySummaryConfigurationDTO>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION, true);
             HandleErrorsSilently(response);
 
             LogUtils.SendAllLogs();

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using NDB.Covid19.Models;
 using NDB.Covid19.WebServices.ErrorHandlers;
@@ -39,9 +40,9 @@ namespace NDB.Covid19.WebServices
 
         private HttpClient _client => _httpClientManager.HttpClientAccessor.HttpClient;
 
-        public async Task<ApiResponse<M>> Get<M>(string url)
+        public async Task<ApiResponse<M>> Get<M>(string url, bool withTrimAndUnescape = false)
         {
-            var result = await InnerGet<M>(url);
+            var result = await InnerGet<M>(url, withTrimAndUnescape);
 
             if (result.IsSuccessfull == false)
             {
@@ -49,14 +50,14 @@ namespace NDB.Covid19.WebServices
                 if (_badConnectionErrorHandler.IsResponsible(result))
                 {
                     Debug.WriteLine("Sending for the second time because of bad connection: " + url);
-                    result = await InnerGet<M>(url);
+                    result = await InnerGet<M>(url, withTrimAndUnescape);
                 }
             }
 
             return result;
         }
 
-        private async Task<ApiResponse<M>> InnerGet<M>(string url)
+        private async Task<ApiResponse<M>> InnerGet<M>(string url, bool withTrimAndUnescape = false)
         {
             ApiResponse<M> result = new ApiResponse<M>(url, HttpMethod.Get);
             try
@@ -66,6 +67,11 @@ namespace NDB.Covid19.WebServices
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
+                    if (withTrimAndUnescape)
+                    {
+                        content = Regex.Unescape(content.Substring(1, content.Length - 2));
+                    }
+
                     if (!string.IsNullOrEmpty(content))
                     {
                         result.ResponseText = content;
