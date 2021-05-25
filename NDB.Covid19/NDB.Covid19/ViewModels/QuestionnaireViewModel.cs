@@ -169,13 +169,13 @@ namespace NDB.Covid19.ViewModels
                     return;
                 }
 
-                PersonalData.FinalMiBaDate = _localSelectedDate;
+                PersonalData.FinalDateToSetDSOS = _localSelectedDate;
             }
             else if (PersonalData.Validate())
             {
                 try
                 {
-                    PersonalData.FinalMiBaDate = Convert.ToDateTime(PersonalData.Covid19_smitte_start);
+                    PersonalData.FinalDateToSetDSOS = Convert.ToDateTime(PersonalData.Covid19_smitte_start);
                 }
                 catch
                 {

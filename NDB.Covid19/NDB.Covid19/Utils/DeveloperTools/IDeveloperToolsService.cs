@@ -15,13 +15,16 @@ namespace NDB.Covid19.Utils.DeveloperTools
         bool ShouldSaveExposureInfo { get; set; }
         string LastProvidedFilesPref { get; set; }
         string PersistedExposureInfo { get; set; }
-
+        string PersistedExposureWindows { get; set; }
+        string PersistedDailySummaries { get; set; }
         string LastPullHistory { get; set; }
         string AllPullHistory { get; set; }
         void ClearAllFields();
 
         void StoreLastProvidedFiles(IEnumerable<string> localFileUrls);
         Task SaveLastExposureInfos(Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo);
+        void SaveExposureWindows(IEnumerable<ExposureWindow> windows);
+        void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries);
         string TemporaryExposureKeyExportToPrettyString(TemporaryExposureKeyExport temporaryExposureKeyExport);
         void StartPullHistoryRecord();
         void AddToPullHistoryRecord(string message, string requestUrl = null);

@@ -42,7 +42,7 @@ namespace NDB.Covid19.PersistedData
         // The difference between LAST_DOWNLOAD_ZIPS_* and LAST_PULLED_KEYS_SUCCEEDED_DATE_TIME is that the first one is the date of the last try and
         // the second one is the last day when it succeeded
         public static readonly string LAST_PULL_KEYS_SUCCEEDED_DATE_TIME = "LAST_PULL_KEYS_SUCCEEDED_DATE_TIME";
-
+        public static readonly string LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME = "LAST_DIAGNOSIS_KEY_DATA_MAPPING_DATE_TIME";
         public static readonly string LAST_PULLED_BATCH_NUMBER_NOT_SUBMITTED = "LAST_PULLED_BATCH_NUMBER_NOT_SUBMITTED";
         public static readonly string LAST_PULLED_BATCH_NUMBER_SUBMITTED = "LAST_PULLED_BATCH_NUMBER_SUBMITTED";
         public static readonly string LAST_PULLED_BATCH_TYPE = "LAST_PULLED_BATCH_TYPE";
@@ -58,12 +58,7 @@ namespace NDB.Covid19.PersistedData
 
         public static readonly string LAST_PERMISSIONS_NOTIFICATION_DATE_TIME =
             "LAST_PERMISSIONS_NOTIFICATION_DATE_TIME";
-
-        public static readonly string EXPOSURE_TIME_THRESHOLD = "EXPOSURE_TIME_THRESHOLD";
-        public static readonly string LOW_ATTENUATION_DURATION_MULTIPLIER = "LOW_ATTENUATION_DURATION_MULTIPLIER";
-        public static readonly string MIDDLE_ATTENUATION_DURATION_MULTIPLIER = "MIDDLE_ATTENUATION_DURATION_MULTIPLIER";
-        public static readonly string HIGH_ATTENUATION_DURATION_MULTIPLIER = "HIGH_ATTENUATION_DURATION_MULTIPLIER";
-
+        
         public static readonly string CORRELATION_ID = "CORRELATION_ID";
 
         public static readonly string LAST_NTP_UTC_DATE_TIME = "LAST_NTP_DATE_TIME";
@@ -83,5 +78,14 @@ namespace NDB.Covid19.PersistedData
             "CURRENT_DAY_TO_DOWNLOAD_KEYS_FOR_UTC_PREF";
 
         [Obsolete] public static readonly string CURRENT_DOWNLOAD_DAY_BATCH_PREF = "CURRENT_DOWNLOAD_DAY_BATCH_PREF";
+        
+        // EN API v1 configuration parameters
+        public static readonly string EXPOSURE_TIME_THRESHOLD = "EXPOSURE_TIME_THRESHOLD";
+        public static readonly string LOW_ATTENUATION_DURATION_MULTIPLIER = "LOW_ATTENUATION_DURATION_MULTIPLIER";
+        public static readonly string MIDDLE_ATTENUATION_DURATION_MULTIPLIER = "MIDDLE_ATTENUATION_DURATION_MULTIPLIER";
+        public static readonly string HIGH_ATTENUATION_DURATION_MULTIPLIER = "HIGH_ATTENUATION_DURATION_MULTIPLIER";
+
+        // EN API v2 configuration parameters
+        public static readonly string SCORE_SUM_THRESHOLD = "SCORE_SUM_THRESHOLD";
     }
 }

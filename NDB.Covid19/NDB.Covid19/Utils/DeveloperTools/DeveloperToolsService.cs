@@ -29,6 +29,8 @@ namespace NDB.Covid19.Utils.DeveloperTools
         public static readonly string DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF = "DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF";
         public static readonly string DEV_TOOLS_LAST_KEY_UPLOAD_INFO = "LastKeyUploadInfo";
         public static readonly string DEV_TOOLS_LAST_USED_CONFIGURATION = "LastUsedConfiguration";
+        public static readonly string DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF = "DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF";
+        public static readonly string DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF = "DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF";
         private static IPreferences _preferences => ServiceLocator.Current.GetInstance<IPreferences>();
 
         /// <summary>
@@ -62,6 +64,8 @@ namespace NDB.Covid19.Utils.DeveloperTools
             _preferences.Set(DEV_TOOLS_SHOULD_SAVE_EXPOSURE_INFOS_PREF, "");
             _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, "");
             _preferences.Set(DEV_TOOLS_LAST_PROVIDED_FILES_PREF, "");
+            _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, "");
+            _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, "");
         }
 
         /// <summary>
@@ -85,6 +89,9 @@ namespace NDB.Covid19.Utils.DeveloperTools
             set => _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, value);
         }
 
+        public string PersistedExposureWindows { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, value); } }
+        public string PersistedDailySummaries { get => _preferences.Get(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, value); } }
+        
         // Stores a nice string to Preferences, which shows the content of the files last provided to the EN API,
         // so that this can be displayed on Developer Tools
         public void StoreLastProvidedFiles(IEnumerable<string> localFileUrls)
@@ -158,7 +165,10 @@ namespace NDB.Covid19.Utils.DeveloperTools
                                $"<In DB format: {EncodingUtils.ConvertByteArrayToString(tek.KeyData.ToByteArray())}> " +
                                $"TransmissionRiskLevel={tek.TransmissionRiskLevel}, " +
                                $"RollingStartIntervalNumber={DateTimeOffset.FromUnixTimeSeconds(tek.RollingStartIntervalNumber * 60 * 10).UtcDateTime.ToGreGorianUtcString("yyyy-MM-dd HH:mm:ss")} UTC and " +
-                               $"RollingPeriod={tek.RollingPeriod * 10} minutes]";
+                               $"RollingPeriod={tek.RollingPeriod * 10} minutes], " +
+                               $"ReportType={tek.ReportType}, " +
+                               $"DaysSinceOnsetOfSymptoms={tek.DaysSinceOnsetOfSymptoms}, " +
+                               $"[DEPRECATED]TransmissionRiskLevel={tek.TransmissionRiskLevel}";
 
                     i++;
                     if (i == 200)
@@ -211,6 +221,32 @@ namespace NDB.Covid19.Utils.DeveloperTools
             AllPullHistory = AllPullHistory + appendString;
             LastPullHistory = LastPullHistory + appendString;
             Debug.Print(appendString);
+        }
+        
+        public void SaveExposureWindows(IEnumerable<ExposureWindow> windows)
+        {
+            try
+            {
+                string exposureWindowsString = ExposureWindowJsonHelper.ExposureWindowsToJson(windows);
+                PersistedExposureWindows = exposureWindowsString;
+            }
+            catch (Exception e)
+            {
+                LogUtils.LogException(LogSeverity.WARNING, e, "ExposureDetectedHelper.DevToolsSaveExposureWindow");
+            }
+        }
+
+        public void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries)
+        {
+            try
+            {
+                string summaryJson = ExposureDailySummaryJsonHelper.ExposureDailySummariesToJson(summaries);
+                PersistedDailySummaries = summaryJson;
+            }
+            catch (Exception e)
+            {
+                LogUtils.LogException(LogSeverity.WARNING, e, "ExposureDetectedHelper.DevToolsSaveLastDailySummaries");
+            }
         }
     }
 }

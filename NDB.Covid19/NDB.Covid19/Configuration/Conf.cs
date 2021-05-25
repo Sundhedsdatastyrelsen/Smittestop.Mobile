@@ -80,6 +80,7 @@ namespace NDB.Covid19.Configuration
         public static string URL_LOG_MESSAGE => URL_PREFIX + "logging/logMessages";
         public static string URL_PUT_UPLOAD_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_EXPOSURE_CONFIGURATION => URL_PREFIX + "diagnostickeys/exposureconfiguration";
+        public static string URL_GET_DAILY_SUMMARY_CONFIGURATION => URL_PREFIX + "diagnostickeys/dailysummaryconfiguration";
         public static string URL_GET_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_COUNTRY_LIST => URL_PREFIX + "countries";
         public static string URL_GET_SSI_DATA => URL_PREFIX + "covidstatistics";
@@ -88,5 +89,11 @@ namespace NDB.Covid19.Configuration
         public static string URL_GATEWAY_STUB_UPLOAD => URL_PREFIX + "diagnosiskeys/upload";
 
         public static string DB_NAME => "Smittestop1.db3";
+        
+        // EN API v2: Default score sum threshold for DailySummaryReport
+        // If score sum for a particular day is higher than this threshold,
+        // the app should generate Exposure Notification. The actual threshold is fetched together
+        // with DailySummaryConfiguration on each pull of the keys from server
+        public static readonly double SCORE_SUM_THRESHOLD = 780;
     }
 }
