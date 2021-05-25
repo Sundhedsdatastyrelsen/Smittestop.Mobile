@@ -9,7 +9,7 @@ namespace NDB.Covid19.iOS.Views.AuthenticationFlow.QuestionnaireCountries
 {
     public class CountryTableViewSource : UITableViewSource
     {
-        private List<CountryDetailsViewModel> _models = new List<CountryDetailsViewModel>();
+        private readonly List<CountryDetailsViewModel> _models = new List<CountryDetailsViewModel>();
 
         public CountryTableViewSource(List<CountryDetailsViewModel> items)
         {

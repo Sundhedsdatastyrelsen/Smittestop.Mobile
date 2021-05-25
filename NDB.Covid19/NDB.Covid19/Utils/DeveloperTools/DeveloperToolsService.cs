@@ -89,9 +89,18 @@ namespace NDB.Covid19.Utils.DeveloperTools
             set => _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_INFOS_PREF, value);
         }
 
-        public string PersistedExposureWindows { get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, value); } }
-        public string PersistedDailySummaries { get => _preferences.Get(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, ""); set { _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, value); } }
-        
+        public string PersistedExposureWindows
+        {
+            get => _preferences.Get(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, "");
+            set => _preferences.Set(DEV_TOOLS_LAST_EXPOSURE_WINDOWS_PREF, value);
+        }
+
+        public string PersistedDailySummaries
+        {
+            get => _preferences.Get(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, "");
+            set => _preferences.Set(DEV_TOOLS_LAST_DAILY_SUMMARIES_PREF, value);
+        }
+
         // Stores a nice string to Preferences, which shows the content of the files last provided to the EN API,
         // so that this can be displayed on Developer Tools
         public void StoreLastProvidedFiles(IEnumerable<string> localFileUrls)
@@ -222,7 +231,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
             LastPullHistory = LastPullHistory + appendString;
             Debug.Print(appendString);
         }
-        
+
         public void SaveExposureWindows(IEnumerable<ExposureWindow> windows)
         {
             try

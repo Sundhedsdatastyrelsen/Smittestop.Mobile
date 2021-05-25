@@ -46,9 +46,11 @@ namespace NDB.Covid19.Utils.DeveloperTools
             set { }
         }
 
-        public string PersistedExposureWindows {
+        public string PersistedExposureWindows
+        {
             get => "";
-            set { } }
+            set { }
+        }
 
         public string PersistedDailySummaries
         {

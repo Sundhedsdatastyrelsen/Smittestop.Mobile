@@ -12,7 +12,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
 {
     public class UploadDIagnosisKeysHelperTests
     {
-        private ILoggingManager _logManager;
+        private readonly ILoggingManager _logManager;
 
         public UploadDIagnosisKeysHelperTests()
         {
@@ -25,9 +25,12 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         public void createAValidListOfTemporaryExposureKeys_HaveMultipleWithSameDate_AllShouldBeKept()
         {
             // Create keys
-            ExposureKeyModel tek1 = new ExposureKeyModel(new byte[1], SystemTime.Now(), TimeSpan.FromDays(0.7), RiskLevel.Medium);
-            ExposureKeyModel tek2 = new ExposureKeyModel(new byte[2], SystemTime.Now(), TimeSpan.FromDays(0.3), RiskLevel.Medium);
-            ExposureKeyModel tek3 = new ExposureKeyModel(new byte[3], SystemTime.Now().AddDays(-1), TimeSpan.FromDays(1), RiskLevel.Medium);
+            ExposureKeyModel tek1 =
+                new ExposureKeyModel(new byte[1], SystemTime.Now(), TimeSpan.FromDays(0.7), RiskLevel.Medium);
+            ExposureKeyModel tek2 =
+                new ExposureKeyModel(new byte[2], SystemTime.Now(), TimeSpan.FromDays(0.3), RiskLevel.Medium);
+            ExposureKeyModel tek3 = new ExposureKeyModel(new byte[3], SystemTime.Now().AddDays(-1),
+                TimeSpan.FromDays(1), RiskLevel.Medium);
 
             // Process a list of copies
             IEnumerable<ExposureKeyModel> temporaryExposureKeys = new List<ExposureKeyModel>
@@ -45,11 +48,14 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         public async void createAValidListOfTemporaryExposureKeys_HaveDateGap_AllShouldBeKept()
         {
             SystemTime.ResetDateTime();
-            
+
             // Create keys
-            ExposureKeyModel tek1 = new ExposureKeyModel(new byte[1], SystemTime.Now(), TimeSpan.FromDays(1), RiskLevel.Medium);
-            ExposureKeyModel tek2 = new ExposureKeyModel(new byte[2], SystemTime.Now().AddDays(-1), TimeSpan.FromDays(1), RiskLevel.Medium);
-            ExposureKeyModel tek3 = new ExposureKeyModel(new byte[3], SystemTime.Now().AddDays(-3), TimeSpan.FromDays(1), RiskLevel.Medium);
+            ExposureKeyModel tek1 =
+                new ExposureKeyModel(new byte[1], SystemTime.Now(), TimeSpan.FromDays(1), RiskLevel.Medium);
+            ExposureKeyModel tek2 = new ExposureKeyModel(new byte[2], SystemTime.Now().AddDays(-1),
+                TimeSpan.FromDays(1), RiskLevel.Medium);
+            ExposureKeyModel tek3 = new ExposureKeyModel(new byte[3], SystemTime.Now().AddDays(-3),
+                TimeSpan.FromDays(1), RiskLevel.Medium);
 
             // Process a list of copies
             IEnumerable<ExposureKeyModel> temporaryExposureKeys = new List<ExposureKeyModel>
@@ -67,12 +73,13 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         public void createAValidListOfTemporaryExposureKeys_Have15Keys_Only14ShouldBeKept()
         {
             SystemTime.ResetDateTime();
-            
+
             // Create a list of 15 keys
             IEnumerable<ExposureKeyModel> temporaryExposureKeys = new List<ExposureKeyModel>();
             for (int i = 0; i < 15; i++)
             {
-                temporaryExposureKeys = temporaryExposureKeys.Append(new ExposureKeyModel(new byte[i + 1], SystemTime.Now().AddDays(0 - i), TimeSpan.FromDays(1), RiskLevel.Medium));
+                temporaryExposureKeys = temporaryExposureKeys.Append(new ExposureKeyModel(new byte[i + 1],
+                    SystemTime.Now().AddDays(0 - i), TimeSpan.FromDays(1), RiskLevel.Medium));
             }
 
             // Process them
@@ -90,9 +97,12 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             SystemTime.ResetDateTime();
 
             // Create keys
-            ExposureKeyModel tek1 = new ExposureKeyModel(new byte[1], SystemTime.Now(), TimeSpan.FromDays(0), RiskLevel.Medium);
-            ExposureKeyModel tek2 = new ExposureKeyModel(new byte[2], SystemTime.Now().AddDays(-1), TimeSpan.FromDays(10), RiskLevel.Medium);
-            ExposureKeyModel tek3 = new ExposureKeyModel(new byte[3], SystemTime.Now().AddDays(-2), TimeSpan.FromDays(-10), RiskLevel.Medium);
+            ExposureKeyModel tek1 =
+                new ExposureKeyModel(new byte[1], SystemTime.Now(), TimeSpan.FromDays(0), RiskLevel.Medium);
+            ExposureKeyModel tek2 = new ExposureKeyModel(new byte[2], SystemTime.Now().AddDays(-1),
+                TimeSpan.FromDays(10), RiskLevel.Medium);
+            ExposureKeyModel tek3 = new ExposureKeyModel(new byte[3], SystemTime.Now().AddDays(-2),
+                TimeSpan.FromDays(-10), RiskLevel.Medium);
 
             // Process a list of copies
             IEnumerable<ExposureKeyModel> temporaryExposureKeys = new List<ExposureKeyModel>
@@ -120,17 +130,19 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             IEnumerable<ExposureKeyModel> temporaryExposureKeys = new List<ExposureKeyModel>();
             for (int i = 0; i < 14 + ExtraKeys; i++)
             {
-                temporaryExposureKeys = temporaryExposureKeys.Append(new ExposureKeyModel(new byte[i + 1], SystemTime.Now().AddDays(0 - i), TimeSpan.FromDays(1), RiskLevel.Medium));
+                temporaryExposureKeys = temporaryExposureKeys.Append(new ExposureKeyModel(new byte[i + 1],
+                    SystemTime.Now().AddDays(0 - i), TimeSpan.FromDays(1), RiskLevel.Medium));
             }
 
             // Process them
-            IEnumerable<ExposureKeyModel> processedKeys = UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
+            IEnumerable<ExposureKeyModel> processedKeys =
+                UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
 
             // Check if log is generated
             string logStatement = _logManager.GetLogs(1).Result.ElementAt(0).Description;
             Assert.Equal(ExtraKeys.ToString(), logStatement.Last().ToString());
         }
-        
+
         // True iff. container contains a key with same value as the given tek. Not looking at object addresses
         private bool ContainsTek(ExposureKeyModel tek, IEnumerable<ExposureKeyModel> teks)
         {

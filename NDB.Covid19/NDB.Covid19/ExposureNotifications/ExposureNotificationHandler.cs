@@ -73,7 +73,7 @@ namespace NDB.Covid19.ExposureNotifications
         }
 
         public async Task FetchExposureKeyBatchFilesFromServerAsync(Func<IEnumerable<string>, Task> submitBatches,
-           CancellationToken cancellationToken)
+            CancellationToken cancellationToken)
         {
             await new FetchExposureKeysHelper().FetchExposureKeyBatchFilesFromServerAsync(submitBatches,
                 cancellationToken);

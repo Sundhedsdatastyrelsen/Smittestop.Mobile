@@ -1,6 +1,5 @@
 ﻿using System;
 using NDB.Covid19.Models.SQLite;
-using NDB.Covid19.Utils;
 
 namespace NDB.Covid19.Models.DTOsForServer
 {

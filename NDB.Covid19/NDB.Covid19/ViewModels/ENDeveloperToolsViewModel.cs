@@ -405,7 +405,7 @@ namespace NDB.Covid19.ViewModels
             _clipboard.SetTextAsync(pullHistory);
             return pullHistory;
         }
-        
+
         public string GetExposureWindows()
         {
             string exposureWindowsString = _devTools.PersistedExposureWindows;
@@ -416,7 +416,7 @@ namespace NDB.Covid19.ViewModels
                 result = "We have not saved any ExposureWindows yet";
             }
             else
-            {              
+            {
                 try
                 {
                     string jsonString = exposureWindowsString;
@@ -426,15 +426,17 @@ namespace NDB.Covid19.ViewModels
 
                 catch (Exception e)
                 {
-                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetExposureWindowsFromLastPull");
+                    LogUtils.LogException(LogSeverity.WARNING, e, _logPrefix + "GetExposureWindowsFromLastPull");
                     result = "Failed at deserializing the saved ExposureWindows";
                 }
             }
-            string finalResult = $"These are the ExposureWindows we got the last time \"Pull keys\" was clicked:\n{result}"; 
+
+            string finalResult =
+                $"These are the ExposureWindows we got the last time \"Pull keys\" was clicked:\n{result}";
             _clipboard.SetTextAsync(finalResult);
             return finalResult;
         }
-        
+
         public string GetDailySummaries()
         {
             string dailySummariesString = _devTools.PersistedDailySummaries;
@@ -454,11 +456,13 @@ namespace NDB.Covid19.ViewModels
                 }
                 catch (Exception e)
                 {
-                    LogUtils.LogException(Enums.LogSeverity.WARNING, e, _logPrefix + "GetDailySummaries");
+                    LogUtils.LogException(LogSeverity.WARNING, e, _logPrefix + "GetDailySummaries");
                     result = "Failed at deserializing the saved DailySummaries";
                 }
             }
-            string finalResult = $"These are the DailySummaries we got the last time \"Pull keys\" was clicked:\n{result}";
+
+            string finalResult =
+                $"These are the DailySummaries we got the last time \"Pull keys\" was clicked:\n{result}";
             _clipboard.SetTextAsync(finalResult);
             return finalResult;
         }

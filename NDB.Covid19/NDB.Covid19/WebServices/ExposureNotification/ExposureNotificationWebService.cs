@@ -79,7 +79,8 @@ namespace NDB.Covid19.WebServices.ExposureNotification
 
         public async Task<DailySummaryConfiguration> GetDailySummaryConfiguration()
         {
-            ApiResponse<DailySummaryConfigurationDTO> response = await Get<DailySummaryConfigurationDTO>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION);
+            ApiResponse<DailySummaryConfigurationDTO> response =
+                await Get<DailySummaryConfigurationDTO>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION);
             HandleErrorsSilently(response);
 
             LogUtils.SendAllLogs();
@@ -90,12 +91,13 @@ namespace NDB.Covid19.WebServices.ExposureNotification
                 {
                     LocalPreferencesHelper.ScoreSumThreshold = response.Data.ScoreSumThreshold.Value;
                 }
+
                 return response.Data.DailySummaryConfiguration;
             }
 
             return null;
         }
-        
+
         /// <summary>
         ///     Fetch new keys, if there are any new.
         /// </summary>

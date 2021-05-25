@@ -6,9 +6,5 @@ namespace NDB.Covid19.Models
     {
         public DailySummaryConfiguration DailySummaryConfiguration { get; set; }
         public double? ScoreSumThreshold { get; set; }
-
-        public DailySummaryConfigurationDTO()
-        {
-        }
     }
 }
