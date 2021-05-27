@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2348">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17502"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,7 +24,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="770.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="tFY-jD-BcY">
-                                                <rect key="frame" x="20" y="40" width="335" height="848.5"/>
+                                                <rect key="frame" x="20" y="40" width="335" height="940.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dev Tools Output" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5939" customClass="ENDeveloperToolsOutputData">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
@@ -68,8 +68,26 @@
                                                             <action selector="ENDevShowExposureInfoBtn_TouchUpInside:" destination="2348" eventType="touchUpInside" id="11959"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2404">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cZ-4r-ErN">
                                                         <rect key="frame" x="0.0" y="220.5" width="335" height="30"/>
+                                                        <state key="normal" title="Show Daily Summary">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ENDevShowDailySummaryBtn_TouchUpInside:" destination="2348" id="19518" eventType="touchUpInside"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="URl-Ik-NGM">
+                                                        <rect key="frame" x="0.0" y="266.5" width="335" height="30"/>
+                                                        <state key="normal" title="Show Exposure Windows">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="ENDevShowExposureWindowBtn_TouchUpInside:" destination="2348" id="19519" eventType="touchUpInside"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2404">
+                                                        <rect key="frame" x="0.0" y="312.5" width="335" height="30"/>
                                                         <state key="normal" title="Retrieve Last Sent Key Information">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -78,7 +96,7 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="NfZ-8p-lg8">
-                                                        <rect key="frame" x="0.0" y="266.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="358.5" width="335" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6427">
                                                                 <rect key="frame" x="0.0" y="0.0" width="39" height="30"/>
@@ -110,7 +128,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4939">
-                                                        <rect key="frame" x="0.0" y="312.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="404.5" width="335" height="30"/>
                                                         <state key="normal" title="Send Exposure Message After 10 sec">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -119,7 +137,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9193">
-                                                        <rect key="frame" x="0.0" y="358.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="450.5" width="335" height="30"/>
                                                         <state key="normal" title="Last Used Exp. Configutation">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -128,7 +146,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2394">
-                                                        <rect key="frame" x="0.0" y="404.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="496.5" width="335" height="30"/>
                                                         <state key="normal" title="Fetch Exposure Configuration">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -137,7 +155,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3758">
-                                                        <rect key="frame" x="0.0" y="450.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="542.5" width="335" height="30"/>
                                                         <state key="normal" title="Toggle Message Retention Length">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -146,7 +164,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3759">
-                                                        <rect key="frame" x="0.0" y="496.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="588.5" width="335" height="30"/>
                                                         <state key="normal" title="Print Last SymptomOnsetDate">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -155,7 +173,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3760">
-                                                        <rect key="frame" x="0.0" y="542.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="634.5" width="335" height="30"/>
                                                         <state key="normal" title="Print Last Keys Pulled &amp; Timestamp">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -164,7 +182,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10113">
-                                                        <rect key="frame" x="0.0" y="588.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="680.5" width="335" height="30"/>
                                                         <state key="normal" title="Show Latest Pull Keys Times And Statuses">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -173,7 +191,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4940">
-                                                        <rect key="frame" x="0.0" y="634.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="726.5" width="335" height="30"/>
                                                         <state key="normal" title="Reset Device">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -182,7 +200,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14102">
-                                                        <rect key="frame" x="0.0" y="680.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="772.5" width="335" height="30"/>
                                                         <state key="normal" title="Fake Gateway">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -191,7 +209,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Swf-Or-fCU">
-                                                        <rect key="frame" x="0.0" y="726.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="818.5" width="335" height="30"/>
                                                         <state key="normal" title="Print Preferences">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -200,7 +218,7 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9Pc-MQ-o3x">
-                                                        <rect key="frame" x="0.0" y="772.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="864.5" width="335" height="30"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bf-wL-ohh">
                                                                 <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
@@ -232,12 +250,12 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7vw-Ui-5IF" userLabel="Pull with 10 sec delay">
-                                                        <rect key="frame" x="0.0" y="818.5" width="335" height="30"/>
+                                                        <rect key="frame" x="0.0" y="910.5" width="335" height="30"/>
                                                         <state key="normal" title="Pull with 10 sec delay">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="PullWithDelay_TouchUpInside:" destination="2348" id="17981" eventType="touchUpInside"/>
+                                                            <action selector="PullWithDelay_TouchUpInside:" destination="2348" eventType="touchUpInside" id="17981"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -311,8 +329,10 @@
                         <outlet property="ENDevShowSummaryBtn" destination="8304" id="name-outlet-8304"/>
                         <outlet property="ENDevToggleMessageRetentionBtn" destination="3758" id="name-outlet-3758"/>
                         <outlet property="NoConsentButton" destination="7Bf-wL-ohh" id="name-outlet-7Bf-wL-ohh"/>
-                        <outlet property="V1OnlyConsentButton" destination="JPT-Ru-OSp" id="name-outlet-JPT-Ru-OSp"/>
                         <outlet property="PullWithDelay" destination="7vw-Ui-5IF" id="name-outlet-7vw-Ui-5IF"/>
+                        <outlet property="V1OnlyConsentButton" destination="JPT-Ru-OSp" id="name-outlet-JPT-Ru-OSp"/>
+                        <outlet property="ENDevShowDailySummaryBtn" destination="4cZ-4r-ErN" id="name-outlet-4cZ-4r-ErN"/>
+                        <outlet property="ENDevShowExposureWindowBtn" destination="URl-Ik-NGM" id="name-outlet-URl-Ik-NGM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2350" userLabel="First Responder" sceneMemberID="firstResponder"/>

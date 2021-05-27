@@ -4,9 +4,9 @@
 // actions declared in your storyboard file.
 // Manual changes to this file will not be maintained.
 //
-
-using System.CodeDom.Compiler;
 using Foundation;
+using System;
+using System.CodeDom.Compiler;
 
 namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 {
@@ -79,7 +79,15 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton ENDevShowDailySummaryBtn { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton ENDevShowExposureInfoBtn { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton ENDevShowExposureWindowBtn { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -169,9 +177,17 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void ENDevSenExposureMessageAfter10SecBtn_TouchUpInside (UIKit.UIButton sender);
 
+        [Action ("ENDevShowDailySummaryBtn_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ENDevShowDailySummaryBtn_TouchUpInside (UIKit.UIButton sender);
+
         [Action ("ENDevShowExposureInfoBtn_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
         partial void ENDevShowExposureInfoBtn_TouchUpInside (UIKit.UIButton sender);
+
+        [Action ("ENDevShowExposureWindowBtn_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void ENDevShowExposureWindowBtn_TouchUpInside (UIKit.UIButton sender);
 
         [Action ("ENDevShowLatestPullKeysTimesAndStatusesBtn_TouchUpInside:")]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -279,9 +295,19 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
                 ENDevSenExposureMessageAfter10SecBtn = null;
             }
 
+            if (ENDevShowDailySummaryBtn != null) {
+                ENDevShowDailySummaryBtn.Dispose ();
+                ENDevShowDailySummaryBtn = null;
+            }
+
             if (ENDevShowExposureInfoBtn != null) {
                 ENDevShowExposureInfoBtn.Dispose ();
                 ENDevShowExposureInfoBtn = null;
+            }
+
+            if (ENDevShowExposureWindowBtn != null) {
+                ENDevShowExposureWindowBtn.Dispose ();
+                ENDevShowExposureWindowBtn = null;
             }
 
             if (ENDevShowLatestPullKeysTimesAndStatusesBtn != null) {

@@ -176,5 +176,15 @@ namespace NDB.Covid19.iOS.Views.ENDeveloperTools
         {
             _enDeveloperViewModel.PullWithDelay(_enDeveloperViewModel.PullKeysFromServer);
         }
+
+        partial void ENDevShowDailySummaryBtn_TouchUpInside(UIButton sender)
+        {
+            ENDevOutput.Text = _enDeveloperViewModel.GetDailySummaries();
+        }
+
+        partial void ENDevShowExposureWindowBtn_TouchUpInside(UIButton sender)
+        {
+            ENDevOutput.Text = _enDeveloperViewModel.GetExposureWindows();
+        }
     }
 }

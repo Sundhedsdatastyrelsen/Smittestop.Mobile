@@ -47,6 +47,8 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private Button _buttonSendExposureMessageIncrement;
         private Button _buttonShowLastExposureInfo;
         private Button _buttonShowLastSummary;
+        private Button _buttonShowLastDailySummary;
+        private Button _buttonShowLastExposureWindow;
         private Button _buttonShowLatestPullKeysTimesAndStatuses;
         private Button _buttonToggleMessageRetentionLength;
         private Button _pullWithDelay;
@@ -130,6 +132,14 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
                 FindViewById<Button>(Resource.Id.enDeveloperTools_button_showLastExposureInfo);
             _buttonShowLastExposureInfo.Click += new SingleClick((sender, args) => PrintLastExposureInfo()).Run;
 
+            _buttonShowLastDailySummary =
+                FindViewById<Button>(Resource.Id.enDeveloperTools_button_showLastDailySummary);
+            _buttonShowLastDailySummary.Click += new SingleClick((sender, args) => PrintLastDailySummary()).Run;
+
+            _buttonShowLastExposureWindow =
+                FindViewById<Button>(Resource.Id.enDeveloperTools_button_showLastExposureWindow);
+            _buttonShowLastExposureWindow.Click += new SingleClick((sender, args) => PrintLastExposureWindow()).Run;
+            
             _buttonShowLatestPullKeysTimesAndStatuses =
                 FindViewById<Button>(Resource.Id.enDeveloperTools_button_showLatestPullKeysTimesAndStatuses);
             _buttonShowLatestPullKeysTimesAndStatuses.Click +=
@@ -342,6 +352,16 @@ namespace NDB.Covid19.Droid.Views.ENDeveloperTools
         private void ShowLatestPullKeysTimesAndStatuses()
         {
             UpdateText(_viewModel.GetPullHistory());
+        }
+        
+        private void PrintLastExposureWindow()
+        {
+            UpdateText(_viewModel.GetExposureWindows());
+        }
+
+        private void PrintLastDailySummary()
+        {
+            UpdateText(_viewModel.GetDailySummaries());
         }
     }
 }
