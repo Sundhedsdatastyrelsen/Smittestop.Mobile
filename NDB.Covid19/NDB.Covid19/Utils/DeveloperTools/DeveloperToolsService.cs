@@ -7,11 +7,11 @@ using CommonServiceLocator;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
+using NDB.Covid19.ExposureNotifications.Proto;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
-using NDB.Covid19.ProtoModels;
 using Xamarin.ExposureNotifications;
-using TemporaryExposureKey = NDB.Covid19.ProtoModels.TemporaryExposureKey;
+using TemporaryExposureKey = NDB.Covid19.ExposureNotifications.Proto.TemporaryExposureKey;
 
 namespace NDB.Covid19.Utils.DeveloperTools
 {
@@ -156,7 +156,7 @@ namespace NDB.Covid19.Utils.DeveloperTools
                 }
             }
         }
-
+        
         public string TemporaryExposureKeyExportToPrettyString(TemporaryExposureKeyExport temporaryExposureKeyExport)
         {
             try
