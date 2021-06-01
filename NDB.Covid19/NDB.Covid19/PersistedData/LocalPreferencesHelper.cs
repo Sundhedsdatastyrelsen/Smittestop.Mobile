@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using CommonServiceLocator;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.ExposureNotifications.Helpers;
@@ -192,6 +193,7 @@ namespace NDB.Covid19.PersistedData
 
         public static void SetAppLanguage(string language)
         {
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(language, true);
             _preferences.Set(PreferencesKeys.APP_LANGUAGE, language);
         }
 
