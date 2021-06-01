@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using I18NPortable;
@@ -49,17 +50,19 @@ namespace NDB.Covid19.ViewModels
         public async Task<List<CountryDetailsViewModel>> GetListOfCountriesAsync()
         {
             CountryListDTO countryList = await new CountryListService().GetCountryList();
-            return countryList?
-                       .CountryCollection?
-                       .Select(x =>
-                           new CountryDetailsViewModel
-                           {
-                               Name = x.GetName(),
-                               Code = x.Code
-                           })
-                       .OrderBy(model => model.Name)
-                       .ToList()
-                   ?? new List<CountryDetailsViewModel>();
+            List<CountryDetailsViewModel> countries = countryList?
+                .CountryCollection?
+                .Select(x =>
+                    new CountryDetailsViewModel
+                    {
+                        Name = x.GetName(),
+                        Code = x.Code
+                    })
+                .OrderBy(model => 
+                    model.Name,
+                    StringComparer.Create(new CultureInfo(LocalesService.GetLanguage()), true))
+                .ToList();
+            return countries ?? new List<CountryDetailsViewModel>();
         }
 
         /// <summary>
