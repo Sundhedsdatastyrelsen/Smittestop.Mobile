@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="632">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="632">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1031">
-                                <rect key="frame" x="0.0" y="95" width="414" height="781"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="723"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdh-ph-nBx">
                                         <rect key="frame" x="24" y="0.0" width="366" height="781"/>
@@ -27,8 +28,8 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="ayS-tk-90N">
                                                         <rect key="frame" x="0.0" y="0.0" width="366" height="681"/>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ea-bc-qn7" customClass="DefaultBorderButton">
-                                                        <rect key="frame" x="121" y="731" width="124" height="50"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ea-bc-qn7" customClass="DefaultBorderButton">
+                                                        <rect key="frame" x="0.0" y="731" width="366" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="124" id="DSO-mb-IAL"/>
                                                             <constraint firstAttribute="height" constant="50" id="NpN-Q8-iPD"/>
@@ -48,6 +49,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="8Ea-bc-qn7" firstAttribute="width" secondItem="ayS-tk-90N" secondAttribute="width" id="Re0-Qb-9ML"/>
                                                     <constraint firstAttribute="trailing" secondItem="ayS-tk-90N" secondAttribute="trailing" id="cTz-a1-6or"/>
                                                     <constraint firstItem="ayS-tk-90N" firstAttribute="leading" secondItem="Uzn-YX-awd" secondAttribute="leading" id="jot-gq-Lf9"/>
                                                 </constraints>
@@ -72,9 +74,9 @@
                                 </constraints>
                             </scrollView>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="5" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z1O-pC-n5q">
-                                <rect key="frame" x="13" y="40" width="353" height="35"/>
+                                <rect key="frame" x="13" y="64" width="353" height="35"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="692">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="692">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="30" id="0LR-ij-UGK"/>
@@ -95,6 +97,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="RHP-9H-xBd"/>
                         <color key="backgroundColor" red="0.0061712670139968395" green="0.09414171427488327" blue="0.15225142240524292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Z1O-pC-n5q" firstAttribute="top" secondItem="RHP-9H-xBd" secondAttribute="top" constant="20" id="7FH-TV-RLU"/>
@@ -105,7 +108,6 @@
                             <constraint firstItem="1031" firstAttribute="top" secondItem="Z1O-pC-n5q" secondAttribute="bottom" constant="20" id="kK9-IF-Bnx"/>
                             <constraint firstItem="RHP-9H-xBd" firstAttribute="trailing" secondItem="Z1O-pC-n5q" secondAttribute="trailing" constant="48" id="xG9-ef-U3Y"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="RHP-9H-xBd"/>
                     </view>
                     <connections>
                         <outlet property="BackButton" destination="692" id="name-outlet-692"/>
@@ -119,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="634" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="366.6667" y="8.705358"/>
+            <point key="canvasLocation" x="366.66669999999999" y="8.7053580000000004"/>
         </scene>
     </scenes>
     <resources>
