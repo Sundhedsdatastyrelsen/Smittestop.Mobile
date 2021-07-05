@@ -1,65 +1,90 @@
 ﻿using System;
 using System.Collections.Generic;
-using NDB.Covid19.ExposureNotifications.Helpers;
+using System.Globalization;
+using System.Linq;
+using System.Threading;
 using NDB.Covid19.Models;
 using Xamarin.ExposureNotifications;
 using Xunit;
+using static NDB.Covid19.ExposureNotifications.Helpers.UploadDiagnosisKeysHelper;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
 {
     public class TransmissionRiskCalculationTest
     {
-        // 00:00 1 June 2020 UTC
-        private readonly DateTimeOffset june1 = DateTimeOffset.FromUnixTimeSeconds(1590969600);
+        private readonly DateTime _today = DateTime.Today;
 
-        private DateTime MiBaDate => new DateTime(2020, 6, 2);
-
-
-        [Fact]
-        public async void calculateTransmissionRiskbasedOnDateDifference()
+        public TransmissionRiskCalculationTest()
         {
-            // Create keys with different dates
-            ExposureKeyModel tekminus3 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(-3), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tekminus2 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(-2), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tekminus1 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(-1), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek2 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(2), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek3 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(3), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek4 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(4), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek5 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(5), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek6 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(6), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek7 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(7), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek8 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(8), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek9 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(9), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek10 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(10), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek11 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(11), TimeSpan.FromDays(1), RiskLevel.Invalid);
-            ExposureKeyModel tek12 =
-                new ExposureKeyModel(new byte[1], june1.AddDays(12), TimeSpan.FromDays(1), RiskLevel.Invalid);
+            DependencyInjectionConfig.Init();
+        }
 
+        private DateTime DateToSetDSOS => _today.AddDays(1);
+
+        private ExposureKeyModel TEK(int days)
+        {
+            return new ExposureKeyModel(
+                new byte[1],
+                _today.AddDays(days),
+                TimeSpan.FromDays(1),
+                RiskLevel.Invalid);
+        }
+
+        [Theory]
+        [InlineData("th-TH")]
+        [InlineData("en-US")]
+        [InlineData("pl-PL")]
+        [InlineData("ar-SA")]
+        public void calculateTransmissionRiskBasedOnDateDifferencePositive(string locale)
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(locale);
+
+            // Create keys with different dates
+            IEnumerable<ExposureKeyModel> temporaryExposureKeys =
+                RangeOfTEKs(2, 11);
 
             // Process a list of copies
-            IEnumerable<ExposureKeyModel> temporaryExposureKeys = new List<ExposureKeyModel>
-                {tek2, tek3, tek4, tek5, tek6, tek7, tek8, tek9, tek10, tek11, tek12};
-            IEnumerable<ExposureKeyModel> processedKeys =
-                UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
             List<ExposureKeyModel> validKeys =
-                UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(processedKeys);
+                CreateAValidListOfTemporaryExposureKeys(temporaryExposureKeys);
 
-            List<ExposureKeyModel> resultKeys = UploadDiagnosisKeysHelper.SetTransmissionRiskLevel(validKeys, MiBaDate);
+            List<ExposureKeyModel> resultKeys = SetTransmissionRiskAndDSOS(validKeys, DateToSetDSOS);
 
-            for (int i = 1; i < 11; i++)
+            AssertPositiveDaysTEKS(resultKeys);
+        }
+
+        [Theory]
+        [InlineData("th-TH")]
+        [InlineData("en-US")]
+        [InlineData("pl-PL")]
+        [InlineData("ar-SA")]
+        public void calculateTransmissionRiskBasedOnDateDifferenceNegative(string locale)
+        {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(locale);
+
+            // Create keys with different dates
+            IEnumerable<ExposureKeyModel> negativeDifferenceExposureKeys =
+                RangeOfTEKs(-3, 3);
+
+            // Process a list of copies
+            List<ExposureKeyModel> validNegativeDifferenceExposureKeys =
+                CreateAValidListOfTemporaryExposureKeys(
+                    negativeDifferenceExposureKeys);
+            List<ExposureKeyModel> resultKeysNegativeDifference =
+                SetTransmissionRiskAndDSOS(validNegativeDifferenceExposureKeys, DateToSetDSOS);
+
+            AssertNegativeDaysTEKS(resultKeysNegativeDifference);
+        }
+
+        private List<ExposureKeyModel> RangeOfTEKs(int start, int count)
+        {
+            return Enumerable.Range(start, count)
+                .Select(i => TEK(i))
+                .ToList();
+        }
+
+        private void AssertPositiveDaysTEKS(List<ExposureKeyModel> resultKeys)
+        {
+            for (int i = 1; i < resultKeys.Count; i++)
             {
                 if (i == 0)
                 {
@@ -86,32 +111,25 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                     Assert.Equal("Medium", resultKeys[i].TransmissionRiskLevel.ToString());
                 }
             }
+        }
 
-            IEnumerable<ExposureKeyModel> negativeDifferenceExposureKeys =
-                new List<ExposureKeyModel> {tekminus1, tekminus2, tekminus3};
-            IEnumerable<ExposureKeyModel> processedNegativeDifferenceExposureKeys =
-                UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(negativeDifferenceExposureKeys);
-            List<ExposureKeyModel> validNegativeDifferenceExposureKeys =
-                UploadDiagnosisKeysHelper.CreateAValidListOfTemporaryExposureKeys(
-                    processedNegativeDifferenceExposureKeys);
-            List<ExposureKeyModel> resultKeysNegativeDifference =
-                UploadDiagnosisKeysHelper.SetTransmissionRiskLevel(validNegativeDifferenceExposureKeys, MiBaDate);
-
-            for (int i = 1; i < 11; i++)
+        private void AssertNegativeDaysTEKS(List<ExposureKeyModel> resultKeysNegativeDifference)
+        {
+            for (int i = 0; i < resultKeysNegativeDifference.Count; i++)
             {
                 if (i == 0)
                 {
-                    Assert.Equal("Medium", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
+                    Assert.Equal("Lowest", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
                 }
 
                 if (i == 1)
                 {
-                    Assert.Equal("MediumLow", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
+                    Assert.Equal("Low", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
                 }
 
                 if (i == 2)
                 {
-                    Assert.Equal("Low", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
+                    Assert.Equal("MediumLow", resultKeysNegativeDifference[i].TransmissionRiskLevel.ToString());
                 }
             }
         }

@@ -66,6 +66,7 @@ namespace NDB.Covid19.WebServices
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
+
                     if (!string.IsNullOrEmpty(content))
                     {
                         result.ResponseText = content;

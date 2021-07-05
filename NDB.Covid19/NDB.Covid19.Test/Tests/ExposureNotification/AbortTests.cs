@@ -85,7 +85,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             Mock.Get(baseWebService).CallBase = true;
 
             bool postSelvExposureKeys = await new ExposureNotificationWebService()
-                .PostSelvExposureKeys(
+                .PostSelfExposureKeys(
                     new SelfDiagnosisSubmissionDTO
                     {
                         AppPackageName = "",

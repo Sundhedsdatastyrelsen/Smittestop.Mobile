@@ -44,7 +44,9 @@ namespace NDB.Covid19
 
         public static void SetInternationalization()
         {
-            I18N.Current.Locale = GetLanguage();
+            string language = GetLanguage();
+            I18N.Current.Locale = language;
+            CultureInfo.DefaultThreadCurrentCulture = new CultureInfo(language, true);
         }
     }
 }

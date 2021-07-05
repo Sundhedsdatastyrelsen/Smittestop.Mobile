@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using NDB.Covid19.ProtoModels;
+using NDB.Covid19.ExposureNotifications.Proto;
 using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.Utils.DeveloperTools
@@ -46,6 +46,18 @@ namespace NDB.Covid19.Utils.DeveloperTools
             set { }
         }
 
+        public string PersistedExposureWindows
+        {
+            get => "";
+            set { }
+        }
+
+        public string PersistedDailySummaries
+        {
+            get => "";
+            set { }
+        }
+
         public void ClearAllFields()
         {
             //There is nothing to clear in release mode, since nothing is persisted.
@@ -76,6 +88,16 @@ namespace NDB.Covid19.Utils.DeveloperTools
 
         public void AddToPullHistoryRecord(string message, string requestUrl)
         {
+        }
+
+        public void SaveExposureWindows(IEnumerable<ExposureWindow> windows)
+        {
+            //Exposure Windows are not saved in release mode for now
+        }
+
+        public void SaveLastDailySummaries(IEnumerable<DailySummary>? summaries)
+        {
+            //Daily Summaries are not saved in release mode for now
         }
     }
 }

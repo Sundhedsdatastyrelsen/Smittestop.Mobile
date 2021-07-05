@@ -9,24 +9,25 @@ using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using NDB.Covid19.WebServices.ErrorHandlers;
 using NDB.Covid19.WebServices.Helpers;
+using Xamarin.ExposureNotifications;
 
 namespace NDB.Covid19.WebServices.ExposureNotification
 {
     public class ExposureNotificationWebService : BaseWebService
     {
-        public async Task<bool> PostSelvExposureKeys(IEnumerable<ExposureKeyModel> temporaryExposureKeys)
+        public async Task<bool> PostSelfExposureKeys(IEnumerable<ExposureKeyModel> temporaryExposureKeys)
         {
-            return await PostSelvExposureKeys(new SelfDiagnosisSubmissionDTO(temporaryExposureKeys),
+            return await PostSelfExposureKeys(new SelfDiagnosisSubmissionDTO(temporaryExposureKeys),
                 temporaryExposureKeys);
         }
 
-        public async Task<bool> PostSelvExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
+        public async Task<bool> PostSelfExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
             IEnumerable<ExposureKeyModel> temporaryExposureKeys)
         {
-            return await PostSelvExposureKeys(selfDiagnosisSubmissionDTO, temporaryExposureKeys, this);
+            return await PostSelfExposureKeys(selfDiagnosisSubmissionDTO, temporaryExposureKeys, this);
         }
 
-        public async Task<bool> PostSelvExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
+        public async Task<bool> PostSelfExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
             IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
         {
             ApiResponse response = await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
@@ -71,6 +72,27 @@ namespace NDB.Covid19.WebServices.ExposureNotification
                 }
 
                 return response.Data.Configuration;
+            }
+
+            return null;
+        }
+
+        public async Task<DailySummaryConfiguration> GetDailySummaryConfiguration()
+        {
+            ApiResponse<DailySummaryConfigurationDTO> response =
+                await Get<DailySummaryConfigurationDTO>(Conf.URL_GET_DAILY_SUMMARY_CONFIGURATION);
+            HandleErrorsSilently(response);
+
+            LogUtils.SendAllLogs();
+
+            if (response.IsSuccessfull && response.Data?.DailySummaryConfiguration != null)
+            {
+                if (response.Data.ScoreSumThreshold.HasValue)
+                {
+                    LocalPreferencesHelper.ScoreSumThreshold = response.Data.ScoreSumThreshold.Value;
+                }
+
+                return response.Data.DailySummaryConfiguration;
             }
 
             return null;

@@ -7,8 +7,9 @@ namespace NDB.Covid19.Configuration
         private static readonly SecretsObj Secrets = SecretsInjection.GetSecrets();
 
         public static readonly string BaseUrl = Secrets.BaseUrl;
-        public static string AuthorizationHeader => Secrets.AuthHeader;
+
         public static readonly bool UseDeveloperTools = Secrets.UseDevTools;
+
         // Minimum hours between pulling keys
         public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(Secrets.FetchMinMinutes);
 
@@ -68,6 +69,13 @@ namespace NDB.Covid19.Configuration
 
         public static string IOSAppstoreAppLink = "itms-apps://itunes.apple.com/app/1516581736";
 
+        // EN API v2: Default score sum threshold for DailySummaryReport
+        // If score sum for a particular day is higher than this threshold,
+        // the app should generate Exposure Notification. The actual threshold is fetched together
+        // with DailySummaryConfiguration on each pull of the keys from server
+        public static readonly double SCORE_SUM_THRESHOLD = 780;
+        public static string AuthorizationHeader => Secrets.AuthHeader;
+
         //It takes around 25 seconds to download a zip file with 100.000 keys if you have 3G connection.
         //The timeout value takes this into consideration.
         public static int DEFAULT_TIMEOUT_SERVICECALLS_SECONDS => 40;
@@ -80,6 +88,10 @@ namespace NDB.Covid19.Configuration
         public static string URL_LOG_MESSAGE => URL_PREFIX + "logging/logMessages";
         public static string URL_PUT_UPLOAD_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_EXPOSURE_CONFIGURATION => URL_PREFIX + "diagnostickeys/exposureconfiguration";
+
+        public static string URL_GET_DAILY_SUMMARY_CONFIGURATION =>
+            URL_PREFIX + "diagnostickeys/dailysummaryconfiguration";
+
         public static string URL_GET_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_COUNTRY_LIST => URL_PREFIX + "countries";
         public static string URL_GET_SSI_DATA => URL_PREFIX + "covidstatistics";
