@@ -42,3 +42,60 @@
 # The same thing can be perform with any class of the app.
 #
 # AN IMPORTANT THING: FOR THIS SAMPLE YOU NEED DECLARE API_URL ENVIRONMENT VARIABLE IN APP CENTER BUILD CONFIGURATION.
+
+if [ -z "BaseUrl" ]
+then
+    echo "You need define the BaseUrl variable in App Center"
+    exit 1
+fi
+
+if [ -z "AuthHeader" ]
+then
+    echo "You need define the AuthHeader variable in App Center"
+    exit 1
+fi
+
+if [ -z "FetchMinMinutes" ]
+then
+    echo "You need define the FetchMinMinutes variable in App Center"
+    exit 1
+fi
+
+if [ -z "Oauth2ClientId" ]
+then
+    echo "You need define the Oauth2ClientId variable in App Center"
+    exit 1
+fi
+
+if [ -z "Oauth2Scope" ]
+then
+    echo "You need define the Oauth2Scope variable in App Center"
+    exit 1
+fi
+
+if [ -z "Oauth2RedirectUrl" ]
+then
+    echo "You need define the Oauth2RedirectUrl variable in App Center"
+fi
+
+if [ -z "Oauth2AuthoriseUrl" ]
+then
+    echo "You need define the Oauth2AuthoriseUrl variable in App Center"
+fi
+
+if [ -z "Oauth2AccessTokenUrl" ]
+then
+    echo "You need define the Oauth2AccessTokenUrl variable in App Center"
+fi
+
+if [ -z "Oauth2VerifyTokenPublicKey" ]
+then
+    echo "You need define the Oauth2VerifyTokenPublicKey variable in App Center"
+fi
+
+if [ -z "UseDevTools" ]
+then
+    echo "You need define the UseDevTools variable in App Center"
+fi
+
+CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/config.json
