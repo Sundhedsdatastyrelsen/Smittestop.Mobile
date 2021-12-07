@@ -130,7 +130,7 @@ then
     sed -i '' 's#"Oauth2VerifyTokenPublicKey": "[-A-Za-z0-9:_./]*"#"Oauth2VerifyTokenPublicKey": "'$Oauth2VerifyTokenPublicKey'"#' $CONF_FILE
 
     echo "Updating UseDevTools to $UseDevTools in config.json"
-    sed -i '' 's#"UseDevTools": [-A-Za-z0-9:_./]*#"UseDevTools": "'$UseDevTools'"#' $CONF_FILE
+    sed -i '' 's#"UseDevTools": [-A-Za-z0-9:_./]*#"UseDevTools": '$UseDevTools'#' $CONF_FILE
    
     echo "File content:"
     cat $CONF_FILE
