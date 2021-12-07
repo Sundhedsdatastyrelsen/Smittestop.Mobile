@@ -4,9 +4,9 @@
   "FetchMinMinutes": 120,
   "Oauth2ClientId": "",
   "Oauth2Scope": "",
-  "Oauth2RedirectUrl" : "",
-  "Oauth2AuthoriseUrl" : "",
-  "Oauth2AccessTokenUrl" : "",
-  "Oauth2VerifyTokenPublicKey" : "",
+  "Oauth2RedirectUrl": "",
+  "Oauth2AuthoriseUrl": "",
+  "Oauth2AccessTokenUrl": "",
+  "Oauth2VerifyTokenPublicKey": "",
   "UseDevTools": true
 }

@@ -109,10 +109,10 @@ then
     sed -i '' 's#"AuthHeader": "[-A-Za-z0-9:_./]*"#"AuthHeader": "'$AuthHeader'"#' $CONF_FILE
 
     echo "Updating FetchMinMinutes to $FetchMinMinutes in config.json"
-    sed -i '' 's#:"FetchMinMinutes": "[-A-Za-z0-9:_./]*"#"FetchMinMinutes": "'$FetchMinMinutes'"#' $CONF_FILE
+    sed -i '' 's#"FetchMinMinutes": [-A-Za-z0-9:_./]*#"FetchMinMinutes": '$FetchMinMinutes'#' $CONF_FILE
 
     echo "Updating Oauth2ClientId to $Oauth2ClientId in config.json"
-    sed -i '' 's#"Oauth2ClientId": [-A-Za-z0-9:_./]*#"Oauth2ClientId": '$Oauth2ClientId'#' $CONF_FILE
+    sed -i '' 's#"Oauth2ClientId": "[-A-Za-z0-9:_./]*"#"Oauth2ClientId": "'$Oauth2ClientId'"#' $CONF_FILE
 
     echo "Updating Oauth2Scope to $Oauth2Scope in config.json"
     sed -i '' 's#"Oauth2Scope": "[-A-Za-z0-9:_./]*"#"Oauth2Scope": "'$Oauth2Scope'"#' $CONF_FILE
@@ -130,7 +130,7 @@ then
     sed -i '' 's#"Oauth2VerifyTokenPublicKey": "[-A-Za-z0-9:_./]*"#"Oauth2VerifyTokenPublicKey": "'$Oauth2VerifyTokenPublicKey'"#' $CONF_FILE
 
     echo "Updating UseDevTools to $UseDevTools in config.json"
-    sed -i '' 's#"UseDevTools": "[-A-Za-z0-9:_./]*"#"UseDevTools": "'$UseDevTools'"#' $CONF_FILE
+    sed -i '' 's#"UseDevTools": [-A-Za-z0-9:_./]*#"UseDevTools": "'$UseDevTools'"#' $CONF_FILE
    
     echo "File content:"
     cat $CONF_FILE
