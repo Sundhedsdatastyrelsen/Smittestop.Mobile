@@ -112,25 +112,25 @@ then
     sed -i '' 's#:"FetchMinMinutes": "[-A-Za-z0-9:_./]*"#"FetchMinMinutes": "'$FetchMinMinutes'"#' $CONF_FILE
 
     echo "Updating Oauth2ClientId to $Oauth2ClientId in config.json"
-    sed -i '' 's#Oauth2ClientId = [-A-Za-z0-9:_./]*#Oauth2ClientId = '$Oauth2ClientId'#' $CONF_FILE
+    sed -i '' 's#"Oauth2ClientId": [-A-Za-z0-9:_./]*#"Oauth2ClientId": '$Oauth2ClientId'#' $CONF_FILE
 
     echo "Updating Oauth2Scope to $Oauth2Scope in config.json"
-    sed -i '' 's#Oauth2Scope = "[-A-Za-z0-9:_./]*"#Oauth2Scope = "'$Oauth2Scope'"#' $CONF_FILE
+    sed -i '' 's#"Oauth2Scope": "[-A-Za-z0-9:_./]*"#"Oauth2Scope": "'$Oauth2Scope'"#' $CONF_FILE
 
     echo "Updating Oauth2RedirectUrl to $Oauth2RedirectUrl in config.json"
-    sed -i '' 's#Oauth2RedirectUrl = "[-A-Za-z0-9:_./]*"#Oauth2RedirectUrl = "'$Oauth2RedirectUrl'"#' $CONF_FILE
+    sed -i '' 's#"Oauth2RedirectUrl": "[-A-Za-z0-9:_./]*"#"Oauth2RedirectUrl": "'$Oauth2RedirectUrl'"#' $CONF_FILE
 
     echo "Updating Oauth2AuthoriseUrl to $Oauth2AuthoriseUrl in config.json"
-    sed -i '' 's#Oauth2AuthoriseUrl = "[-A-Za-z0-9:_./]*"#Oauth2AuthoriseUrl = "'$Oauth2AuthoriseUrl'"#' $CONF_FILE
+    sed -i '' 's#"Oauth2AuthoriseUrl": "[-A-Za-z0-9:_./]*"#"Oauth2AuthoriseUrl": "'$Oauth2AuthoriseUrl'"#' $CONF_FILE
 
     echo "Updating Oauth2AccessTokenUrl to $Oauth2AccessTokenUrl in config.json"
-    sed -i '' 's#Oauth2AccessTokenUrl = "[-A-Za-z0-9:_./]*"#Oauth2AccessTokenUrl = "'$Oauth2AccessTokenUrl'"#' $CONF_FILE
+    sed -i '' 's#"Oauth2AccessTokenUrl": "[-A-Za-z0-9:_./]*"#"Oauth2AccessTokenUrl": "'$Oauth2AccessTokenUrl'"#' $CONF_FILE
 
     echo "Updating Oauth2VerifyTokenPublicKey to $Oauth2VerifyTokenPublicKey in config.json"
-    sed -i '' 's#Oauth2VerifyTokenPublicKey = "[-A-Za-z0-9:_./]*"#Oauth2VerifyTokenPublicKey = "'$Oauth2VerifyTokenPublicKey'"#' $CONF_FILE
+    sed -i '' 's#"Oauth2VerifyTokenPublicKey": "[-A-Za-z0-9:_./]*"#"Oauth2VerifyTokenPublicKey": "'$Oauth2VerifyTokenPublicKey'"#' $CONF_FILE
 
     echo "Updating UseDevTools to $UseDevTools in config.json"
-    sed -i '' 's#UseDevTools = "[-A-Za-z0-9:_./]*"#UseDevTools = "'$UseDevTools'"#' $CONF_FILE
+    sed -i '' 's#"UseDevTools": "[-A-Za-z0-9:_./]*"#"UseDevTools": "'$UseDevTools'"#' $CONF_FILE
    
     echo "File content:"
     cat $CONF_FILE
