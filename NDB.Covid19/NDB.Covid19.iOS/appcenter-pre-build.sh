@@ -103,7 +103,7 @@ CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/config.json
 if [ -e "$CONF_FILE" ]
 then
     echo "Updating BaseUrl to $BaseUrl in config.json"
-    sed -i '' 's#BaseUrl = "[-A-Za-z0-9:_./]*"#BaseUrl = "'$BaseUrl'"#' $CONF_FILE
+    sed -i '' 's#"BaseUrl" = "[-A-Za-z0-9:_./]*"#"BaseUrl" = "'$BaseUrl'"#' $CONF_FILE
 
     echo "Updating AuthHeader to $AuthHeader in config.json"
     sed -i '' 's#AuthHeader => "[-A-Za-z0-9:_./]*"#AuthHeader => "'$AuthHeader'"#' $CONF_FILE
