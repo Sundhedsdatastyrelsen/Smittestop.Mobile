@@ -103,13 +103,13 @@ CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/config.json
 if [ -e "$CONF_FILE" ]
 then
     echo "Updating BaseUrl to $BaseUrl in config.json"
-    sed -i '' 's#"BaseUrl" = "[-A-Za-z0-9:_./]*"#"BaseUrl" = "'$BaseUrl'"#' $CONF_FILE
+    sed -i '' 's#"BaseUrl": "[-A-Za-z0-9:_./]*"#"BaseUrl": "'$BaseUrl'"#' $CONF_FILE
 
     echo "Updating AuthHeader to $AuthHeader in config.json"
-    sed -i '' 's#AuthHeader => "[-A-Za-z0-9:_./]*"#AuthHeader => "'$AuthHeader'"#' $CONF_FILE
+    sed -i '' 's#"AuthHeader": "[-A-Za-z0-9:_./]*"#"AuthHeader": "'$AuthHeader'"#' $CONF_FILE
 
     echo "Updating FetchMinMinutes to $FetchMinMinutes in config.json"
-    sed -i '' 's#FetchMinMinutes => "[-A-Za-z0-9:_./]*"#FetchMinMinutes => "'$FetchMinMinutes'"#' $CONF_FILE
+    sed -i '' 's#:"FetchMinMinutes": "[-A-Za-z0-9:_./]*"#"FetchMinMinutes": "'$FetchMinMinutes'"#' $CONF_FILE
 
     echo "Updating Oauth2ClientId to $Oauth2ClientId in config.json"
     sed -i '' 's#Oauth2ClientId = [-A-Za-z0-9:_./]*#Oauth2ClientId = '$Oauth2ClientId'#' $CONF_FILE
