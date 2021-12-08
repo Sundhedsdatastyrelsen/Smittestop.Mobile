@@ -41,7 +41,6 @@ jobs:
         run: |
           cd NDB.Covid19
           nuget restore
-          cd NDB.Covid19.Droid
           msbuild NDB.Covid19.Droid/NDB.Covid19.Droid.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
 
   iOS:
@@ -52,4 +51,4 @@ jobs:
         run: |
           cd NDB.Covid19
           nuget restore
-          msbuild NDB.Covid19.iOS/NDB.Covid19.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debu
+          msbuild NDB.Covid19.iOS/NDB.Covid19.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
