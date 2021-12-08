@@ -59,7 +59,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: Dotnet Tests
         run: |
-          cd NDB.Covid19/NDB.Covid19.Test
-          nuget restore
+          cd NDB.Covid19
+          dotnet restore
+          cd NDB.Covid19.Test
           dotnet build -c UNIT_TEST --no-restore --verbosity normal
           dotnet test -c UNIT_TEST --no-restore --verbosity normal
