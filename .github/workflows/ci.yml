@@ -1,0 +1,41 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on pull request events but only for the master and develop branch
+  pull_request:
+    branches: [ master, develop ]
+  
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: windows-2022
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
+      
+      - name: Show what's in the directory
+        run: |
+          ls
+      - name: Show what all is in the parent directory
+        run: |
+          cd ..
+          ls
+
+      - name: Restore, Build, test, and pack
+        uses: Elskom/build-dotnet@main
+        with:
+          SOLUTION_FILE_PATH: "NDB.Covid19/NDB.Covid19.sln"
+          TEST: true
+          PACK: false
