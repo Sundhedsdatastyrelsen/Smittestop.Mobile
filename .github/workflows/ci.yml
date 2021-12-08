@@ -33,9 +33,23 @@ jobs:
           cd ..
           ls
 
-      - name: Restore, Build, test, and pack
-        uses: Elskom/build-dotnet@main
-        with:
-          SOLUTION_FILE_PATH: "NDB.Covid19/NDB.Covid19.sln"
-          TEST: true
-          PACK: false
+  Android:
+      runs-on: macos-latest
+      steps:
+      - uses: actions/checkout@v1
+      - name: Android
+        run: |
+          cd NDB.Covid19
+          nuget restore
+          cd NDB.Covid19.Android
+          msbuild NDB.Covid19.Android/NDB.Covid19.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+
+  iOS:
+      runs-on: macos-latest
+      steps:
+      - uses: actions/checkout@v1
+      - name: iOS
+        run: |
+          cd NDB.Covid19
+          nuget restore
+          msbuild NDB.Covid19.iOS/BlNDB.Covid19ank.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debu
