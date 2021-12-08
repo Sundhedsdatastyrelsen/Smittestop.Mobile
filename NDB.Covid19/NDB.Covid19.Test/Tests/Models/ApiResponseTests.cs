@@ -66,7 +66,7 @@ namespace NDB.Covid19.Test.Tests.Models
         {
             ApiResponse res = new ApiResponse("Url", HttpMethod.Get);
             res.StatusCode = (int) httpStatus;
-            Assert.False(!res.IsSuccessfull);
+            Assert.False(res.IsSuccessfull);
         }
 
         [Theory]
