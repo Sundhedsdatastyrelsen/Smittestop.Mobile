@@ -60,4 +60,6 @@ jobs:
       - name: Dotnet Tests
         run: |
           cd NDB.Covid19/NDB.Covid19.Test
-          dotnet test --verbosity normal -c UNIT_TEST --no-restore
+          nuget restore
+          dotnet build -c UNIT_TEST --no-restore --verbosity normal
+          dotnet test -c UNIT_TEST --no-restore --verbosity normal
