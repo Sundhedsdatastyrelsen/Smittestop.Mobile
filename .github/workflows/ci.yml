@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  Android:
+      runs-on: macos-latest
+      steps:
+      - uses: actions/checkout@v1
+      - name: Build Android
+        run: |
+          cd NDB.Covid19
+          nuget restore
+          msbuild NDB.Covid19.Droid/NDB.Covid19.Droid.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+
+  iOS:
+      runs-on: macos-latest
+      steps:
+      - uses: actions/checkout@v1
+      - name: Build iOS
+        run: |
+          cd NDB.Covid19
+          nuget restore
+          msbuild NDB.Covid19.iOS/NDB.Covid19.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+
+  Unit_Tests:
+      runs-on: windows-latest
+      steps:
+      - uses: actions/checkout@v1
+      - name: Run Unit Tests
+        run: |
+          cd NDB.Covid19
+          dotnet restore
+          cd NDB.Covid19.Test
+          dotnet build -c UNIT_TEST --no-restore --verbosity normal
+          dotnet test -c UNIT_TEST --no-restore --verbosity normal
