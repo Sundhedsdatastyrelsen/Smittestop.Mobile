@@ -41,8 +41,8 @@ jobs:
         run: |
           cd NDB.Covid19
           nuget restore
-          cd NDB.Covid19.Android
-          msbuild NDB.Covid19.Android/NDB.Covid19.Android.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
+          cd NDB.Covid19.Droid
+          msbuild NDB.Covid19.Droid/NDB.Covid19.Droid.csproj /verbosity:normal /t:Rebuild /p:Configuration=Debug
 
   iOS:
       runs-on: macos-latest
@@ -52,4 +52,4 @@ jobs:
         run: |
           cd NDB.Covid19
           nuget restore
-          msbuild NDB.Covid19.iOS/BlNDB.Covid19ank.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debu
+          msbuild NDB.Covid19.iOS/NDB.Covid19.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debu
