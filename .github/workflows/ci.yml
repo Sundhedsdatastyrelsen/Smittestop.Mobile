@@ -58,11 +58,6 @@ jobs:
       steps:
       - uses: actions/checkout@v1
       - name: Dotnet Tests
-        uses: EasyDesk/action-dotnet-test@v1.0.0
-        with:
-          build-configuration: 'UNIT_TEST'
-          # The path to the project or solution to test (defaults to the current directory).
-          path: 'NDB.Covid19/NDB.Covid19.Test/NDB.Covid19.Test.csproj'
-          # Whether or not to skip the build using the '--no-build' flag (defaults to true).
-          skip-build: true
-      
+        run: |
+          cd NDB.Covid19
+          dotnet test --no-restore --verbosity normal
