@@ -22,12 +22,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      - name: Build DotNet
+        # You may pin to the exact commit or the version.
+        # uses: Elskom/build-dotnet@54d97a0f7d5d5ca946404976db00d27386b09254
+        uses: Elskom/build-dotnet@v1.1.1
+        with:
+          # Filepath of the solution of which contains all the projects to be built, optionally tested and packed, relative to root of repository
+          SOLUTION_FILE_PATH: $GITHUB_WORKSPACE/NDB.Covid19/NDB.Covid19.sln
+          # Flag to toggle running unit tests for the projects built, disabled by default
+          TEST: true
+          # Flag to toggle packing the projects built
+          PACK: false
