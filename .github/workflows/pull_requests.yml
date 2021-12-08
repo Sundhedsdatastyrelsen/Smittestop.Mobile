@@ -21,6 +21,9 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      - uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 5.0.x
       
       - name: Show what's in the directory
         run: |
@@ -30,12 +33,10 @@ jobs:
           cd ..
           ls
 
-      - name: Install latest .NET SDK
-        uses: Elskom/setup-latest-dotnet@main
-
       - name: Restore, Build, test, and pack
         uses: Elskom/build-dotnet@main
         with:
+          SOLUTION_FILE_PATH: "NDB.Covid19/NDB.Covid19.sln"
           TEST: true
           PACK: false
 
