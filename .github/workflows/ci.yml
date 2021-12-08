@@ -52,3 +52,17 @@ jobs:
           cd NDB.Covid19
           nuget restore
           msbuild NDB.Covid19.iOS/NDB.Covid19.iOS.csproj /verbosity:normal /t:Rebuild /p:Platform=iPhoneSimulator /p:Configuration=Debug
+          
+  Unit_Tests:
+      runs-on: windows-latest
+      steps:
+      - uses: actions/checkout@v1
+      - name: Dotnet Tests
+        uses: EasyDesk/action-dotnet-test@v1.0.0
+        with:
+          build-configuration: 'UNIT_TEST'
+          # The path to the project or solution to test (defaults to the current directory).
+          path: 'NDB.Covid19/NDB.Covid19.Test/NDB.Covid19.Test.csproj'
+          # Whether or not to skip the build using the '--no-build' flag (defaults to true).
+          skip-build: true
+      
