@@ -15,7 +15,7 @@ namespace NDB.Covid19.Configuration
                     StreamReader reader =
                         new StreamReader(
                             assembly.GetManifestResourceStream(
-                                "NDB.Covid19.config.json")))
+                                $"{typeof(SecretsInjection).Namespace}.config.json")))
                 {
                     return JsonConvert.DeserializeObject<SecretsObj>(reader.ReadToEnd());
                 }
