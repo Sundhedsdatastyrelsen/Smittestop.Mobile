@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 
@@ -11,11 +12,16 @@ namespace NDB.Covid19.Configuration
             try
             {
                 Assembly assembly = typeof(SecretsInjection).GetTypeInfo().Assembly;
+                string configJsonResource = assembly.GetManifestResourceNames().SingleOrDefault(x => x.Contains("config.json"));
+                if (string.IsNullOrEmpty(configJsonResource))
+                {
+                    throw new FileNotFoundException($"{nameof(SecretsInjection)}.{nameof(GetSecrets)}: Could not locate config.json file");
+                }
+
                 using (
                     StreamReader reader =
                         new StreamReader(
-                            assembly.GetManifestResourceStream(
-                                "NDB.Covid19.config.json")))
+                            assembly.GetManifestResourceStream(configJsonResource)))
                 {
                     return JsonConvert.DeserializeObject<SecretsObj>(reader.ReadToEnd());
                 }
