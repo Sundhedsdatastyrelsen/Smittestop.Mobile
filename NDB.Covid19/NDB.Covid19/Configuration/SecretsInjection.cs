@@ -13,7 +13,10 @@ namespace NDB.Covid19.Configuration
             {
                 Assembly assembly = typeof(SecretsInjection).GetTypeInfo().Assembly;
                 string configJsonResource = assembly.GetManifestResourceNames().SingleOrDefault(x => x.Contains("config.json"));
-                if (string.IsNullOrEmpty(configJsonResource)) throw new FileNotFoundException("Missing config.json");
+                if (string.IsNullOrEmpty(configJsonResource))
+                {
+                    throw new FileNotFoundException($"{nameof(SecretsInjection)}.{nameof(GetSecrets)}: Could not locate config.json file");
+                }
 
                 using (
                     StreamReader reader =
