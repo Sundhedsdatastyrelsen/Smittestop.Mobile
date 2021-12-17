@@ -43,99 +43,106 @@
 #
 # AN IMPORTANT THING: FOR THIS SAMPLE YOU NEED DECLARE API_URL ENVIRONMENT VARIABLE IN APP CENTER BUILD CONFIGURATION.
 
-if [ -z "BaseUrl" ]
+if [ -z "BASE_URL" ]
 then
-    echo "You need define the BaseUrl variable in App Center"
+    echo "You need define the BASE_URL variable in App Center"
     exit 1
 fi
 
-if [ -z "AuthHeader" ]
+if [ -z "AUTHORIZATION_HEADER" ]
 then
-    echo "You need define the AuthHeader variable in App Center"
+    echo "You need define the AUTHORIZATION_HEADER variable in App Center"
     exit 1
 fi
 
-if [ -z "FetchMinMinutes" ]
+if [ -z "USER_AGENT_HEADER" ]
 then
-    echo "You need define the FetchMinMinutes variable in App Center"
+    echo "You need define the USER_AGENT_HEADER variable in App Center"
     exit 1
 fi
 
-if [ -z "Oauth2ClientId" ]
+if [ -z "FETCH_MIN_HOURS_BETWEEN_PULL" ]
 then
-    echo "You need define the Oauth2ClientId variable in App Center"
+    echo "You need define the FETCH_MIN_HOURS_BETWEEN_PULL variable in App Center"
     exit 1
 fi
 
-if [ -z "Oauth2Scope" ]
+if [ -z "OAUTH2_BASE_URL" ]
 then
-    echo "You need define the Oauth2Scope variable in App Center"
+    echo "You need define the OAUTH2_BASE_URL variable in App Center"
     exit 1
 fi
 
-if [ -z "Oauth2RedirectUrl" ]
+if [ -z "OAUTH2_CLIENT_ID" ]
 then
-    echo "You need define the Oauth2RedirectUrl variable in App Center"
+    echo "You need define the OAUTH2_CLIENT_ID variable in App Center"
+    exit 1
 fi
 
-if [ -z "Oauth2AuthoriseUrl" ]
+if [ -z "OAUTH2_SCOPE" ]
 then
-    echo "You need define the Oauth2AuthoriseUrl variable in App Center"
+    echo "You need define the OAUTH2_SCOPE variable in App Center"
+    exit 1
 fi
 
-if [ -z "Oauth2AccessTokenUrl" ]
+if [ -z "OAUTH2_REDIRECT_URL" ]
 then
-    echo "You need define the Oauth2AccessTokenUrl variable in App Center"
+    echo "You need define the OAUTH2_REDIRECT_URL variable in App Center"
+    exit 1
 fi
 
-if [ -z "Oauth2VerifyTokenPublicKey" ]
+if [ -z "OAUTH2_VERIFY_TOKEN_PUBLIC_KEY" ]
 then
-    echo "You need define the Oauth2VerifyTokenPublicKey variable in App Center"
+    echo "You need define the OAUTH2_VERIFY_TOKEN_PUBLIC_KEY variable in App Center"
+    exit 1
 fi
 
-if [ -z "UseDevTools" ]
-then
-    echo "You need define the UseDevTools variable in App Center"
-fi
-
-CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/config.json
+CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/Configuration/Conf.cs
+OAUTH_CONF_FILE=$APPCENTER_SOURCE_DIRECTORY/NDB.Covid19/NDB.Covid19/Configuration/OAuthConf.cs
 
 if [ -e "$CONF_FILE" ]
 then
-    echo "Updating BaseUrl to $BaseUrl in config.json"
-    sed -i '' 's#"BaseUrl": "[-A-Za-z0-9:_./]*"#"BaseUrl": "'$BaseUrl'"#' $CONF_FILE
+    echo "Updating BASE_URL to $BASE_URL in Conf.cs"
+    sed -i '' 's#BASE_URL = "[-A-Za-z0-9:_./]*"#BASE_URL = "'$BASE_URL'"#' $CONF_FILE
 
-    echo "Updating AuthHeader to $AuthHeader in config.json"
-    sed -i '' 's#"AuthHeader": "[-A-Za-z0-9:_./]*"#"AuthHeader": "'$AuthHeader'"#' $CONF_FILE
+    echo "Updating AUTHORIZATION_HEADER to $AUTHORIZATION_HEADER in Conf.cs"
+    sed -i '' 's#AUTHORIZATION_HEADER => "[-A-Za-z0-9:_./]*"#AUTHORIZATION_HEADER => "'$AUTHORIZATION_HEADER'"#' $CONF_FILE
 
-    echo "Updating FetchMinMinutes to $FetchMinMinutes in config.json"
-    sed -i '' 's#"FetchMinMinutes": [-A-Za-z0-9:_./]*#"FetchMinMinutes": '$FetchMinMinutes'#' $CONF_FILE
+    echo "Updating USER_AGENT_HEADER to $USER_AGENT_HEADER in Conf.cs"
+    sed -i '' 's#USER_AGENT_HEADER => "[-A-Za-z0-9:_./]*"#USER_AGENT_HEADER => "'$USER_AGENT_HEADER'"#' $CONF_FILE
 
-    echo "Updating Oauth2ClientId to $Oauth2ClientId in config.json"
-    sed -i '' 's#"Oauth2ClientId": "[-A-Za-z0-9:_./]*"#"Oauth2ClientId": "'$Oauth2ClientId'"#' $CONF_FILE
+    echo "Updating FETCH_MIN_HOURS_BETWEEN_PULL to $FETCH_MIN_HOURS_BETWEEN_PULL in Conf.cs"
+    sed -i '' 's#FETCH_MIN_HOURS_BETWEEN_PULL = [-A-Za-z0-9:_./()]*#FETCH_MIN_HOURS_BETWEEN_PULL = '$FETCH_MIN_HOURS_BETWEEN_PULL'#' $CONF_FILE
 
-    echo "Updating Oauth2Scope to $Oauth2Scope in config.json"
-    sed -i '' 's#"Oauth2Scope": "[-A-Za-z0-9:_./]*"#"Oauth2Scope": "'$Oauth2Scope'"#' $CONF_FILE
-
-    echo "Updating Oauth2RedirectUrl to $Oauth2RedirectUrl in config.json"
-    sed -i '' 's#"Oauth2RedirectUrl": "[-A-Za-z0-9:_./]*"#"Oauth2RedirectUrl": "'$Oauth2RedirectUrl'"#' $CONF_FILE
-
-    echo "Updating Oauth2AuthoriseUrl to $Oauth2AuthoriseUrl in config.json"
-    sed -i '' 's#"Oauth2AuthoriseUrl": "[-A-Za-z0-9:_./]*"#"Oauth2AuthoriseUrl": "'$Oauth2AuthoriseUrl'"#' $CONF_FILE
-
-    echo "Updating Oauth2AccessTokenUrl to $Oauth2AccessTokenUrl in config.json"
-    sed -i '' 's#"Oauth2AccessTokenUrl": "[-A-Za-z0-9:_./]*"#"Oauth2AccessTokenUrl": "'$Oauth2AccessTokenUrl'"#' $CONF_FILE
-
-    echo "Updating Oauth2VerifyTokenPublicKey to $Oauth2VerifyTokenPublicKey in config.json"
-    sed -i '' 's#"Oauth2VerifyTokenPublicKey": "[-A-Za-z0-9:_./]*"#"Oauth2VerifyTokenPublicKey": "'$Oauth2VerifyTokenPublicKey'"#' $CONF_FILE
-
-    echo "Updating UseDevTools to $UseDevTools in config.json"
-    sed -i '' 's#"UseDevTools": [-A-Za-z0-9:_./]*#"UseDevTools": '$UseDevTools'#' $CONF_FILE
-   
     echo "File content:"
     cat $CONF_FILE
     echo "Finished updating $CONF_FILE"
 else
     echo "$CONF_FILE is missing"
+    exit 1
+fi
+
+if [ -e "$OAUTH_CONF_FILE" ]
+then
+    echo "Updating OAUTH2_BASE_URL to $OAUTH2_BASE_URL in OAuthConf.cs"
+    sed -i '' 's#OAUTH2_BASE_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_BASE_URL = "'$OAUTH2_BASE_URL'"#' $OAUTH_CONF_FILE
+
+    echo "Updating OAUTH2_CLIENT_ID to $OAUTH2_CLIENT_ID in OAuthConf.cs"
+    sed -i '' 's#OAUTH2_CLIENT_ID = "[-A-Za-z0-9:_./]*"#OAUTH2_CLIENT_ID = "'$OAUTH2_CLIENT_ID'"#' $OAUTH_CONF_FILE
+
+    echo "Updating OAUTH2_SCOPE to $OAUTH2_SCOPE in OAuthConf.cs"
+    sed -i '' 's#OAUTH2_SCOPE = "[-A-Za-z0-9:_./]*"#OAUTH2_SCOPE = "'$OAUTH2_SCOPE'"#' $OAUTH_CONF_FILE
+
+    echo "Updating OAUTH2_REDIRECT_URL to $OAUTH2_REDIRECT_URL in OAuthConf.cs"
+    sed -i '' 's#OAUTH2_REDIRECT_URL = "[-A-Za-z0-9:_./]*"#OAUTH2_REDIRECT_URL = "'$OAUTH2_REDIRECT_URL'"#' $OAUTH_CONF_FILE
+
+    echo "Updating OAUTH2_VERIFY_TOKEN_PUBLIC_KEY to $OAUTH2_VERIFY_TOKEN_PUBLIC_KEY in OAuthConf.cs"
+    sed -i '' 's#OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "[-A-Za-z0-9:_./]*"#OAUTH2_VERIFY_TOKEN_PUBLIC_KEY = "'$OAUTH2_VERIFY_TOKEN_PUBLIC_KEY'"#' $OAUTH_CONF_FILE
+
+    echo "File content:"
+    cat $OAUTH_CONF_FILE
+    echo "Finished updating $OAUTH_CONF_FILE"
+else
+    echo "$OAUTH_CONF_FILE is missing"
     exit 1
 fi

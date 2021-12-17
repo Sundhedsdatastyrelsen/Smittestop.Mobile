@@ -4,14 +4,19 @@ namespace NDB.Covid19.Configuration
 {
     public class Conf
     {
-        private static readonly SecretsObj Secrets = SecretsInjection.GetSecrets();
+        public static readonly string BASE_URL = "http://localhost:9095/";
+        public static string AUTHORIZATION_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
+        public static string USER_AGENT_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
 
-        public static readonly string BaseUrl = Secrets.BaseUrl;
-
-        public static readonly bool UseDeveloperTools = Secrets.UseDevTools;
+#if RELEASE
+        public static bool UseDeveloperTools => false;
+#else
+        public static bool UseDeveloperTools => true;
+#endif
 
         // Minimum hours between pulling keys
-        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(Secrets.FetchMinMinutes);
+        // Different intervals are automatically injected for test and production builds by App Center
+        public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(120);
 
         public static readonly int APIVersion = 2;
         public static string DEFAULT_LANGUAGE = "da"; //In case the device is set to use an unsupported language
@@ -74,7 +79,6 @@ namespace NDB.Covid19.Configuration
         // the app should generate Exposure Notification. The actual threshold is fetched together
         // with DailySummaryConfiguration on each pull of the keys from server
         public static readonly double SCORE_SUM_THRESHOLD = 780;
-        public static string AuthorizationHeader => Secrets.AuthHeader;
 
         //It takes around 25 seconds to download a zip file with 100.000 keys if you have 3G connection.
         //The timeout value takes this into consideration.
@@ -84,7 +88,7 @@ namespace NDB.Covid19.Configuration
         public static int MESSAGE_RETENTION_TIME_IN_MINUTES_LONG => 14 * 24 * 60;
 
         // --- Urls ---
-        public static string URL_PREFIX => $"{BaseUrl}v{APIVersion}/";
+        public static string URL_PREFIX => $"{BASE_URL}v{APIVersion}/";
         public static string URL_LOG_MESSAGE => URL_PREFIX + "logging/logMessages";
         public static string URL_PUT_UPLOAD_DIAGNOSIS_KEYS => URL_PREFIX + "diagnostickeys";
         public static string URL_GET_EXPOSURE_CONFIGURATION => URL_PREFIX + "diagnostickeys/exposureconfiguration";
