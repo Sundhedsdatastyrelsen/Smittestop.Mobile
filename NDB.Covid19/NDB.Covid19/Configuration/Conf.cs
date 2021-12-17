@@ -6,8 +6,6 @@ namespace NDB.Covid19.Configuration
     {
         public static readonly string BASE_URL = "http://localhost:9095/";
         public static string AUTHORIZATION_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
-        public static string USER_AGENT_HEADER => "INJECTED_IN_APP_CENTER_DURING_BUILD";
-
 #if RELEASE
         public static bool UseDeveloperTools => false;
 #else

@@ -55,12 +55,6 @@ then
     exit 1
 fi
 
-if [ -z "USER_AGENT_HEADER" ]
-then
-    echo "You need define the USER_AGENT_HEADER variable in App Center"
-    exit 1
-fi
-
 if [ -z "FETCH_MIN_HOURS_BETWEEN_PULL" ]
 then
     echo "You need define the FETCH_MIN_HOURS_BETWEEN_PULL variable in App Center"
@@ -107,9 +101,6 @@ then
 
     echo "Updating AUTHORIZATION_HEADER to $AUTHORIZATION_HEADER in Conf.cs"
     sed -i '' 's#AUTHORIZATION_HEADER => "[-A-Za-z0-9:_./]*"#AUTHORIZATION_HEADER => "'$AUTHORIZATION_HEADER'"#' $CONF_FILE
-
-    echo "Updating USER_AGENT_HEADER to $USER_AGENT_HEADER in Conf.cs"
-    sed -i '' 's#USER_AGENT_HEADER => "[-A-Za-z0-9:_./]*"#USER_AGENT_HEADER => "'$USER_AGENT_HEADER'"#' $CONF_FILE
 
     echo "Updating FETCH_MIN_HOURS_BETWEEN_PULL to $FETCH_MIN_HOURS_BETWEEN_PULL in Conf.cs"
     sed -i '' 's#FETCH_MIN_HOURS_BETWEEN_PULL = [-A-Za-z0-9:_./()]*#FETCH_MIN_HOURS_BETWEEN_PULL = '$FETCH_MIN_HOURS_BETWEEN_PULL'#' $CONF_FILE
