@@ -24,7 +24,7 @@ namespace NDB.Covid19.WebServices.Utils
                 new MediaTypeWithQualityHeaderValue("text/plain"));
             HttpClientAccessor.HttpClient.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/zip"));
-            HttpClientAccessor.HttpClient.DefaultRequestHeaders.Add("Authorization_Mobile", Conf.AuthorizationHeader);
+            HttpClientAccessor.HttpClient.DefaultRequestHeaders.Add("Authorization_Mobile", Conf.AUTHORIZATION_HEADER);
 
             // If running on a platform that is not supported by Xamarin.Essentials (for example if unit testing)
             IDeviceInfo deviceInfo = ServiceLocator.Current.GetInstance<IDeviceInfo>();
