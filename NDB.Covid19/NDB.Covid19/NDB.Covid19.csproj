@@ -89,11 +89,9 @@
   <ItemGroup>
     <None Remove="Locales\da.json" />
     <None Remove="Locales\en.json" />
-    <None Remove="config.json" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Locales\da.json" />
     <EmbeddedResource Include="Locales\en.json" />
-    <EmbeddedResource Include="config.json" />
   </ItemGroup>
 </Project>
