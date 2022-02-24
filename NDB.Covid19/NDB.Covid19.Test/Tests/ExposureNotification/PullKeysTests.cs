@@ -20,7 +20,7 @@ using Xunit;
 
 namespace NDB.Covid19.Test.Tests.ExposureNotification
 {
-    public class PullKeysTests
+    public class PullKeysTests : IDisposable
     {
         private readonly IDeveloperToolsService _developerTools;
         private readonly ZipDownloaderHelper _helper;
@@ -58,6 +58,12 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             _preferences.Clear();
             _logManager.DeleteAll();
             _developerTools.ClearAllFields();
+        }
+
+        public void Dispose()
+        {
+            //Reset system time
+            SystemTime.ResetDateTime();
         }
 
         [Theory]
@@ -943,7 +949,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
             //Clean up log
             await _logManager.DeleteAll();
         }
-
 
         private List<PullKeysMockData> SixteenDaysOfKeys()
         {
