@@ -335,5 +335,10 @@
   "SMITTESPORING_DISEASE_RATE_HEADER": "See daily update",
   "SMITTESPORING_DISEASE_RATE_UPDATE": "Last updated on {0} at {1}",
   "SMITTESPORING_DISEASE_RATE_UPDATE_ACCESSIBILITY": "Last updated on {0} at {1}",
-  "SMITTESPORING_SCROLL": "Scroll down"
+  "SMITTESPORING_SCROLL": "Scroll down",
+  "FAREWELL_SMITTESTOP_TITLE": "Farewell, Smitte|stop!",
+  "FAREWELL_SMITTESTOP_BODY_ONE": "Smitte|stop is no longer maintained and you can now delete the app",
+  "FAREWELL_SMITTESTOP_BODY_TWO": "The app will not fetch new keys and it is no longer possible to report infected and get exposure notification",
+  "FAREWELL_SMITTESTOP_BODY_THREE": "You can keep the app. In case, Smitte|stop will be enabled again, you will receive the app update",
+  "FAREWELL_SMITTESTOP_BUTTON_TEXT": "OK, I Understand"
 }
