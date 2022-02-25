@@ -13,12 +13,15 @@ namespace NDB.Covid19.Droid.Utils
 {
     internal class BackgroundFetchScheduler
     {
+        private static readonly string uniqueWorkName = "exposurenotification";
+
         public static void ScheduleBackgroundFetch()
         {
             if(Conf.APP_DISABLED)
             {
                 Debug.Print($"APP_DISABLED: Not scheduling background work");
                 DeviceUtils.StopScanServices(); // Stop scan services if running.
+                WorkManager.GetInstance(Platform.AppContext).CancelUniqueWork(uniqueWorkName); // Stop work if running.
                 return;
             }
 
@@ -44,8 +47,7 @@ namespace NDB.Covid19.Droid.Utils
             PeriodicWorkRequest periodicWorkRequest = periodicWorkRequestBuilder.Build();
 
             WorkManager workManager = WorkManager.GetInstance(Platform.AppContext);
-
-            workManager.EnqueueUniquePeriodicWork("exposurenotification",
+            workManager.EnqueueUniquePeriodicWork(uniqueWorkName,
                 ExistingPeriodicWorkPolicy.Keep,
                 periodicWorkRequest);
         }

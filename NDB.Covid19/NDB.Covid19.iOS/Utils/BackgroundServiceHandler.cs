@@ -21,8 +21,14 @@ namespace NDB.Covid19.iOS.Utils
         {
             if (Conf.APP_DISABLED)
             {
-                Debug.Print($"APP_DISABLED: Not scheduling background work");
+                Debug.Print($"APP_DISABLED: Not scheduling background job");
                 DeviceUtils.StopScanServices(); // Stop scan services if running.
+            
+                if (!AppDelegate.ShouldOperateIn12_5Mode)
+                {
+                    BGTaskScheduler.Shared.Cancel(GetJobId()); // Stop job if running
+                }
+
                 return null;
             }
 
@@ -95,8 +101,7 @@ namespace NDB.Covid19.iOS.Utils
             // This is a special ID suffix which iOS treats a certain way
             // we can basically request infinite background tasks
             // and iOS will throttle it sensibly for us.
-            string id = ServiceLocator.Current.GetInstance<IAppInfo>().PackageName + ".exposure-notification";
-
+            string id = GetJobId();
             BGTaskScheduler.Shared.Register(id, null, async task =>
             {
                 try
@@ -216,6 +221,11 @@ namespace NDB.Covid19.iOS.Utils
                         "Failed to schedule the background task (Tried 5 times). It will try again when the app is restarted.");
                 }
             }
+        }
+
+        private static string GetJobId()
+        {
+            return ServiceLocator.Current.GetInstance<IAppInfo>().PackageName + ".exposure-notification";
         }
     }
 }
