@@ -721,6 +721,7 @@
     <Folder Include="Assets.xcassets\ChevronRight.imageset\" />
     <Folder Include="Assets.xcassets\MinistryOfHealthEn.imageset\" />
     <Folder Include="Assets.xcassets\MinistryOfHealth.imageset\" />
+    <Folder Include="Views\FarwellSmittestopPage\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -756,6 +757,7 @@
     <InterfaceDefinition Include="Views\DiseaseRate\DiseaseRateLoadingPage.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnaireConfirmLeave.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnairePreShare.storyboard" />
+    <InterfaceDefinition Include="Views\FarwellSmittestopPage\FarwellSmitestopPage.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -934,6 +936,9 @@
     <Compile Include="Views\AuthenticationFlow\QuestionnairePreShareViewController.cs" />
     <Compile Include="Views\AuthenticationFlow\QuestionnairePreShareViewController.designer.cs">
       <DependentUpon>QuestionnairePreShareViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FarwellSmittestopPage\FarwellSmitestopPageViewController.cs" />
+    <Compile Include="Views\FarwellSmittestopPage\FarwellSmitestopPageViewController.designer.cs">
     </Compile>
   </ItemGroup>
   <ItemGroup>
