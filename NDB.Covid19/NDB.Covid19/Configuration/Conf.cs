@@ -12,6 +12,8 @@ namespace NDB.Covid19.Configuration
         public static bool UseDeveloperTools => true;
 #endif
 
+        public static readonly bool APP_DISABLED = true; 
+
         // Minimum hours between pulling keys
         // Different intervals are automatically injected for test and production builds by App Center
         public static readonly TimeSpan FETCH_MIN_HOURS_BETWEEN_PULL = TimeSpan.FromMinutes(120);

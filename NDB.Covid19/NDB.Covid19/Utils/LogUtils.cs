@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using CommonServiceLocator;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Models;
 using NDB.Covid19.Models.DTOsForServer;
@@ -22,7 +23,10 @@ namespace NDB.Covid19.Utils
         // Max number of persisted logs we allow to remain saved on the device after sending to the server fails
         private static readonly int _maxNumOfPersistedLogsOnSendError = 200;
 
-        public static void LogMessage(LogSeverity severity, string message, string additionalInfo = "",
+        public static void LogMessage(
+            LogSeverity severity,
+            string message, string
+            additionalInfo = "",
             string correlationId = null)
         {
             LogDeviceDetails logModel = new LogDeviceDetails(severity, message, additionalInfo);
@@ -30,8 +34,12 @@ namespace NDB.Covid19.Utils
             ServiceLocator.Current.GetInstance<ILoggingManager>().SaveNewLog(dbModel);
         }
 
-        public static void LogException(LogSeverity severity, Exception e, string contextDescription,
-            string additionalInfo = "", string correlationId = null)
+        public static void LogException(
+            LogSeverity severity,
+            Exception e,
+            string contextDescription,
+            string additionalInfo = "",
+            string correlationId = null)
         {
             LogDeviceDetails logModel = new LogDeviceDetails(severity, contextDescription, additionalInfo);
             LogExceptionDetails eModel = new LogExceptionDetails(e);
@@ -39,8 +47,12 @@ namespace NDB.Covid19.Utils
             ServiceLocator.Current.GetInstance<ILoggingManager>().SaveNewLog(dbModel);
         }
 
-        public static void LogApiError(LogSeverity severity, ApiResponse apiResponse, bool erroredSilently,
-            string additionalInfo = "", string overwriteMessage = null)
+        public static void LogApiError(
+            LogSeverity severity,
+            ApiResponse apiResponse,
+            bool erroredSilently,
+            string additionalInfo = "",
+            string overwriteMessage = null)
         {
             string errorMessage = overwriteMessage ?? apiResponse.ErrorLogMessage;
             string message = errorMessage
@@ -74,7 +86,15 @@ namespace NDB.Covid19.Utils
 
                     // Try to post logs to the server
                     List<LogDTO> dto = logs.Select(l => new LogDTO(l)).ToList();
-                    bool success = await new LoggingService().PostAllLogs(dto);
+                    bool success;
+                    if (Conf.APP_DISABLED)
+                    {
+                        Debug.Print("APP_DISABLED: Not sending logs");
+                        success = true;
+                    } else
+                    {
+                        success = await new LoggingService().PostAllLogs(dto);
+                    }
 
                     // If posting succeeded, delete them
                     if (success)
