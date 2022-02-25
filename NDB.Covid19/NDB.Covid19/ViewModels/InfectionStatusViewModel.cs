@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using I18NPortable;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.Models.SQLite;
@@ -269,7 +270,7 @@ namespace NDB.Covid19.ViewModels
 
         public async Task<bool> StartENService()
         {
-            if (IsAppRestricted)
+            if (IsAppRestricted || Conf.APP_DISABLED)
             {
                 return false;
             }
@@ -319,7 +320,7 @@ namespace NDB.Covid19.ViewModels
         {
             try
             {
-                if (await IsEnabled() && await IsRunning())
+                if (await IsEnabled() && await IsRunning() && !Conf.APP_DISABLED)
                 {
                     await ExposureNotification.StartAsync();
                 }

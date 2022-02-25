@@ -6,6 +6,7 @@ using BackgroundTasks;
 using CommonServiceLocator;
 using ExposureNotifications;
 using Foundation;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.Utils;
@@ -18,6 +19,15 @@ namespace NDB.Covid19.iOS.Utils
     {
         public static Task PlatformScheduleFetch()
         {
+            if (Conf.APP_DISABLED)
+            {
+                Debug.Print($"APP_DISABLED: Not scheduling background work");
+                DeviceUtils.StopScanServices(); // Stop scan services if running.
+                return null;
+            }
+
+            Debug.Print($"{nameof(BackgroundServiceHandler)}: Scheduling background task for fetching keys.");
+
             string logPrefix = $"{nameof(BackgroundServiceHandler)}.{nameof(PlatformScheduleFetch)}: ";
 
             // === [iOS 12.5] ===

@@ -15,6 +15,15 @@ namespace NDB.Covid19.Droid.Utils
     {
         public static void ScheduleBackgroundFetch()
         {
+            if(Conf.APP_DISABLED)
+            {
+                Debug.Print($"APP_DISABLED: Not scheduling background work");
+                DeviceUtils.StopScanServices(); // Stop scan services if running.
+                return;
+            }
+
+            Debug.Print($"{nameof(BackgroundFetchScheduler)}: Scheduling background work for fetching keys.");
+
             //The interval has to be minimum 15 minutes.
             //Note that execution may be delayed because WorkManager is subject to OS battery optimizations,
             //such as doze mode.
@@ -92,7 +101,7 @@ namespace NDB.Covid19.Droid.Utils
                 timer.Start();
                 try
                 {
-                    Debug.WriteLine($"UpdateKeysFromServer!! Current time of day: {DateTime.Now.TimeOfDay}!!\n");
+                    Debug.Print($"UpdateKeysFromServer: Current time of day: {DateTime.Now.TimeOfDay}");
                     if (await ExposureNotification.IsEnabledAsync())
                     {
                         // SetDiagnosisKeysDataMappingAsync should be used on Android with EN API v2 to configure

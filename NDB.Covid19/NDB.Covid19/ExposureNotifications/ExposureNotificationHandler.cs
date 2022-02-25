@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using CommonServiceLocator;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.ExposureNotifications.Helpers;
 using NDB.Covid19.ExposureNotifications.Helpers.ExposureDetected;
 using NDB.Covid19.ExposureNotifications.Helpers.FetchExposureKeys;
@@ -24,7 +25,6 @@ namespace NDB.Covid19.ExposureNotifications
     {
         private readonly ExposureNotificationWebService _exposureNotificationWebService =
             new ExposureNotificationWebService();
-
         //DateToSetDSOS is null if the device has garbage collected, e.g. in background. Throws DSOSDateMissingException if null.
         private static DateTime? DateToSetDSOS => AuthenticationState.PersonalData?.FinalDateToSetDSOS;
 
@@ -32,6 +32,14 @@ namespace NDB.Covid19.ExposureNotifications
 
         public async Task UploadSelfExposureKeysToServerAsync(IEnumerable<TemporaryExposureKey> tempKeys)
         {
+            if (Conf.APP_DISABLED)
+            {
+                Debug.Print($"APP_DISABLED: Not uploading self exposure keys");
+                return;
+            }
+
+            Debug.Print($"{nameof(ExposureNotificationHandler)}: Upload self exposure keys");
+
             // Convert to ExposureKeyModel list as it is extended with DaysSinceOnsetOfSymptoms value
             IEnumerable<ExposureKeyModel> temporaryExposureKeys =
                 tempKeys?.Select(key => new ExposureKeyModel(key)) ?? new List<ExposureKeyModel>();
@@ -72,9 +80,18 @@ namespace NDB.Covid19.ExposureNotifications
             }
         }
 
-        public async Task FetchExposureKeyBatchFilesFromServerAsync(Func<IEnumerable<string>, Task> submitBatches,
+        public async Task FetchExposureKeyBatchFilesFromServerAsync(
+            Func<IEnumerable<string>, Task> submitBatches,
             CancellationToken cancellationToken)
         {
+            if (Conf.APP_DISABLED)
+            {
+                Debug.Print($"APP_DISABLED: Not fetching exposure key batch");
+                return;
+            }
+
+            Debug.Print($"{nameof(ExposureNotificationHandler)}: Fetch self key batch");
+
             await new FetchExposureKeysHelper().FetchExposureKeyBatchFilesFromServerAsync(submitBatches,
                 cancellationToken);
         }
@@ -83,7 +100,7 @@ namespace NDB.Covid19.ExposureNotifications
 
         public Task<DailySummaryConfiguration> GetDailySummaryConfigurationAsync()
         {
-            Debug.WriteLine("Fetching DailySummaryConfiguration");
+            Debug.Print($"{nameof(ExposureNotificationHandler)}: Fetching DailySummaryConfiguration");
 
             return Task.Run(async () =>
             {
@@ -116,10 +133,17 @@ namespace NDB.Covid19.ExposureNotifications
             });
         }
 
-        public async Task ExposureStateUpdatedAsync(IEnumerable<ExposureWindow> windows,
+        public async Task ExposureStateUpdatedAsync(
+            IEnumerable<ExposureWindow> windows,
             IEnumerable<DailySummary>? summaries)
         {
-            Debug.WriteLine("ExposureStateUpdatedAsync is called");
+            if (Conf.APP_DISABLED)
+            {
+                Debug.Print($"APP_DISABLED: Not updating exposure state");
+                return;
+            }
+
+            Debug.Print($"{nameof(ExposureNotificationHandler)}: ExposureStateUpdatedAsync is called");
 
             List<DateTime> validDates = ExposureDetectedHelper.DeleteDatesOfExposureOlderThan14DaysAndReturnNewList();
 
@@ -151,7 +175,7 @@ namespace NDB.Covid19.ExposureNotifications
 
         public Task<Xamarin.ExposureNotifications.Configuration> GetConfigurationAsync()
         {
-            Debug.Print("Fetching configuration");
+            Debug.Print($"{nameof(ExposureNotificationHandler)}: Fetching configuration");
 
             return Task.Run(async () =>
             {
@@ -170,10 +194,12 @@ namespace NDB.Covid19.ExposureNotifications
             });
         }
 
-        public async Task ExposureDetectedAsync(ExposureDetectionSummary summary,
+        public async Task ExposureDetectedAsync(
+            ExposureDetectionSummary summary,
             Func<Task<IEnumerable<ExposureInfo>>> getExposureInfo)
         {
-            Debug.WriteLine("ExposureDetectedAsync is called");
+            Debug.Print($"{nameof(ExposureNotificationHandler)}: ExposureDetectedAsync is called");
+
             await ExposureDetectedHelper.EvaluateRiskInSummaryAndCreateMessage(summary, this);
             await ServiceLocator.Current.GetInstance<IDeveloperToolsService>().SaveLastExposureInfos(getExposureInfo);
             ExposureDetectedHelper.SaveLastSummary(summary);
