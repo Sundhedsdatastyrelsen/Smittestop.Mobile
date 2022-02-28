@@ -148,6 +148,7 @@
     <Compile Include="Services\DroidApiDataHelperHandler.cs" />
     <Compile Include="Services\PermissionsBroadcastReceiver.cs" />
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
+    <Compile Include="Views\FarewellSmittestop\FarewellSmittestopPageActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -1176,6 +1177,10 @@
       </Generator>
     </AndroidResource>
     <None Include="appcenter-pre-build.sh" />
+    <AndroidResource Include="Resources\layout\farewell_smittestop_page.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
@@ -1672,6 +1677,9 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\infection_status_scroll_down_background.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\FarewellSmittestop\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
