@@ -1,4 +1,4 @@
-﻿// WARNING
+// WARNING
 //
 // This file has been generated automatically by Visual Studio to store outlets and
 // actions made in the UI designer. If it is removed, they will be lost.
@@ -46,6 +46,11 @@ namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
 				FarwellSmitteStopUiLbl = null;
 			}
 
+			if (OkButtonFarwellUiButton != null) {
+				OkButtonFarwellUiButton.Dispose ();
+				OkButtonFarwellUiButton = null;
+			}
+
 			if (TexoneFarwellUiLbl != null) {
 				TexoneFarwellUiLbl.Dispose ();
 				TexoneFarwellUiLbl = null;
@@ -74,11 +79,6 @@ namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
 			if (UiImageTwo != null) {
 				UiImageTwo.Dispose ();
 				UiImageTwo = null;
-			}
-
-			if (OkButtonFarwellUiButton != null) {
-				OkButtonFarwellUiButton.Dispose ();
-				OkButtonFarwellUiButton = null;
 			}
 		}
 	}

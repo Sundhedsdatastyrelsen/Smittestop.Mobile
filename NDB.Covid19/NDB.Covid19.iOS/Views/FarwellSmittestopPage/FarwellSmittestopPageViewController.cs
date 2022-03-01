@@ -1,5 +1,4 @@
 ﻿using System;
-
 using UIKit;
 using System.Collections.Generic;
 using Foundation;
@@ -12,7 +11,6 @@ namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
 {
     public partial class FarwellSmittestopPageViewController : BaseViewController
 
-
     {
         private FarwellSmittestopPageViewController _farwellPageController;
         public FarwellSmittestopPageViewController(IntPtr handle) : base(handle)
@@ -24,7 +22,6 @@ namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
             base.ViewDidLoad();
             // Perform any additional setup after loading the view, typically from a nib.
             SetupStyling();
-
         }
 
         public override void DidReceiveMemoryWarning()
@@ -32,8 +29,6 @@ namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
         }
-
-      
 
         public void SetupStyling()
         {
@@ -44,14 +39,12 @@ namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
 
             TexoneFarwellUiLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 16, 22);
             TexoneFarwellUiLbl.Text = FarewellSmittestopViewModel.FAREWELL_SMITTESTOP_BODY_ONE;
-
+              
             TextTwoFarwllUiLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 16, 22);
             TextTwoFarwllUiLbl.Text = FarewellSmittestopViewModel.FAREWELL_SMITTESTOP_BODY_TWO;
 
-
             TextThreeFarwellLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 16, 22);
             TextThreeFarwellLbl.Text = FarewellSmittestopViewModel.FAREWELL_SMITTESTOP_BODY_TWO;
-
 
         }
 

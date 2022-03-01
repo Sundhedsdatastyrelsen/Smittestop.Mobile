@@ -31,7 +31,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NGd-C0-1wV">
                                         <rect key="frame" x="25" y="131.5" width="332" height="95"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vVF-wY-XSw">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vVF-wY-XSw">
                                                 <rect key="frame" x="0.0" y="0.0" width="332" height="21"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="eoE-zc-Zdv">
@@ -41,15 +41,15 @@
                                                             <constraint firstAttribute="width" constant="21" id="dWH-jr-8oQ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farwell text one " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHZ-2f-qvT">
-                                                        <rect key="frame" x="37" y="0.0" width="295" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text One Farwell Smittestop" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHZ-2f-qvT">
+                                                        <rect key="frame" x="37" y="0.0" width="295" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vtv-2h-nAW">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vtv-2h-nAW">
                                                 <rect key="frame" x="0.0" y="37" width="332" height="21"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="ouj-5N-50K">
@@ -59,15 +59,15 @@
                                                             <constraint firstAttribute="height" constant="21" id="oks-hg-hPJ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farwell Text two" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmY-lo-X9H">
-                                                        <rect key="frame" x="37" y="0.0" width="295" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farwell Text two" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmY-lo-X9H">
+                                                        <rect key="frame" x="37" y="0.0" width="295" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BA7-ZE-GtY">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BA7-ZE-GtY">
                                                 <rect key="frame" x="0.0" y="74" width="332" height="21"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="t2e-a7-8Ja">
@@ -77,8 +77,8 @@
                                                             <constraint firstAttribute="height" constant="21" id="jSB-pw-xkA"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farwell text three" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejy-z5-y1s">
-                                                        <rect key="frame" x="37" y="0.0" width="295" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farwell text three" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejy-z5-y1s">
+                                                        <rect key="frame" x="37" y="0.0" width="295" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -92,7 +92,10 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMi-GN-d2L">
-                                        <rect key="frame" x="83" y="723" width="216" height="31"/>
+                                        <rect key="frame" x="34" y="718" width="298" height="48"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="48" id="0OH-z9-O3I"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Ok, jeg forstår Button">
                                             <color key="baseForegroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -106,13 +109,12 @@
                                 <color key="tintColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="NGd-C0-1wV" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="25" id="4Bi-wU-3ka"/>
-                                    <constraint firstAttribute="bottom" secondItem="WMi-GN-d2L" secondAttribute="bottom" constant="32" id="9VL-7i-hYq"/>
-                                    <constraint firstAttribute="trailing" secondItem="WMi-GN-d2L" secondAttribute="trailing" constant="83" id="Oti-UU-O1Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="WMi-GN-d2L" secondAttribute="bottom" constant="20" id="9VL-7i-hYq"/>
+                                    <constraint firstAttribute="trailing" secondItem="WMi-GN-d2L" secondAttribute="trailing" constant="50" id="Oti-UU-O1Y"/>
                                     <constraint firstItem="NGd-C0-1wV" firstAttribute="top" secondItem="miw-fd-Jay" secondAttribute="bottom" constant="25" id="U4X-jF-Xia"/>
                                     <constraint firstItem="miw-fd-Jay" firstAttribute="top" secondItem="lHX-pJ-bc8" secondAttribute="top" constant="86" id="XjR-SD-fba"/>
                                     <constraint firstAttribute="trailing" secondItem="NGd-C0-1wV" secondAttribute="trailing" constant="25" id="YBh-MA-nH4"/>
                                     <constraint firstItem="miw-fd-Jay" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="24" id="ZeA-9f-uiM"/>
-                                    <constraint firstItem="WMi-GN-d2L" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="83" id="b3b-y8-Ub1"/>
                                     <constraint firstAttribute="trailing" secondItem="miw-fd-Jay" secondAttribute="trailing" constant="44" id="oZM-1Y-jSB"/>
                                 </constraints>
                             </view>
@@ -122,6 +124,7 @@
                             <constraint firstItem="lHX-pJ-bc8" firstAttribute="top" secondItem="4Wh-Xa-pf1" secondAttribute="bottom" constant="16" id="CW1-LP-NCM"/>
                             <constraint firstAttribute="trailing" secondItem="lHX-pJ-bc8" secondAttribute="trailing" constant="16" id="UuQ-nm-Phf"/>
                             <constraint firstItem="lHX-pJ-bc8" firstAttribute="leading" secondItem="Xdn-x7-ckC" secondAttribute="leading" constant="16" id="fOq-wH-p2v"/>
+                            <constraint firstItem="WMi-GN-d2L" firstAttribute="leading" secondItem="Xdn-x7-ckC" secondAttribute="leading" constant="50" id="sbF-Et-Gam"/>
                             <constraint firstItem="442-16-gEa" firstAttribute="top" secondItem="lHX-pJ-bc8" secondAttribute="bottom" constant="16" id="ykI-lj-exL"/>
                         </constraints>
                     </view>
