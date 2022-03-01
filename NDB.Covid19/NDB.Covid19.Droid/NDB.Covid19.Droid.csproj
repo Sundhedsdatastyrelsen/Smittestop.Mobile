@@ -149,6 +149,7 @@
     <Compile Include="Services\PermissionsBroadcastReceiver.cs" />
     <Compile Include="Views\Welcome\WelcomePageWhatIsNewActivity.cs" />
     <Compile Include="Views\FarewellSmittestop\FarewellSmittestopPageActivity.cs" />
+    <Compile Include="Views\FarewellSmittestop\SmittestopNotActivePageActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -1178,6 +1179,14 @@
     </AndroidResource>
     <None Include="appcenter-pre-build.sh" />
     <AndroidResource Include="Resources\layout\farewell_smittestop_page.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\smittestop_not_active_page.xml">
+      <SubType></SubType>
+      <Generator></Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\text_box_background.xml">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>

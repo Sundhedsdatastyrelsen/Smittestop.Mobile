@@ -1,0 +1,74 @@
+﻿<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+    <ImageView 
+		android:src="@drawable/ic_start_logo_ag_api"
+		android:layout_width="195dp"
+		android:layout_height="wrap_content"
+        android:id="@+id/smittestop_logo"
+        android:layout_marginTop="60dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/information_text"
+        android:text="Information text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/ExplanationTextHeader"
+        android:layout_marginTop="30dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/text_box_background"
+        app:layout_constraintTop_toBottomOf="@id/smittestop_logo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+	<Button
+		android:text="Danish"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+        style="@style/DefaultButton"
+		android:id="@+id/language_button"
+        app:layout_constraintTop_toBottomOf="@id/information_text"
+        app:layout_constraintBottom_toTopOf="@id/more_info_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+	/>
+	<RelativeLayout
+	    android:id="@+id/more_info_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/language_button"
+        app:layout_constraintBottom_toTopOf="@id/health_department_imageview"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+        <TextView
+            android:id="@+id/more_info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            style="@style/MessageListItemDateText"
+        />
+        <View
+            android:layout_width="10.7dp"
+            android:layout_height="18.15dp"
+			android:layout_marginLeft="8dp"
+			android:layout_toRightOf="@+id/more_info_text"
+			android:background="@drawable/ic_back_icon"
+		/>
+    </RelativeLayout>
+	<ImageView 
+		android:src="@drawable/health_department_da"
+		android:layout_width="180dp"
+		android:layout_height="wrap_content"
+		android:adjustViewBounds="true"
+		android:scaleType="centerInside"
+		android:id="@+id/health_department_imageview"
+        app:layout_constraintTop_toBottomOf="@id/more_info_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

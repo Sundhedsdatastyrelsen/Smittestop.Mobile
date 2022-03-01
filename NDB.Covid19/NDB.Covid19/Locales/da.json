@@ -340,5 +340,9 @@
   "FAREWELL_SMITTESTOP_BODY_ONE": "Smitte|stop bliver ikke længere vedligeholdt og du kan nu slette appen",
   "FAREWELL_SMITTESTOP_BODY_TWO": "Appen vil ikke hente ny nøgler og det er ikke længere muligt at melde sig smittet, og få exponerings notifikasjoner",
   "FAREWELL_SMITTESTOP_BODY_THREE": "Du kan beholde appen. Genaktiveres appen, vil Smitte|stop blive opdatert",
-  "FAREWELL_SMITTESTOP_BUTTON_TEXT": "OK, jeg forstår"
+  "FAREWELL_SMITTESTOP_BUTTON_TEXT": "OK, jeg forstår",
+  "SMITTESTOP_NOT_ACTIVE_TEXT": "Smitte|stop er ikke aktiv og bliver ikke vedligeholdt. Du kan slette appen. Hvis Smitte|stop prosjektet bliver genoptaget i fremtiden, vil den blive opdatert",
+  "SMITTESTOP_NOT_ACTIVE_MORE_INFO": "Klik her for mere information",
+  "SMITTESTOP_NOT_ACTIVE_INFO_LINK": "sum.dk",
+  "SMITTESTOP_NOT_ACTIVE_BUTTONT_TEXT": "English"
 }

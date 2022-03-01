@@ -1,9 +1,12 @@
-﻿using Android.App;
+﻿using System;
+using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
+using NDB.Covid19.Droid.Utils;
+using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.FarewellSmittestopViewModel;
 
 namespace NDB.Covid19.Droid.Views.FarewellSmittestop
@@ -26,9 +29,12 @@ namespace NDB.Covid19.Droid.Views.FarewellSmittestop
 
             Button button = FindViewById<Button>(Resource.Id.ok_button);
             button.Text = FAREWELL_SMITTESTOP_BUTTON_TEXT;
+            button.Click += new SingleClick(OkButtonClick).Run;
+        }
 
-            // TODO: add button click action
-
+        private void OkButtonClick(object sender, EventArgs e)
+        {
+            NavigationHelper.GoToSmittestopNotActivePage(this);
         }
 
         private void SetBulletText(int resourceId, string textContent)
