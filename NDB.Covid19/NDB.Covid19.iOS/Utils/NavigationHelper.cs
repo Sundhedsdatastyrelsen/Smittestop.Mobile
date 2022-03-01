@@ -132,9 +132,6 @@ namespace NDB.Covid19.iOS.Utils
         public static void GoToResultPageFromAuthFlow(UINavigationController navigationController)
         {
             navigationController?.DismissViewController(true, null);
-
-
-
         }
 
         public static void GoToFarwellSmittestopPage(UIViewController parent)
@@ -149,9 +146,5 @@ namespace NDB.Covid19.iOS.Utils
             navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
             parent.PresentViewController(navigationController, true, null);
         }
-
-
-
-
     }
 }

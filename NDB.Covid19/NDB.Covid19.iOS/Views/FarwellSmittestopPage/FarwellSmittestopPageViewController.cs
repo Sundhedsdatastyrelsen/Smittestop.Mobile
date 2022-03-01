@@ -44,10 +44,7 @@ namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
             TextTwoFarwllUiLbl.Text = FarewellSmittestopViewModel.FAREWELL_SMITTESTOP_BODY_TWO;
 
             TextThreeFarwellLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 16, 22);
-            TextThreeFarwellLbl.Text = FarewellSmittestopViewModel.FAREWELL_SMITTESTOP_BODY_TWO;
-
-        }
-
-        
+            TextThreeFarwellLbl.Text = FarewellSmittestopViewModel.FAREWELL_SMITTESTOP_BODY_THREE;
+        }       
     }
 }

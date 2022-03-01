@@ -3,7 +3,6 @@ using CoreGraphics;
 using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
-using NDB.Covid19.iOS.Views.FarwellSmittestopPage;
 using NDB.Covid19.PersistedData;
 using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
@@ -128,10 +127,7 @@ namespace NDB.Covid19.iOS.Views.Initializer
         {
             if (AvailableOnDevice)
             {
-                // NavigationHelper.GoToOnboardingPage(this);
-                NavigationHelper.GoToFarwellSmittestopPage(this);
-
-
+                NavigationHelper.GoToOnboardingPage(this);
             }
             else
             {
