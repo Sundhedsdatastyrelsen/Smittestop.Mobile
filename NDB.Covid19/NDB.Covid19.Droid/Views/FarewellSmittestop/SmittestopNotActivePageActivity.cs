@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Android.Util;
 using Android.Widget;
 using CommonServiceLocator;
 using NDB.Covid19.Enums;
@@ -37,6 +38,8 @@ namespace NDB.Covid19.Droid.Views.FarewellSmittestop
 
             RelativeLayout moreInfoRelativeLayout = FindViewById<RelativeLayout>(Resource.Id.more_info_layout);
             moreInfoRelativeLayout.Click += new SingleClick((o, args) => MoreInfoButton_Click()).Run;
+
+            SetLogoBasedOnAppLanguage();
         }
 
         private void MoreInfoButton_Click()
@@ -65,6 +68,27 @@ namespace NDB.Covid19.Droid.Views.FarewellSmittestop
             }
             LocalesService.Initialize();
             this.Recreate();
+        }
+
+        private void SetLogoBasedOnAppLanguage()
+        {
+            ImageView logo = FindViewById<ImageView>(Resource.Id.health_department_imageview);
+            string appLanguage = LocalesService.GetLanguage();
+            logo?.SetImageResource(appLanguage != null && appLanguage.ToLower() == "en"
+                ? Resource.Drawable.health_department_en
+                : Resource.Drawable.health_department_da);
+
+            if (logo?.LayoutParameters != null)
+            {
+                DisplayMetrics displayMetrics = new DisplayMetrics();
+                WindowManager?.DefaultDisplay?.GetMetrics(displayMetrics);
+                float logicalDensity = displayMetrics.Density;
+                int px = (int)Math.Ceiling((appLanguage != null && appLanguage.ToLower() == "en" ? 120 : 180) *
+                                            logicalDensity);
+                logo.LayoutParameters.Width = px;
+            }
+
+            logo?.RequestLayout();
         }
     }
 }

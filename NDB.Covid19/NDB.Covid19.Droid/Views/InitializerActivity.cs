@@ -108,9 +108,7 @@ namespace NDB.Covid19.Droid.Views
         {
             if (PlayServicesVersionUtils.PlayServicesVersionNumberIsLargeEnough(PackageManager))
             {
-                //NavigationHelper.GoToOnBoarding(this, true);
-                //NavigationHelper.GoToFarewellSmittestopPage(this);
-                NavigationHelper.GoToSmittestopNotActivePage(this);
+                NavigationHelper.GoToOnBoarding(this, true);
             }
             else
             {
