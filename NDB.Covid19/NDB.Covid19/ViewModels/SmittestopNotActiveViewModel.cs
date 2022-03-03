@@ -8,6 +8,7 @@ namespace NDB.Covid19.ViewModels
         public static string SMITTESTOP_NOT_ACTIVE_TEXT => "SMITTESTOP_NOT_ACTIVE_TEXT".Translate();
         public static string SMITTESTOP_NOT_ACTIVE_MORE_INFO => "SMITTESTOP_NOT_ACTIVE_MORE_INFO".Translate();
         public static string SMITTESTOP_NOT_ACTIVE_BUTTONT_TEXT => "SMITTESTOP_NOT_ACTIVE_BUTTONT_TEXT".Translate();
-        public static string SMITTESTOP_NOT_ACTIVE_INFO_LINK => "SMITTESTOP_NOT_ACTIVE_INFO_LINK".Translate();
+        public static string SMITTESTOP_NOT_ACTIVE_INFO_LINK_TEXT => "SMITTESTOP_NOT_ACTIVE_INFO_LINK_TEXT".Translate();
+        public static string SMITTESTOP_NOT_ACTIVE_INFO_URL => "SMITTESTOP_NOT_ACTIVE_INFO_URL".Translate();
     }
 }

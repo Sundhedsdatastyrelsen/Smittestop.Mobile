@@ -343,6 +343,7 @@
   "FAREWELL_SMITTESTOP_BUTTON_TEXT": "OK, I Understand",
   "SMITTESTOP_NOT_ACTIVE_TEXT": "Smitte|stop is not active and is not currently maintained. You can delete the app. If Smitte|stop project will be resumed in the future, a new app update will be made",
   "SMITTESTOP_NOT_ACTIVE_MORE_INFO": "Click here for more information",
-  "SMITTESTOP_NOT_ACTIVE_INFO_LINK": "sum.dk",
-  "SMITTESTOP_NOT_ACTIVE_BUTTONT_TEXT": "Danish"
+  "SMITTESTOP_NOT_ACTIVE_INFO_LINK_TEXT": "sum.dk",
+  "SMITTESTOP_NOT_ACTIVE_BUTTONT_TEXT": "Danish",
+  "SMITTESTOP_NOT_ACTIVE_INFO_URL": "https://sum.dk"
 }

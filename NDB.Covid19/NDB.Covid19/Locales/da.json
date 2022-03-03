@@ -343,6 +343,7 @@
   "FAREWELL_SMITTESTOP_BUTTON_TEXT": "OK, jeg forstår",
   "SMITTESTOP_NOT_ACTIVE_TEXT": "Smitte|stop er ikke aktiv og bliver ikke vedligeholdt. Du kan slette appen. Hvis Smitte|stop prosjektet bliver genoptaget i fremtiden, vil den blive opdatert",
   "SMITTESTOP_NOT_ACTIVE_MORE_INFO": "Klik her for mere information",
-  "SMITTESTOP_NOT_ACTIVE_INFO_LINK": "sum.dk",
-  "SMITTESTOP_NOT_ACTIVE_BUTTONT_TEXT": "English"
+  "SMITTESTOP_NOT_ACTIVE_INFO_LINK_TEXT": "sum.dk",
+  "SMITTESTOP_NOT_ACTIVE_BUTTONT_TEXT": "English",
+  "SMITTESTOP_NOT_ACTIVE_INFO_URL": "https://sum.dk"
 }
