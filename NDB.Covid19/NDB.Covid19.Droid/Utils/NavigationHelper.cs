@@ -2,6 +2,7 @@ using Android.App;
 using Android.Content;
 using NDB.Covid19.Droid.Views;
 using NDB.Covid19.Droid.Views.ENDeveloperTools;
+using NDB.Covid19.Droid.Views.FarewellSmittestop;
 using NDB.Covid19.Droid.Views.InfectionStatus;
 using NDB.Covid19.Droid.Views.Settings;
 using NDB.Covid19.Droid.Views.Welcome;
@@ -100,6 +101,18 @@ namespace NDB.Covid19.Droid.Utils
             {
                 GoToResultPageAndClearTop(parent);
             }
+        }
+
+        public static void GoToFarewellSmittestopPage(Activity parent)
+        {
+            Intent intent = new Intent(parent, typeof(FarewellSmittestopPageActivity));
+            parent.StartActivity(intent);
+        }
+
+        public static void GoToSmittestopNotActivePage(Activity parent)
+        {
+            Intent intent = new Intent(parent, typeof(SmittestopNotActivePageActivity));
+            parent.StartActivity(intent);
         }
     }
 }
