@@ -56,6 +56,7 @@ namespace NDB.Covid19.iOS.Utils
             return UIFontMetrics.DefaultMetrics.GetScaledFont(font, (nfloat) maxFontSize);
         }
 
+        // NB: Will not work fully if button has buttonConfiguration, since that overrides some of these settings.
         public static void InitButtonStyling(UIButton btn, string text)
         {
             btn.TitleLabel.AdjustsFontSizeToFitWidth = true;
@@ -69,12 +70,7 @@ namespace NDB.Covid19.iOS.Utils
             btn.SetTitleColor(UIColor.White, UIControlState.Normal);
         }
 
-        /// <summary>
-        ///     Creates button with arrow, with correct style.
-        ///     Button needs to set image position trailing and padding 8 in storyboard. 
-        /// </summary>
-        /// <param name="btn"></param>
-        /// <param name="text"></param>
+        // NB: Will not work fully if button has buttonConfiguration, since that overrides some of these settings.
         public static void InitButtonWithArrowStyling(UIButton btn, string text)
         {
             CTStringAttributes attributes = new CTStringAttributes();
@@ -91,7 +87,13 @@ namespace NDB.Covid19.iOS.Utils
                     UIControlState.Normal);
             if (UIApplication.SharedApplication.UserInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.RightToLeft)
             {
-                btn.ImageView.Transform = CGAffineTransform.MakeRotation(3.14159f);
+                btn.SemanticContentAttribute = UISemanticContentAttribute.ForceLeftToRight; // Switch image position to left.
+                btn.ImageView.Transform = CGAffineTransform.MakeRotation(3.14159f); // Rotate image to point correct way.
+                btn.ImageEdgeInsets = new UIEdgeInsets(0, 0, 0, 12);
+            } else
+            {
+                btn.SemanticContentAttribute = UISemanticContentAttribute.ForceRightToLeft; // Switch image position to right.
+                btn.ImageEdgeInsets = new UIEdgeInsets(0, 12, 0, 0);
             }
 
             btn.Superview.SetNeedsLayout();
