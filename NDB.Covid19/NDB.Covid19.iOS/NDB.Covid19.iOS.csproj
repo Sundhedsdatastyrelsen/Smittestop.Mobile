@@ -758,6 +758,7 @@
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnaireConfirmLeave.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnairePreShare.storyboard" />
     <InterfaceDefinition Include="Views\FarwellSmittestopPage\FarwellSmittestopPage.storyboard" />
+    <InterfaceDefinition Include="Views\FarwellSmittestopPage\NotActive.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -829,10 +830,6 @@
     <Compile Include="Views\Welcome\ChildViews\WelcomePageOneViewController.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageThreeViewController.designer.cs" />
     <Compile Include="Views\Welcome\ChildViews\WelcomePageFourViewController.cs" />
-    <Compile Include="Views\Initializer\InizializerViewController.cs" />
-    <Compile Include="Views\Initializer\InizializerViewController.designer.cs">
-      <DependentUpon>..\..\..\NDB.Covid19.iOS.BleCore\Views\Initializer\InizializerViewController.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utils\BackgroundServiceHandler.cs" />
     <Compile Include="Utils\IOSApiDataHelperHandler.cs" />
     <Compile Include="Utils\AccessibilityUtils.cs" />
@@ -939,6 +936,14 @@
     </Compile>
     <Compile Include="Views\FarwellSmittestopPage\FarwellSmittestopPageViewController.cs" />
     <Compile Include="Views\FarwellSmittestopPage\FarwellSmittestopPageViewController.designer.cs" />
+    <Compile Include="Views\Initializer\InitializerViewController.cs" />
+    <Compile Include="Views\Initializer\InitializerViewController.designer.cs">
+      <DependentUpon>InitializerViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FarwellSmittestopPage\NotActiveViewController.cs" />
+    <Compile Include="Views\FarwellSmittestopPage\NotActiveViewController.designer.cs">
+      <DependentUpon>NotActiveViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\NDB.Covid19\NDB.Covid19.csproj">
