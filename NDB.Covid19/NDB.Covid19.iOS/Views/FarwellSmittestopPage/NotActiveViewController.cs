@@ -1,8 +1,10 @@
 ﻿using System;
 using Foundation;
 using I18NPortable;
+using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.PersistedData;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 
@@ -10,14 +12,6 @@ namespace NDB.Covid19.iOS.Views.NotActive
 {
     public partial class NotActiveViewController : BaseViewController
     {
-        public static DialogViewModel LanguageChangedDialog => new DialogViewModel
-        {
-            Title = "SETTINGS_GENERAL_CHOOSE_LANGUAGE_HEADER".Translate(),
-            Body = "SETTINGS_GENERAL_RESTART_REQUIRED_TEXT".Translate(),
-            OkBtnTxt = "SETTINGS_GENERAL_DIALOG_OK".Translate()
-        };
-        private bool _languageChanged = false;
-
         public NotActiveViewController(IntPtr handle) : base(handle)
         {
         }
@@ -25,17 +19,15 @@ namespace NDB.Covid19.iOS.Views.NotActive
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            SetupLayout();
-
-            // TODO: Check if any consent accepted, if yes -> Go to farawell
+            UpdateLayout();
         }
 
-        public void SetupLayout()
+        private void UpdateLayout()
         {
             StyleUtil.InitLabel(descriptionLabel, StyleUtil.FontType.FontBold,
                 SmittestopNotActiveViewModel.SMITTESTOP_NOT_ACTIVE_TEXT, 16, 22);
-            StyleUtil.InitLabel(moreInformationDescriptionLabel, StyleUtil.FontType.FontRegular,
-                SmittestopNotActiveViewModel.SMITTESTOP_NOT_ACTIVE_MORE_INFO, 18, 24);
+            StyleUtil.InitLabelWithSpacing(moreInformationDescriptionLabel, StyleUtil.FontType.FontRegular,
+                SmittestopNotActiveViewModel.SMITTESTOP_NOT_ACTIVE_MORE_INFO, 1.24, 18, 24, UITextAlignment.Center);
             StyleUtil.InitButtonWithArrowStyling(moreInformationButton, SmittestopNotActiveViewModel.SMITTESTOP_NOT_ACTIVE_INFO_LINK_TEXT);
             StyleUtil.InitButtonStyling(languageButton, SmittestopNotActiveViewModel.SMITTESTOP_NOT_ACTIVE_BUTTONT_TEXT);
             descriptionView.Layer.CornerRadius = 8;
@@ -64,12 +56,6 @@ namespace NDB.Covid19.iOS.Views.NotActive
 
         partial void LanguageButtonTapped(NSObject sender)
         {
-            if (_languageChanged)
-            {
-                return;
-            }
-
-            _languageChanged = true;
             string appLanguage = LocalesService.GetLanguage();
             if (appLanguage != null && appLanguage.ToLower() == "en")
             {
@@ -80,7 +66,9 @@ namespace NDB.Covid19.iOS.Views.NotActive
             }
 
             LocalesService.Initialize();
-            DialogHelper.ShowDialog(this, LanguageChangedDialog, Action => { });
+
+            // Update layout with new language, will not update potential presenting views.
+            UpdateLayout();
         }
     }
 }

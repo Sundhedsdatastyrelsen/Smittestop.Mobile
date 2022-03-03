@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Vv-l4-Bza">
-                                <rect key="frame" x="0.0" y="44" width="375" height="609"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="591"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMT-cC-ScY">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="474.66666666666669"/>
@@ -34,11 +34,18 @@
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rz1-qe-YyW">
                                                 <rect key="frame" x="24" y="182" width="327" height="162.66666666666663"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-BQ-RSr">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzo-BQ-RSr">
                                                         <rect key="frame" x="24" y="24.000000000000007" width="279" height="114.66666666666669"/>
-                                                        <string key="text">Smitte|stop is not active  and is not currently maintained.  You can delete the app.  If Smitte|stop project will be resumed in the future, a new app update will be made</string>
-                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment>
+                                                                <string key="content">Smitte|stop is not active  and is not currently maintained.  You can delete the app.  If Smitte|stop project will be resumed in the future, a new app update will be made</string>
+                                                                <attributes>
+                                                                    <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    <font key="NSFont" metaFont="system" size="16"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -96,17 +103,18 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="o62-FL-jZ1"/>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aoe-6e-FIF">
-                                <rect key="frame" x="56" y="665" width="263" height="31"/>
+                                <rect key="frame" x="56" y="647" width="263" height="41"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Danish"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Danish">
+                                    <directionalEdgeInsets key="contentInsets" top="12" leading="12" bottom="12" trailing="12"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="LanguageButtonTapped:" destination="KHb-JE-D52" eventType="touchUpInside" id="DIT-6D-iGg"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MinistryOfHealth" translatesAutoresizingMaskIntoConstraints="NO" id="Cdz-PE-rEO">
-                                <rect key="frame" x="138.66666666666666" y="728" width="98" height="50"/>
+                                <rect key="frame" x="138.66666666666666" y="720" width="98" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ud4-79-6PU"/>
                                 </constraints>
@@ -121,7 +129,7 @@
                             <constraint firstItem="Cdz-PE-rEO" firstAttribute="centerX" secondItem="ttF-qO-8m2" secondAttribute="centerX" id="Rsb-DM-uNJ"/>
                             <constraint firstItem="Aoe-6e-FIF" firstAttribute="centerX" secondItem="ttF-qO-8m2" secondAttribute="centerX" id="g0Q-d8-PqI"/>
                             <constraint firstAttribute="trailing" secondItem="1Vv-l4-Bza" secondAttribute="trailing" id="kDu-LU-Rik"/>
-                            <constraint firstItem="UYb-WD-dMa" firstAttribute="top" secondItem="Cdz-PE-rEO" secondAttribute="bottom" id="mR9-Hf-dT3"/>
+                            <constraint firstItem="UYb-WD-dMa" firstAttribute="top" secondItem="Cdz-PE-rEO" secondAttribute="bottom" constant="8" id="mR9-Hf-dT3"/>
                             <constraint firstItem="Cdz-PE-rEO" firstAttribute="top" secondItem="Aoe-6e-FIF" secondAttribute="bottom" constant="32" id="qzi-XL-zKq"/>
                         </constraints>
                     </view>
