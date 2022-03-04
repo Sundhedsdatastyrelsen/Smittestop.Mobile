@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using CoreGraphics;
+using CoreText;
 using Foundation;
 using UIKit;
 
@@ -54,6 +56,7 @@ namespace NDB.Covid19.iOS.Utils
             return UIFontMetrics.DefaultMetrics.GetScaledFont(font, (nfloat) maxFontSize);
         }
 
+        // NB: Will not work fully if button has buttonConfiguration, since that overrides some of these settings.
         public static void InitButtonStyling(UIButton btn, string text)
         {
             btn.TitleLabel.AdjustsFontSizeToFitWidth = true;
@@ -65,6 +68,35 @@ namespace NDB.Covid19.iOS.Utils
             btn.Layer.CornerRadius = btn.Layer.Frame.Height / 2;
             btn.Font = Font(FontType.FontSemiBold, 18f, 24f);
             btn.SetTitleColor(UIColor.White, UIControlState.Normal);
+        }
+
+        // NB: Will not work fully if button has buttonConfiguration, since that overrides some of these settings.
+        public static void InitButtonWithArrowStyling(UIButton btn, string text)
+        {
+            CTStringAttributes attributes = new CTStringAttributes();
+            attributes.UnderlineStyle = CTUnderlineStyle.Single;
+            var attributeString = new NSAttributedString(text, attributes);
+            btn.SetAttributedTitle(attributeString, UIControlState.Normal);
+
+            btn.TintColor = UIColor.White;
+            btn.BackgroundColor = UIColor.Clear;
+            btn.Font = Font(FontType.FontRegular, 18f, 24f);
+            btn.SetTitleColor(UIColor.White, UIControlState.Normal);
+
+            btn.SetImage(MaxResizeImage(UIImage.FromBundle("chevronWhite"), 12, 12),
+                    UIControlState.Normal);
+            if (UIApplication.SharedApplication.UserInterfaceLayoutDirection == UIUserInterfaceLayoutDirection.RightToLeft)
+            {
+                btn.SemanticContentAttribute = UISemanticContentAttribute.ForceLeftToRight; // Switch image position to left.
+                btn.ImageView.Transform = CGAffineTransform.MakeRotation(3.14159f); // Rotate image to point correct way.
+                btn.ImageEdgeInsets = new UIEdgeInsets(0, 0, 0, 12);
+            } else
+            {
+                btn.SemanticContentAttribute = UISemanticContentAttribute.ForceRightToLeft; // Switch image position to right.
+                btn.ImageEdgeInsets = new UIEdgeInsets(0, 12, 0, 0);
+            }
+
+            btn.Superview.SetNeedsLayout();
         }
 
         /// <summary>
@@ -362,6 +394,21 @@ namespace NDB.Covid19.iOS.Utils
             viewToEmbed.MovedToSuperview();
 
             stackView.SetNeedsLayout();
+        }
+
+        public static UIImage MaxResizeImage(UIImage sourceImage, float maxWidth, float maxHeight)
+        {
+            CGSize sourceSize = sourceImage.Size;
+            double maxResizeFactor = Math.Min(
+                maxWidth / sourceSize.Width,
+                maxHeight / sourceSize.Height);
+            double width = maxResizeFactor * sourceSize.Width;
+            double height = maxResizeFactor * sourceSize.Height;
+            UIGraphics.BeginImageContextWithOptions(new CGSize(width, height), false, 0);
+            sourceImage.Draw(new CGRect(0, 0, width, height));
+            UIImage resultImage = UIGraphics.GetImageFromCurrentImageContext();
+            UIGraphics.EndImageContext();
+            return resultImage;
         }
     }
 }

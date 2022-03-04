@@ -1,18 +1,12 @@
 ﻿using System;
-using UIKit;
-using System.Collections.Generic;
-using Foundation;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.ViewModels;
-using UIKit;
-using static NDB.Covid19.iOS.Utils.StressUtils;
 
 namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
 {
     public partial class FarwellSmittestopPageViewController : BaseViewController
 
     {
-        private FarwellSmittestopPageViewController _farwellPageController;
         public FarwellSmittestopPageViewController(IntPtr handle) : base(handle)
         {
         }

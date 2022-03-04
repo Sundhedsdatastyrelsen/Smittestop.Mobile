@@ -10,12 +10,12 @@ using UIKit;
 
 namespace NDB.Covid19.iOS.Views.Initializer
 {
-    public partial class InizializerViewController : BaseViewController
+    public partial class InitializerViewController : BaseViewController
     {
         private UITapGestureRecognizer _gestureRecognizer;
         private bool AvailableOnDevice;
 
-        public InizializerViewController(IntPtr handle) : base(handle)
+        public InitializerViewController(IntPtr handle) : base(handle)
         {
         }
 
@@ -35,26 +35,11 @@ namespace NDB.Covid19.iOS.Views.Initializer
                 ? UIImage.FromBundle("MinistryOfHealthEn")
                 : UIImage.FromBundle("MinistryOfHealth");
 
-            HealthMinistryLogo.Image = MaxResizeImage(
+            HealthMinistryLogo.Image = StyleUtil.MaxResizeImage(
                 HealthMinistryLogo.Image,
                 appLanguage != null && appLanguage.ToLower() == "en" ? 110 : 150,
                 80);
             HealthMinistryLogo.ContentMode = UIViewContentMode.ScaleAspectFit;
-        }
-
-        private static UIImage MaxResizeImage(UIImage sourceImage, float maxWidth, float maxHeight)
-        {
-            CGSize sourceSize = sourceImage.Size;
-            double maxResizeFactor = Math.Min(
-                maxWidth / sourceSize.Width,
-                maxHeight / sourceSize.Height);
-            double width = maxResizeFactor * sourceSize.Width;
-            double height = maxResizeFactor * sourceSize.Height;
-            UIGraphics.BeginImageContextWithOptions(new CGSize(width, height), false, 0);
-            sourceImage.Draw(new CGRect(0, 0, width, height));
-            UIImage resultImage = UIGraphics.GetImageFromCurrentImageContext();
-            UIGraphics.EndImageContext();
-            return resultImage;
         }
 
         public override void ViewDidAppear(bool animated)

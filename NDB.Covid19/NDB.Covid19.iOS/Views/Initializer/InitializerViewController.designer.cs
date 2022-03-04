@@ -11,8 +11,8 @@ using Foundation;
 
 namespace NDB.Covid19.iOS.Views.Initializer
 {
-	[Register ("InizializerViewController")]
-	partial class InizializerViewController
+	[Register ("InitializerViewController")]
+	partial class InitializerViewController
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
