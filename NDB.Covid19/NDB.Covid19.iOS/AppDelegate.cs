@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using CommonServiceLocator;
 using Foundation;
+using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.iOS.Managers;
@@ -51,28 +52,41 @@ namespace NDB.Covid19.iOS
 
             BackgroundServiceHandler.PlatformScheduleFetch();
 
-            UIUserNotificationSettings notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(
-                UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, null
-            );
-            application.RegisterUserNotificationSettings(notificationSettings);
-            application.BeginBackgroundTask("showNotification", () => { });
+            HandleNotifications(application);
 
             return true;
         }
 
         private void HandleLocalNotifications()
         {
+
+            if (Conf.APP_DISABLED)
+            {
+                return;
+            }
             // Request notification permissions from the user. Dialog will only show if user has not already answered
             UNUserNotificationCenter.Current.RequestAuthorization(
                 UNAuthorizationOptions.Alert | UNAuthorizationOptions.Badge,
                 (approved, err) => { Console.WriteLine("Notifications approve = " + approved); });
 
+            // Watch for notifications while the app is active
             _notifMgn =
                 ServiceLocator.Current.GetInstance<ILocalNotificationsManager>() as iOSLocalNotificationsManager;
-
-            // Watch for notifications while the app is active
             UNUserNotificationCenter.Current.Delegate = _notifMgn;
             _notifMgn.OnNotificationTappedHandler += HandleNotificationTapped;
+        }
+
+        private void HandleNotifications(UIApplication application)
+        {
+            if (Conf.APP_DISABLED)
+            {
+                return;
+            }
+            UIUserNotificationSettings notificationSettings = UIUserNotificationSettings.GetSettingsForTypes(
+                UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, null
+            );
+            application.RegisterUserNotificationSettings(notificationSettings);
+            application.BeginBackgroundTask("showNotification", () => { });
         }
 
         private bool IsRegularNotification(string notificationId)

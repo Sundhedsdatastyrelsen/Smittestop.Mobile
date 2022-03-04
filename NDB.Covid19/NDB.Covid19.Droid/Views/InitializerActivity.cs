@@ -14,7 +14,9 @@ using static NDB.Covid19.Droid.Utils.StressUtils;
 
 namespace NDB.Covid19.Droid.Views
 {
-    [Activity(MainLauncher = true, Theme = "@style/AppTheme.Launcher", ScreenOrientation = ScreenOrientation.Portrait,
+    [Activity(MainLauncher = false,
+        Theme = "@style/AppTheme.Launcher",
+        ScreenOrientation = ScreenOrientation.Portrait,
         LaunchMode = LaunchMode.SingleTop)]
     public class InitializerActivity : Activity
     {

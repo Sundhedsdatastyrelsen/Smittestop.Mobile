@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Util;
 using Android.Widget;
 using CommonServiceLocator;
+using NDB.Covid19.Droid.Utils;
 using NDB.Covid19.Enums;
 using NDB.Covid19.Interfaces;
 using NDB.Covid19.PersistedData;
@@ -14,8 +15,11 @@ using static NDB.Covid19.ViewModels.SmittestopNotActiveViewModel;
 
 namespace NDB.Covid19.Droid.Views.FarewellSmittestop
 {
-    [Activity(Label = "SmittestopNotActivePageActivity", Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(MainLauncher = true,
+        Label = "SmittestopNotActivePageActivity",
+        Theme = "@style/AppTheme",
+        ScreenOrientation = ScreenOrientation.Portrait,
+        LaunchMode = LaunchMode.SingleTop)]
     public class SmittestopNotActivePageActivity : Activity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -40,6 +44,16 @@ namespace NDB.Covid19.Droid.Views.FarewellSmittestop
             moreInfoRelativeLayout.Click += new SingleClick((o, args) => MoreInfoButton_Click()).Run;
 
             SetLogoBasedOnAppLanguage();
+
+            CheckOnboardingStatus();
+        }
+
+        private void CheckOnboardingStatus()
+        {
+            if (OnboardingStatusHelper.Status != OnboardingStatus.NoConsentsGiven)
+            {
+                NavigationHelper.GoToFarewellSmittestopPage(this);
+            }
         }
 
         private void MoreInfoButton_Click()
@@ -67,7 +81,7 @@ namespace NDB.Covid19.Droid.Views.FarewellSmittestop
                 LocalPreferencesHelper.SetAppLanguage("en");
             }
             LocalesService.Initialize();
-            this.Recreate();
+            Recreate();
         }
 
         private void SetLogoBasedOnAppLanguage()
