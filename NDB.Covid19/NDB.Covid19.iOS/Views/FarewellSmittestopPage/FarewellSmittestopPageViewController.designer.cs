@@ -7,10 +7,10 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
+namespace NDB.Covid19.iOS.Views.FarewellSmittestopPage
 {
-	[Register ("FarwellSmittestopPageViewController")]
-	partial class FarwellSmittestopPageViewController
+	[Register ("FarewellSmittestopPageViewController")]
+	partial class FarewellSmittestopPageViewController
 	{
 		[Outlet]
 		UIKit.UILabel FarwellSmitteStopUiLbl { get; set; }

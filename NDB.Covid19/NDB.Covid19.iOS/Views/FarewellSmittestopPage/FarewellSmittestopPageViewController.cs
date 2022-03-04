@@ -1,27 +1,26 @@
 ﻿using System;
 using NDB.Covid19.iOS.Utils;
+using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 
-namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
+namespace NDB.Covid19.iOS.Views.FarewellSmittestopPage
 {
-    public partial class FarwellSmittestopPageViewController : BaseViewController
+    public partial class FarewellSmittestopPageViewController : BaseViewController
 
     {
-        public FarwellSmittestopPageViewController(IntPtr handle) : base(handle)
+        public FarewellSmittestopPageViewController(IntPtr handle) : base(handle)
         {
         }
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-            // Perform any additional setup after loading the view, typically from a nib.
             SetupStyling();
         }
 
         public override void DidReceiveMemoryWarning()
         {
             base.DidReceiveMemoryWarning();
-            // Release any cached data, images, etc that aren't in use.
         }
 
         public void SetupStyling()
@@ -39,6 +38,13 @@ namespace NDB.Covid19.iOS.Views.FarwellSmittestopPage
 
             TextThreeFarwellLbl.Font = StyleUtil.Font(StyleUtil.FontType.FontRegular, 16, 22);
             TextThreeFarwellLbl.Text = FarewellSmittestopViewModel.FAREWELL_SMITTESTOP_BODY_THREE;
-        }       
+        }
+
+        partial void OkButtonFarwell(UIKit.UIButton sender)
+        {
+            DeviceUtils.StopScanServices(); // Stop scan services if running.
+            DeviceUtils.CleanDataFromDevice(); // Clean data from device.
+            DismissViewController(true, null);
+        }
     }
 }

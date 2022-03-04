@@ -7,7 +7,7 @@
 using Foundation;
 using System.CodeDom.Compiler;
 
-namespace NDB.Covid19.iOS.Views.NotActive
+namespace NDB.Covid19.iOS.Views.Farewell
 {
 	[Register ("NotActiveViewController")]
 	partial class NotActiveViewController

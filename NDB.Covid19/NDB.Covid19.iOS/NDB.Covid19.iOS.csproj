@@ -721,7 +721,7 @@
     <Folder Include="Assets.xcassets\ChevronRight.imageset\" />
     <Folder Include="Assets.xcassets\MinistryOfHealthEn.imageset\" />
     <Folder Include="Assets.xcassets\MinistryOfHealth.imageset\" />
-    <Folder Include="Views\FarwellSmittestopPage\" />
+    <Folder Include="Views\FarewellSmittestopPage\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -757,8 +757,8 @@
     <InterfaceDefinition Include="Views\DiseaseRate\DiseaseRateLoadingPage.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnaireConfirmLeave.storyboard" />
     <InterfaceDefinition Include="Views\AuthenticationFlow\QuestionnairePreShare.storyboard" />
-    <InterfaceDefinition Include="Views\FarwellSmittestopPage\FarwellSmittestopPage.storyboard" />
-    <InterfaceDefinition Include="Views\FarwellSmittestopPage\NotActive.storyboard" />
+    <InterfaceDefinition Include="Views\FarewellSmittestopPage\FarewellSmittestopPage.storyboard" />
+    <InterfaceDefinition Include="Views\FarewellSmittestopPage\NotActive.storyboard" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -934,14 +934,16 @@
     <Compile Include="Views\AuthenticationFlow\QuestionnairePreShareViewController.designer.cs">
       <DependentUpon>QuestionnairePreShareViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FarwellSmittestopPage\FarwellSmittestopPageViewController.cs" />
-    <Compile Include="Views\FarwellSmittestopPage\FarwellSmittestopPageViewController.designer.cs" />
+    <Compile Include="Views\FarewellSmittestopPage\FarewellSmittestopPageViewController.cs" />
+    <Compile Include="Views\FarewellSmittestopPage\FarewellSmittestopPageViewController.designer.cs">
+      <DependentUpon>FarewellSmittestopPageViewController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Initializer\InitializerViewController.cs" />
     <Compile Include="Views\Initializer\InitializerViewController.designer.cs">
       <DependentUpon>InitializerViewController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\FarwellSmittestopPage\NotActiveViewController.cs" />
-    <Compile Include="Views\FarwellSmittestopPage\NotActiveViewController.designer.cs">
+    <Compile Include="Views\FarewellSmittestopPage\NotActiveViewController.cs" />
+    <Compile Include="Views\FarewellSmittestopPage\NotActiveViewController.designer.cs">
       <DependentUpon>NotActiveViewController.cs</DependentUpon>
     </Compile>
   </ItemGroup>

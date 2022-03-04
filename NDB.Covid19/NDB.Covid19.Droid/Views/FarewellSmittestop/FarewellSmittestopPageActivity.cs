@@ -6,18 +6,27 @@ using Android.Widget;
 using AndroidX.AppCompat.App;
 using AndroidX.Core.Text;
 using NDB.Covid19.Droid.Utils;
+using NDB.Covid19.Enums;
+using NDB.Covid19.Utils;
 using static NDB.Covid19.Droid.Utils.StressUtils;
 using static NDB.Covid19.ViewModels.FarewellSmittestopViewModel;
 
 namespace NDB.Covid19.Droid.Views.FarewellSmittestop
 {
-    [Activity(Label = "FarewellSmittestopPageActivity", Theme = "@style/AppTheme",
-        ScreenOrientation = ScreenOrientation.Portrait, LaunchMode = LaunchMode.SingleTop)]
+    [Activity(Label = "FarewellSmittestopPageActivity",
+        Theme = "@style/AppTheme",
+        ScreenOrientation = ScreenOrientation.Portrait,
+        LaunchMode = LaunchMode.SingleTop)]
     public class FarewellSmittestopPageActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            SetupView();
+        }
+
+        private void SetupView()
+        {
             SetContentView(Resource.Layout.farewell_smittestop_page);
 
             TextView title = FindViewById<TextView>(Resource.Id.farewell_page_title);
@@ -34,7 +43,9 @@ namespace NDB.Covid19.Droid.Views.FarewellSmittestop
 
         private void OkButtonClick(object sender, EventArgs e)
         {
-            NavigationHelper.GoToSmittestopNotActivePage(this);
+            DeviceUtils.StopScanServices(); // Stop scan services if running.
+            DeviceUtils.CleanDataFromDevice(); // Clean data from device.
+            Finish();
         }
 
         private void SetBulletText(int resourceId, string textContent)

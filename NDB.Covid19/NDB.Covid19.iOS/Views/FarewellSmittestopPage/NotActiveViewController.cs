@@ -1,6 +1,5 @@
 ﻿using System;
 using Foundation;
-using I18NPortable;
 using NDB.Covid19.Enums;
 using NDB.Covid19.iOS.Utils;
 using NDB.Covid19.PersistedData;
@@ -8,7 +7,7 @@ using NDB.Covid19.Utils;
 using NDB.Covid19.ViewModels;
 using UIKit;
 
-namespace NDB.Covid19.iOS.Views.NotActive
+namespace NDB.Covid19.iOS.Views.Farewell
 {
     public partial class NotActiveViewController : BaseViewController
     {
@@ -20,6 +19,20 @@ namespace NDB.Covid19.iOS.Views.NotActive
         {
             base.ViewDidLoad();
             UpdateLayout();
+        }
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            CheckOnboardingStatus();
+        }
+
+        private void CheckOnboardingStatus()
+        {
+            if (OnboardingStatusHelper.Status != OnboardingStatus.NoConsentsGiven)
+            {
+                NavigationHelper.GoToFarewellSmittestopPage(this);
+            }
         }
 
         private void UpdateLayout()
