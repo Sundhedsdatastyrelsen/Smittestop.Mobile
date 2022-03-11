@@ -16,7 +16,7 @@ using static NDB.Covid19.ViewModels.SmittestopNotActiveViewModel;
 namespace NDB.Covid19.Droid.Views.FarewellSmittestop
 {
     [Activity(MainLauncher = true,
-        Label = "SmittestopNotActivePageActivity",
+        Label = "Smitte|stop",
         Theme = "@style/AppTheme",
         ScreenOrientation = ScreenOrientation.Portrait,
         LaunchMode = LaunchMode.SingleTop)]
