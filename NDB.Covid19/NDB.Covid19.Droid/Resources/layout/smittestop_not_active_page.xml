@@ -35,7 +35,7 @@
 
 			<TextView
 				android:id="@+id/information_text"
-				android:text="Information text"
+				android:text="Information text Information text Information text Information text Information text Information text Information text"
 				android:layout_width="0dp"
 				android:layout_height="wrap_content"
 				style="@style/ExplanationTextHeader"
@@ -56,7 +56,6 @@
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="30dp"
-				android:layout_marginBottom="20dp"
 				app:layout_constraintTop_toBottomOf="@id/information_text"
 				app:layout_constraintLeft_toLeftOf="parent"
 				app:layout_constraintRight_toRightOf="parent">
@@ -104,6 +103,7 @@
 				android:text="Danish"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_marginTop="24dp"
 				style="@style/DefaultButton"
 				android:id="@+id/language_button"
 				android:layout_marginBottom="8dp"
