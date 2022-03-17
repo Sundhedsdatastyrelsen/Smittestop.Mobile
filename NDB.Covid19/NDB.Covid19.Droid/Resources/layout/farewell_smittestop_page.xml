@@ -21,12 +21,15 @@
         android:id="@+id/scroll_view"
         style="@style/ScrollScreen"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginBottom="32dp"
         android:layout_below="@id/farewell_page_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/farewell_page_title"
+        app:layout_constraintBottom_toTopOf="@id/ok_button"
+        app:layout_constraintVertical_bias="0"
         android:fillViewport="true">
 
         <LinearLayout
@@ -54,17 +57,17 @@
                 layout="@layout/welcome_bullet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="71dp" />
+                android:layout_marginBottom="18dp" />
 
         </LinearLayout>
     </ScrollView>
+
     <Button
         android:id="@+id/ok_button"
         style="@style/ConsentButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="18dp"
         android:layout_marginBottom="58dp"
         android:text="OK, I Understand"
         app:layout_constraintStart_toStartOf="parent"
