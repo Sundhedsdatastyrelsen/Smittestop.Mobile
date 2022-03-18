@@ -46,6 +46,7 @@ namespace NDB.Covid19.iOS.Views.Farewell
             descriptionView.Layer.CornerRadius = 8;
 
             SetLogoBasedOnAppLanguage();
+            SetAccessibilitySettings();
         }
 
         private void SetLogoBasedOnAppLanguage()
@@ -59,6 +60,14 @@ namespace NDB.Covid19.iOS.Views.Farewell
                 appLanguage != null && appLanguage.ToLower() == "en" ? 110 : 150,
                 50);
             ministryLogo.ContentMode = UIViewContentMode.ScaleAspectFit;
+        }
+
+        private void SetAccessibilitySettings()
+        {
+            moreInformationDescriptionLabel.AccessibilityElementsHidden = true;
+            moreInformationButton.AccessibilityLabel = moreInformationDescriptionLabel.Text + ", " + moreInformationButton.Title(UIControlState.Normal);
+            descriptionLabel.AccessibilityLabel = AccessibilityUtils.RemovePoorlySpokenSymbolsString(descriptionLabel.Text);
+            
         }
 
         partial void MoreInformationButtonTapped(NSObject sender)
