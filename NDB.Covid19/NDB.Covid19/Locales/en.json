@@ -336,7 +336,7 @@
   "SMITTESPORING_SCROLL": "Scroll down",
   "FAREWELL_SMITTESTOP_TITLE": "Farewell, Smitte|stop!",
   "FAREWELL_SMITTESTOP_BODY_ONE": "Smitte|stop is no longer maintained and you can now delete the app",
-  "FAREWELL_SMITTESTOP_BODY_TWO": "The app will not fetch new keys and it is no longer possible to report being infected and get exposure notification",
+  "FAREWELL_SMITTESTOP_BODY_TWO": "The app will not fetch new keys and it is no longer possible to report being infected and get exposure notifications",
   "FAREWELL_SMITTESTOP_BODY_THREE": "You can keep the app. In case, Smitte|stop is enabled again, you will receive the app update",
   "FAREWELL_SMITTESTOP_BUTTON_TEXT": "OK, I confirm",
   "SMITTESTOP_NOT_ACTIVE_TEXT": "Smitte|stop is not active and is not currently maintained. You can delete the app. If the health authorities decide to provide the app again, it will be updated",
