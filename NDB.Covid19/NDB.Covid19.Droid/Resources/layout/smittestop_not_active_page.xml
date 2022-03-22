@@ -96,7 +96,6 @@
 						android:background="@drawable/ic_back_icon"/>
 
 				</RelativeLayout>
-
 			</RelativeLayout>
 
 			<Button

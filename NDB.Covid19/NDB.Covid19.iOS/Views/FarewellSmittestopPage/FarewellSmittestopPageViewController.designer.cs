@@ -16,6 +16,12 @@ namespace NDB.Covid19.iOS.Views.FarewellSmittestopPage
 		UIKit.UILabel FarwellSmitteStopUiLbl { get; set; }
 
 		[Outlet]
+		UIKit.UIButton MoreInfoButton { get; set; }
+
+		[Outlet]
+		UIKit.UILabel MoreInfoLabel { get; set; }
+
+		[Outlet]
 		UIKit.UIButton OkButtonFarwellUiButton { get; set; }
 
 		[Outlet]
@@ -35,6 +41,9 @@ namespace NDB.Covid19.iOS.Views.FarewellSmittestopPage
 
 		[Outlet]
 		UIKit.UIImageView UiImageTwo { get; set; }
+
+		[Action ("MoreInfoButtonClicked:")]
+		partial void MoreInfoButtonClicked (Foundation.NSObject sender);
 
 		[Action ("OkButtonFarwell:")]
 		partial void OkButtonFarwell (UIKit.UIButton sender);
@@ -79,6 +88,16 @@ namespace NDB.Covid19.iOS.Views.FarewellSmittestopPage
 			if (UiImageTwo != null) {
 				UiImageTwo.Dispose ();
 				UiImageTwo = null;
+			}
+
+			if (MoreInfoLabel != null) {
+				MoreInfoLabel.Dispose ();
+				MoreInfoLabel = null;
+			}
+
+			if (MoreInfoButton != null) {
+				MoreInfoButton.Dispose ();
+				MoreInfoButton = null;
 			}
 		}
 	}
