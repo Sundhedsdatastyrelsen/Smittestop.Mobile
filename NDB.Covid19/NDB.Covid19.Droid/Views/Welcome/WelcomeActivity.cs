@@ -36,12 +36,10 @@ namespace NDB.Covid19.Droid.Views.Welcome
 
         public void OnPageScrollStateChanged(int state)
         {
-            Console.WriteLine("OnPageScrollStateChanged " + " " + state);
         }
 
         public void OnPageScrolled(int position, float positionOffset, int positionOffsetPixels)
         {
-            Console.WriteLine("OnPageScrolled " + " " + position);
         }
 
         public void OnPageSelected(int position)

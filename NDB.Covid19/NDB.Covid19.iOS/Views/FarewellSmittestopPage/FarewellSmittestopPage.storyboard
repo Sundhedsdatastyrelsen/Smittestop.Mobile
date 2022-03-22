@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3oz-gd-RCQ">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Farewell Smittestop Page View Controller-->
+        <scene sceneID="QZs-nd-KB4">
+            <objects>
+                <viewController storyboardIdentifier="FarewellSmittestopPage" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3oz-gd-RCQ" customClass="FarewellSmittestopPageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Wh-Xa-pf1"/>
+                        <viewControllerLayoutGuide type="bottom" id="442-16-gEa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xdn-x7-ckC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHX-pJ-bc8">
+                                <rect key="frame" x="16" y="60" width="382" height="786"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farvel SmittestopLbl" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="miw-fd-Jay">
+                                        <rect key="frame" x="24" y="86" width="314" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="NGd-C0-1wV">
+                                        <rect key="frame" x="25" y="131.5" width="332" height="95"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vVF-wY-XSw">
+                                                <rect key="frame" x="0.0" y="0.0" width="332" height="21"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="eoE-zc-Zdv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="CZ2-za-ELt"/>
+                                                            <constraint firstAttribute="width" constant="21" id="dWH-jr-8oQ"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text One Farwell Smittestop" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHZ-2f-qvT">
+                                                        <rect key="frame" x="37" y="0.0" width="295" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vtv-2h-nAW">
+                                                <rect key="frame" x="0.0" y="37" width="332" height="21"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="ouj-5N-50K">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="IG3-OB-61h"/>
+                                                            <constraint firstAttribute="height" constant="21" id="oks-hg-hPJ"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farwell Text two" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EmY-lo-X9H">
+                                                        <rect key="frame" x="37" y="0.0" width="295" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="BA7-ZE-GtY">
+                                                <rect key="frame" x="0.0" y="74" width="332" height="21"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CheckMark" translatesAutoresizingMaskIntoConstraints="NO" id="t2e-a7-8Ja">
+                                                        <rect key="frame" x="0.0" y="0.0" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="21" id="Hvj-4I-3N4"/>
+                                                            <constraint firstAttribute="height" constant="21" id="jSB-pw-xkA"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farwell text three" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ejy-z5-y1s">
+                                                        <rect key="frame" x="37" y="0.0" width="295" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="vVF-wY-XSw" secondAttribute="trailing" id="tQj-R4-fmK"/>
+                                            <constraint firstItem="vVF-wY-XSw" firstAttribute="leading" secondItem="NGd-C0-1wV" secondAttribute="leading" id="yZF-Dg-T2C"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click here for more information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cm-OL-1Xm">
+                                        <rect key="frame" x="24" y="250.5" width="334" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1N-N4-dP0">
+                                        <rect key="frame" x="24" y="272" width="334" height="60.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <state key="normal" title="sum.dk" image="chevronWhite">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="MoreInfoButtonClicked:" destination="3oz-gd-RCQ" eventType="touchUpInside" id="RXR-S7-Bl7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMi-GN-d2L">
+                                        <rect key="frame" x="34" y="724" width="298" height="42"/>
+                                        <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Ok, jeg forstår Button">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OkButtonFarwell:" destination="3oz-gd-RCQ" eventType="touchUpInside" id="Crb-bN-RDO"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="e1N-N4-dP0" firstAttribute="top" secondItem="4cm-OL-1Xm" secondAttribute="bottom" id="0Id-RK-81v"/>
+                                    <constraint firstItem="NGd-C0-1wV" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="25" id="4Bi-wU-3ka"/>
+                                    <constraint firstAttribute="bottom" secondItem="WMi-GN-d2L" secondAttribute="bottom" constant="20" id="9VL-7i-hYq"/>
+                                    <constraint firstAttribute="trailing" secondItem="4cm-OL-1Xm" secondAttribute="trailing" constant="24" id="Fxd-Hw-Cpm"/>
+                                    <constraint firstItem="4cm-OL-1Xm" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="24" id="OZM-ef-Q5l"/>
+                                    <constraint firstItem="WMi-GN-d2L" firstAttribute="top" relation="greaterThanOrEqual" secondItem="e1N-N4-dP0" secondAttribute="bottom" constant="12" id="OeN-VP-QDZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="WMi-GN-d2L" secondAttribute="trailing" constant="50" id="Oti-UU-O1Y"/>
+                                    <constraint firstItem="4cm-OL-1Xm" firstAttribute="top" secondItem="NGd-C0-1wV" secondAttribute="bottom" constant="24" id="Sa7-CN-edL"/>
+                                    <constraint firstItem="NGd-C0-1wV" firstAttribute="top" secondItem="miw-fd-Jay" secondAttribute="bottom" constant="25" id="U4X-jF-Xia"/>
+                                    <constraint firstItem="miw-fd-Jay" firstAttribute="top" secondItem="lHX-pJ-bc8" secondAttribute="top" constant="86" id="XjR-SD-fba"/>
+                                    <constraint firstAttribute="trailing" secondItem="NGd-C0-1wV" secondAttribute="trailing" constant="25" id="YBh-MA-nH4"/>
+                                    <constraint firstItem="miw-fd-Jay" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="24" id="ZeA-9f-uiM"/>
+                                    <constraint firstAttribute="trailing" secondItem="e1N-N4-dP0" secondAttribute="trailing" constant="24" id="gcq-jJ-0hj"/>
+                                    <constraint firstAttribute="trailing" secondItem="miw-fd-Jay" secondAttribute="trailing" constant="44" id="oZM-1Y-jSB"/>
+                                    <constraint firstItem="e1N-N4-dP0" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="24" id="qba-ks-jI6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.30588235289999999" blue="0.46274509800000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="lHX-pJ-bc8" firstAttribute="top" secondItem="4Wh-Xa-pf1" secondAttribute="bottom" constant="16" id="CW1-LP-NCM"/>
+                            <constraint firstAttribute="trailing" secondItem="lHX-pJ-bc8" secondAttribute="trailing" constant="16" id="UuQ-nm-Phf"/>
+                            <constraint firstItem="lHX-pJ-bc8" firstAttribute="leading" secondItem="Xdn-x7-ckC" secondAttribute="leading" constant="16" id="fOq-wH-p2v"/>
+                            <constraint firstItem="WMi-GN-d2L" firstAttribute="leading" secondItem="Xdn-x7-ckC" secondAttribute="leading" constant="50" id="sbF-Et-Gam"/>
+                            <constraint firstItem="442-16-gEa" firstAttribute="top" secondItem="lHX-pJ-bc8" secondAttribute="bottom" constant="16" id="ykI-lj-exL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="FarwellSmitteStopUiLbl" destination="miw-fd-Jay" id="qWI-Rr-ioe"/>
+                        <outlet property="MoreInfoButton" destination="e1N-N4-dP0" id="Fqp-d6-4VK"/>
+                        <outlet property="MoreInfoLabel" destination="4cm-OL-1Xm" id="7of-bI-EMF"/>
+                        <outlet property="OkButtonFarwellUiButton" destination="WMi-GN-d2L" id="bax-Zy-07X"/>
+                        <outlet property="TexoneFarwellUiLbl" destination="BHZ-2f-qvT" id="y2v-0I-OEF"/>
+                        <outlet property="TextThreeFarwellLbl" destination="Ejy-z5-y1s" id="CF3-wL-pua"/>
+                        <outlet property="TextTwoFarwllUiLbl" destination="EmY-lo-X9H" id="ui3-oQ-sId"/>
+                        <outlet property="UiImageOne" destination="eoE-zc-Zdv" id="Pcr-ve-QGg"/>
+                        <outlet property="UiImageThree" destination="t2e-a7-8Ja" id="h5d-A1-QO7"/>
+                        <outlet property="UiImageTwo" destination="ouj-5N-50K" id="a1s-gJ-WuK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2JV-DD-dfL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-20.289855072463769" y="-7.3660714285714279"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CheckMark" width="23" height="22.5"/>
+        <image name="chevronWhite" width="36" height="60.5"/>
+    </resources>
+</document>

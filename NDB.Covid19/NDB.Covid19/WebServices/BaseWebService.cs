@@ -24,9 +24,8 @@ namespace NDB.Covid19.WebServices
             DateTimeZoneHandling = DateTimeZoneHandling.Local
         };
 
-        public static JsonSerializer JsonSerializer = new JsonSerializer();
+        private static JsonSerializer JsonSerializer = new JsonSerializer();
         private readonly BadConnectionErrorHandler _badConnectionErrorHandler = new BadConnectionErrorHandler();
-
         private HttpClientManager _httpClientManager
         {
             get
@@ -73,7 +72,7 @@ namespace NDB.Covid19.WebServices
                         MapData(result, content);
                     }
 
-                    Debug.WriteLine("Page content: " + content);
+                    Debug.WriteLine($"Response from API: {url} - {content}");
                 }
                 else
                 {

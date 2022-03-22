@@ -21,14 +21,17 @@ namespace NDB.Covid19.WebServices.ExposureNotification
                 temporaryExposureKeys);
         }
 
-        public async Task<bool> PostSelfExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
+        public async Task<bool> PostSelfExposureKeys(
+            SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
             IEnumerable<ExposureKeyModel> temporaryExposureKeys)
         {
             return await PostSelfExposureKeys(selfDiagnosisSubmissionDTO, temporaryExposureKeys, this);
         }
 
-        public async Task<bool> PostSelfExposureKeys(SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
-            IEnumerable<ExposureKeyModel> temporaryExposureKeys, BaseWebService service)
+        public async Task<bool> PostSelfExposureKeys(
+            SelfDiagnosisSubmissionDTO selfDiagnosisSubmissionDTO,
+            IEnumerable<ExposureKeyModel> temporaryExposureKeys,
+            BaseWebService service)
         {
             ApiResponse response = await service.Post(selfDiagnosisSubmissionDTO, Conf.URL_PUT_UPLOAD_DIAGNOSIS_KEYS);
 
@@ -101,7 +104,8 @@ namespace NDB.Covid19.WebServices.ExposureNotification
         /// <summary>
         ///     Fetch new keys, if there are any new.
         /// </summary>
-        public virtual async Task<ApiResponse<Stream>> GetDiagnosisKeys(string batchRequestString,
+        public virtual async Task<ApiResponse<Stream>> GetDiagnosisKeys(
+            string batchRequestString,
             CancellationToken cancellationToken)
         {
             string url = Conf.URL_GET_DIAGNOSIS_KEYS + "/" + batchRequestString;
