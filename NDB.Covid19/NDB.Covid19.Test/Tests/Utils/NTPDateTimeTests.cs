@@ -165,7 +165,9 @@ namespace NDB.Covid19.Test.Tests.Utils
                     "message",
                     "additionalInfo");
 
-            Assert.True(futureTime > logModel.ReportedTime);
+            // Will be bigger in UTC+1, while build machine UTC+0 will be equal.
+            // Should make code not tied to UTC+1
+            Assert.True(futureTime >= logModel.ReportedTime);
 
             SystemTime.ResetDateTime();
         }
