@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3oz-gd-RCQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="3oz-gd-RCQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -91,6 +91,23 @@
                                             <constraint firstItem="vVF-wY-XSw" firstAttribute="leading" secondItem="NGd-C0-1wV" secondAttribute="leading" id="yZF-Dg-T2C"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Click here for more information" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cm-OL-1Xm">
+                                        <rect key="frame" x="24" y="250.5" width="334" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1N-N4-dP0">
+                                        <rect key="frame" x="24" y="272" width="334" height="60.5"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                        <state key="normal" title="sum.dk" image="chevronWhite">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="MoreInfoButtonClicked:" destination="3oz-gd-RCQ" eventType="touchUpInside" id="RXR-S7-Bl7"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMi-GN-d2L">
                                         <rect key="frame" x="34" y="724" width="298" height="42"/>
                                         <inset key="contentEdgeInsets" minX="12" minY="12" maxX="12" maxY="12"/>
@@ -106,14 +123,21 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="e1N-N4-dP0" firstAttribute="top" secondItem="4cm-OL-1Xm" secondAttribute="bottom" id="0Id-RK-81v"/>
                                     <constraint firstItem="NGd-C0-1wV" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="25" id="4Bi-wU-3ka"/>
                                     <constraint firstAttribute="bottom" secondItem="WMi-GN-d2L" secondAttribute="bottom" constant="20" id="9VL-7i-hYq"/>
+                                    <constraint firstAttribute="trailing" secondItem="4cm-OL-1Xm" secondAttribute="trailing" constant="24" id="Fxd-Hw-Cpm"/>
+                                    <constraint firstItem="4cm-OL-1Xm" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="24" id="OZM-ef-Q5l"/>
+                                    <constraint firstItem="WMi-GN-d2L" firstAttribute="top" relation="greaterThanOrEqual" secondItem="e1N-N4-dP0" secondAttribute="bottom" constant="12" id="OeN-VP-QDZ"/>
                                     <constraint firstAttribute="trailing" secondItem="WMi-GN-d2L" secondAttribute="trailing" constant="50" id="Oti-UU-O1Y"/>
+                                    <constraint firstItem="4cm-OL-1Xm" firstAttribute="top" secondItem="NGd-C0-1wV" secondAttribute="bottom" constant="24" id="Sa7-CN-edL"/>
                                     <constraint firstItem="NGd-C0-1wV" firstAttribute="top" secondItem="miw-fd-Jay" secondAttribute="bottom" constant="25" id="U4X-jF-Xia"/>
                                     <constraint firstItem="miw-fd-Jay" firstAttribute="top" secondItem="lHX-pJ-bc8" secondAttribute="top" constant="86" id="XjR-SD-fba"/>
                                     <constraint firstAttribute="trailing" secondItem="NGd-C0-1wV" secondAttribute="trailing" constant="25" id="YBh-MA-nH4"/>
                                     <constraint firstItem="miw-fd-Jay" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="24" id="ZeA-9f-uiM"/>
+                                    <constraint firstAttribute="trailing" secondItem="e1N-N4-dP0" secondAttribute="trailing" constant="24" id="gcq-jJ-0hj"/>
                                     <constraint firstAttribute="trailing" secondItem="miw-fd-Jay" secondAttribute="trailing" constant="44" id="oZM-1Y-jSB"/>
+                                    <constraint firstItem="e1N-N4-dP0" firstAttribute="leading" secondItem="lHX-pJ-bc8" secondAttribute="leading" constant="24" id="qba-ks-jI6"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -128,6 +152,8 @@
                     </view>
                     <connections>
                         <outlet property="FarwellSmitteStopUiLbl" destination="miw-fd-Jay" id="qWI-Rr-ioe"/>
+                        <outlet property="MoreInfoButton" destination="e1N-N4-dP0" id="Fqp-d6-4VK"/>
+                        <outlet property="MoreInfoLabel" destination="4cm-OL-1Xm" id="7of-bI-EMF"/>
                         <outlet property="OkButtonFarwellUiButton" destination="WMi-GN-d2L" id="bax-Zy-07X"/>
                         <outlet property="TexoneFarwellUiLbl" destination="BHZ-2f-qvT" id="y2v-0I-OEF"/>
                         <outlet property="TextThreeFarwellLbl" destination="Ejy-z5-y1s" id="CF3-wL-pua"/>
@@ -144,5 +170,6 @@
     </scenes>
     <resources>
         <image name="CheckMark" width="23" height="22.5"/>
+        <image name="chevronWhite" width="36" height="60.5"/>
     </resources>
 </document>

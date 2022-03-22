@@ -65,7 +65,7 @@ namespace NDB.Covid19.Droid.Views.FarewellSmittestop
             catch (Exception e)
             {
                 LogUtils.LogException(LogSeverity.ERROR, e,
-                    "Failed to open sum.dk link on smittestop not active page");
+                    "Failed to open smittestop.dk link on smittestop not active page");
             }
         }
 
