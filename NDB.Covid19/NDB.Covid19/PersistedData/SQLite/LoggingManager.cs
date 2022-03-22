@@ -33,6 +33,12 @@ namespace NDB.Covid19.PersistedData.SQLite
 
         public async void SaveNewLog(LogSQLiteModel log)
         {
+            if (Conf.APP_DISABLED)
+            {
+                Debug.Print("APP_DISABLED: Not saving new logs");
+                return;
+            }
+
             await _syncLock.WaitAsync();
             try
             {

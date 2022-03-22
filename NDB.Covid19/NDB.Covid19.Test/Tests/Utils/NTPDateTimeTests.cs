@@ -21,7 +21,7 @@ namespace NDB.Covid19.Test.Tests.Utils
         }
 
         [Fact]
-        public async void SystemDateTimeIsCorrect_ShouldUseSystemDateTime()
+        public void SystemDateTimeIsCorrect_ShouldUseSystemDateTime()
         {
             SystemTime.ResetDateTime();
             DateTime currentTime = DateTime.UtcNow;
@@ -49,15 +49,15 @@ namespace NDB.Covid19.Test.Tests.Utils
         }
 
         [Fact]
-        public async void SystemDateTimeIsIncorrect_NtpIsLowerThanCurrent_ShouldUseDefault()
+        public void SystemDateTimeIsIncorrect_NtpIsLowerThanCurrent_ShouldUseDefault()
         {
             SystemTime.ResetDateTime();
-            DateTime currentTime = DateTime.UtcNow.AddYears(-3);
-            SystemTime.SetDateTime(currentTime);
+            DateTime pastTime = Conf.DATE_TIME_REPLACEMENT.AddYears(-2).AddMonths(-1);
+            SystemTime.SetDateTime(pastTime);
 
             NTPUtcDateTime ntpUtcDateTime =
                 Mock.Of<NTPUtcDateTime>(ntp =>
-                    ntp.GetNTPUtcDateTime() == Task.FromResult(currentTime.AddYears(-1)));
+                    ntp.GetNTPUtcDateTime() == Task.FromResult(pastTime.AddYears(-1)));
 
             try
             {
@@ -80,11 +80,11 @@ namespace NDB.Covid19.Test.Tests.Utils
         }
 
         [Fact]
-        public async void SystemDateTimeIsIncorrect_NtpIsEqualToPersisted_ShouldUseDefault()
+        public void SystemDateTimeIsIncorrect_NtpIsEqualToPersisted_ShouldUseDefault()
         {
             SystemTime.ResetDateTime();
-            DateTime currentTime = DateTime.UtcNow.AddYears(-3);
-            SystemTime.SetDateTime(currentTime);
+            DateTime pastTime = Conf.DATE_TIME_REPLACEMENT.AddYears(-2).AddMonths(-1);
+            SystemTime.SetDateTime(pastTime);
 
             NTPUtcDateTime ntpUtcDateTime =
                 Mock.Of<NTPUtcDateTime>(ntp =>
@@ -114,8 +114,8 @@ namespace NDB.Covid19.Test.Tests.Utils
         public async void SystemDateTimeIsIncorrect_ShouldUseNTP()
         {
             SystemTime.ResetDateTime();
-            DateTime currentTime = DateTime.UtcNow.AddYears(-3);
-            SystemTime.SetDateTime(currentTime);
+            DateTime pastTime = Conf.DATE_TIME_REPLACEMENT.AddYears(-2).AddMonths(-1);
+            SystemTime.SetDateTime(pastTime);
 
             try
             {
@@ -135,7 +135,7 @@ namespace NDB.Covid19.Test.Tests.Utils
                     "message",
                     "additionalInfo");
 
-            Assert.True(currentTime < logModel.ReportedTime);
+            Assert.True(pastTime < logModel.ReportedTime);
 
             SystemTime.ResetDateTime();
         }
@@ -144,8 +144,8 @@ namespace NDB.Covid19.Test.Tests.Utils
         public async void SystemDateTimeIsIncorrectInTheFuture_ShouldUseNTP()
         {
             SystemTime.ResetDateTime();
-            DateTime currentTime = DateTime.UtcNow.AddYears(3);
-            SystemTime.SetDateTime(currentTime);
+            DateTime futureTime = Conf.DATE_TIME_REPLACEMENT.AddYears(2).AddMonths(1);
+            SystemTime.SetDateTime(futureTime);
 
             try
             {
@@ -165,7 +165,9 @@ namespace NDB.Covid19.Test.Tests.Utils
                     "message",
                     "additionalInfo");
 
-            Assert.True(currentTime > logModel.ReportedTime);
+            // Will be bigger in UTC+1, while build machine UTC+0 will be equal.
+            // Should make code not tied to UTC+1
+            Assert.True(futureTime >= logModel.ReportedTime);
 
             SystemTime.ResetDateTime();
         }

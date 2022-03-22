@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 using CommonServiceLocator;
 using NDB.Covid19.Configuration;
 using NDB.Covid19.Enums;
@@ -25,6 +26,7 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         {
             DependencyInjectionConfig.Init();
             _secureStorageService.SetSecureStorageInstance(new SecureStorageMock());
+            ResetData();
         }
 
         private static SecureStorageService _secureStorageService =>
@@ -81,14 +83,12 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
         [InlineData(14, -1, false, true)] // Before upper bound
         [InlineData(14, 0, false, true)] // Equal upper bound
         [InlineData(14, 1, false, true)] // After upper bound
-        public async void ShouldUpdateLastMessageDate(
+        public async Task ShouldUpdateLastMessageDate(
             int daysOfTimeShift,
             int minutesOfTimeShift,
             bool shouldBeCalled = false,
             bool isUpperBound = false)
         {
-            ResetData();
-
             SystemTime.SetDateTime(
                 DateTime.Now.Date.AddHours(Conf.HOUR_WHEN_MESSAGE_SHOULD_BE_RESEND_BEGIN - 1).ToUniversalTime());
             await ServiceLocator.Current.GetInstance<IMessagesManager>().SaveNewMessage(new MessageSQLiteModel
@@ -138,8 +138,6 @@ namespace NDB.Covid19.Test.Tests.ExposureNotification
                 preFetchDateTime <
                 MessageUtils.GetDateTimeFromSecureStorageForKey(SecureStorageKeys.LAST_SENT_NOTIFICATION_UTC_KEY, ""));
             Assert.Equal(shouldBeCalled, LocalNotificationsManager.HasBeenCalled[NotificationsEnum.NewMessageReceived]);
-
-            SystemTime.ResetDateTime();
         }
 
         private void ResetData()

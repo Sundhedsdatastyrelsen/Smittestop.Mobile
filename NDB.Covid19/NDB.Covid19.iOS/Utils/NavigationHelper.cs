@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Foundation;
 using NDB.Covid19.Enums;
+using NDB.Covid19.iOS.Views.FarewellSmittestopPage;
 using NDB.Covid19.iOS.Views.InfectionStatus;
 using NDB.Covid19.iOS.Views.Welcome;
 using NDB.Covid19.Utils;
@@ -131,6 +132,19 @@ namespace NDB.Covid19.iOS.Utils
         public static void GoToResultPageFromAuthFlow(UINavigationController navigationController)
         {
             navigationController?.DismissViewController(true, null);
+        }
+
+        public static void GoToFarewellSmittestopPage(UIViewController parent)
+        {
+            UIStoryboard storyboard = UIStoryboard.FromName("FarewellSmittestopPage", null);
+            FarewellSmittestopPageViewController vc =
+                storyboard.InstantiateInitialViewController() as FarewellSmittestopPageViewController;
+            vc.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+
+            UINavigationController navigationController = new UINavigationController(vc);
+            navigationController.SetNavigationBarHidden(true, false);
+            navigationController.ModalPresentationStyle = UIModalPresentationStyle.FullScreen;
+            parent.PresentViewController(navigationController, true, null);
         }
     }
 }
